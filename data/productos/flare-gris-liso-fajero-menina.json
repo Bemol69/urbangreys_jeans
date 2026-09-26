@@ -1,0 +1,16 @@
+{
+  "nombre": "Flare gris liso fajero MENINA",
+  "precio": 24990,
+  "foto": "/img/productos/flare-menina-1.jpg",
+  "fotos": [
+    "/img/productos/flare-menina-2.jpg"
+  ],
+  "descripcion": "Flare gris con faja que define la cintura. Push up, elasticado y con bota amplia.",
+  "tallas": [
+    "46"
+  ],
+  "etiqueta": "Últimas unidades",
+  "orden": 40,
+  "agotado": false,
+  "visible": true
+}

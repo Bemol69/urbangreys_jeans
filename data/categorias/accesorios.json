@@ -1,0 +1,9 @@
+{
+  "nombre": "Accesorios",
+  "orden": 40,
+  "productos": [
+    "cinturon-redondo-animal-print",
+    "cinturon-dorado-con-perlitas-ajustable"
+  ],
+  "visible": true
+}

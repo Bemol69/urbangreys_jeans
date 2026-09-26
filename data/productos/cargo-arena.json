@@ -1,0 +1,18 @@
+{
+  "nombre": "Cargo arena",
+  "precio": 29990,
+  "foto": "/img/productos/cargo-arena-1.jpg",
+  "fotos": [
+    "/img/productos/cargo-arena-2.jpg"
+  ],
+  "descripcion": "Cargo tiro alto en tono arena, con bolsillos laterales funcionales y un calce que estiliza.",
+  "tallas": [
+    "36",
+    "42",
+    "44"
+  ],
+  "etiqueta": "Tendencia",
+  "orden": 10,
+  "agotado": false,
+  "visible": true
+}

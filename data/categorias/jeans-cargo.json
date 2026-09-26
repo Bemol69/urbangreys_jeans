@@ -1,0 +1,9 @@
+{
+  "nombre": "Jeans cargo",
+  "orden": 30,
+  "productos": [
+    "cargo-arena",
+    "cargo-azul-claro-dirty"
+  ],
+  "visible": true
+}

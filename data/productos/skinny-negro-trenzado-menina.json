@@ -1,0 +1,17 @@
+{
+  "nombre": "Skinny negro trenzado MENINA",
+  "precio": 24990,
+  "foto": "/img/productos/skinny-menina-3.jpg",
+  "fotos": [
+    "/img/productos/skinny-menina-2.jpg",
+    "/img/productos/skinny-menina-1.jpg"
+  ],
+  "descripcion": "Skinny negro con faja y detalle trenzado en la pretina. Tiro alto, full push up y muy elasticado.",
+  "tallas": [
+    "36"
+  ],
+  "etiqueta": "Últimas unidades",
+  "orden": 30,
+  "agotado": false,
+  "visible": true
+}

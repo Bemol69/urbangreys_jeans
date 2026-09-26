@@ -1,0 +1,21 @@
+{
+  "nombre": "Skinny azul brillos",
+  "precio": 29990,
+  "foto": "/img/productos/skinny-brillos-1.jpg",
+  "fotos": [
+    "/img/productos/skinny-brillos-2.jpg"
+  ],
+  "descripcion": "Skinny azul con brillos, tiro alto y full push up. Disponible en todas las tallas.",
+  "tallas": [
+    "36",
+    "38",
+    "40",
+    "42",
+    "44",
+    "46"
+  ],
+  "etiqueta": "Más vendido",
+  "orden": 50,
+  "agotado": false,
+  "visible": true
+}

@@ -1,0 +1,16 @@
+{
+  "nombre": "Skinny gravillado trenzado BLU",
+  "precio": 32990,
+  "foto": "/img/productos/skinny-blu-1.jpg",
+  "fotos": [
+    "/img/productos/skinny-blu-2.jpg"
+  ],
+  "descripcion": "Skinny gris gravillado con detalle trenzado. El calce favorito de nuestras clientas.",
+  "tallas": [
+    "38"
+  ],
+  "etiqueta": "",
+  "orden": 60,
+  "agotado": false,
+  "visible": true
+}

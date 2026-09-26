@@ -1,0 +1,12 @@
+{
+  "nombre": "Cinturón dorado con perlitas ajustable",
+  "precio": 12990,
+  "foto": "/img/productos/cinturon-perlitas.jpg",
+  "fotos": [],
+  "descripcion": "Cadena dorada de medallones con perlas, ajustable a tu cintura.",
+  "tallas": [],
+  "etiqueta": "",
+  "orden": 80,
+  "agotado": false,
+  "visible": true
+}

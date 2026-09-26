@@ -1,0 +1,17 @@
+{
+  "nombre": "Cargo azul claro DIRTY",
+  "precio": 34990,
+  "foto": "/img/productos/cargo-dirty-1.jpg",
+  "fotos": [
+    "/img/productos/cargo-dirty-2.jpg"
+  ],
+  "descripcion": "Cargo celeste de tiro alto con efecto push up y bolsillos cargo. Full tendencia.",
+  "tallas": [
+    "36",
+    "38"
+  ],
+  "etiqueta": "Nuevo",
+  "orden": 20,
+  "agotado": false,
+  "visible": true
+}
