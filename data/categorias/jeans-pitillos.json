@@ -1,9 +1,10 @@
 {
   "nombre": "Jeans pitillos",
-  "orden": 10,
   "productos": [
     "skinny-azul-brillos",
-    "skinny-gravillado-trenzado-blu"
+    "skinny-gravillado-trenzado-blu",
+    "jeans"
   ],
+  "orden": 10,
   "visible": true
 }
