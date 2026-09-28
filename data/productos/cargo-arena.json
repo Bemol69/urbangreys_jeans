@@ -13,6 +13,6 @@
   ],
   "etiqueta": "Tendencia",
   "orden": 10,
-  "agotado": false,
+  "agotado": true,
   "visible": true
 }
