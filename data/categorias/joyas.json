@@ -1,6 +1,8 @@
 {
   "nombre": "Joyas",
-  "productos": [],
+  "productos": [
+    "jenas-flare-tiro-medio-mujer"
+  ],
   "orden": 1,
   "visible": true
 }
