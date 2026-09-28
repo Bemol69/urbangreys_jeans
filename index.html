@@ -13,6 +13,9 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Cormorant+Garamond:ital,wght@0,600;1,500;1,600&family=Jost:wght@400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css">
+  <!-- Vercel Web Analytics (visitas y páginas vistas; se activa en vercel.com → proyecto → Analytics) -->
+  <script>window.va = window.va || function () { (window.vaq = window.vaq || []).push(arguments); };</script>
+  <script defer src="/_vercel/insights/script.js"></script>
 </head>
 <body>
 
@@ -32,6 +35,8 @@
       <symbol id="i-sparkles" viewBox="0 0 24 24"><path d="M9.94 15.5A2 2 0 0 0 8.5 14.06l-6.14-1.58a.5.5 0 0 1 0-.96L8.5 9.94A2 2 0 0 0 9.94 8.5l1.58-6.14a.5.5 0 0 1 .96 0l1.58 6.14a2 2 0 0 0 1.44 1.44l6.14 1.58a.5.5 0 0 1 0 .96l-6.14 1.58a2 2 0 0 0-1.44 1.44l-1.58 6.14a.5.5 0 0 1-.96 0z"/><path d="M20 3v4M22 5h-4"/></symbol>
       <symbol id="i-home" viewBox="0 0 24 24"><path d="m3 10 9-7 9 7v10a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2Z"/><path d="M9 22V12h6v10"/></symbol>
       <symbol id="i-ext" viewBox="0 0 24 24"><path d="M15 3h6v6M10 14 21 3M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/></symbol>
+      <symbol id="i-check" viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></symbol>
+      <symbol id="i-tag" viewBox="0 0 24 24"><path d="M12.6 2.6A2 2 0 0 0 11.2 2H4a2 2 0 0 0-2 2v7.2a2 2 0 0 0 .6 1.4l8.7 8.7a2.4 2.4 0 0 0 3.4 0l6.6-6.6a2.4 2.4 0 0 0 0-3.4Z"/><circle cx="7.5" cy="7.5" r=".5" fill="currentColor"/></symbol>
       <symbol id="i-x" viewBox="0 0 24 24"><path d="M18 6 6 18M6 6l12 12"/></symbol>
       <symbol id="i-trash" viewBox="0 0 24 24"><path d="M3 6h18M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6M8 6V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"/></symbol>
       <!-- Mariposa del logo -->
@@ -49,12 +54,9 @@
     </defs>
   </svg>
 
-  <!-- CINTA SUPERIOR -->
+  <!-- CINTA SUPERIOR (franja 1, frases editables en /admin → Flyer, franjas y entregas) -->
   <div class="topbar" aria-label="Beneficios">
-    <div class="topbar__track">
-      <span>📦 Envíos a todo Chile</span><span>🍑 Full push up</span><span>📍 Paseo Independencia 634, local 34 · Rancagua</span><span>👖 Tallas 36 a 46</span>
-      <span aria-hidden="true">📦 Envíos a todo Chile</span><span aria-hidden="true">🍑 Full push up</span><span aria-hidden="true">📍 Paseo Independencia 634, local 34 · Rancagua</span><span aria-hidden="true">👖 Tallas 36 a 46</span>
-    </div>
+    <div class="topbar__track" style="--dur: %%FRANJA1_SEG%%s"><!-- FRANJA1 --></div>
   </div>
 
   <header class="nav">
@@ -64,13 +66,14 @@
         <span class="brand__name">Urban Greys <small>Jeans</small></span>
       </a>
       <nav class="nav__links" aria-label="Secciones">
+        <!-- SI:FLYER --><a href="#ofertas">Ofertas</a><!-- /SI:FLYER -->
         <a href="#catalogo">Catálogo</a>
         <a href="#calce">El calce</a>
         <a href="#comprar">Cómo comprar</a>
         <a href="#tienda">Tienda</a>
       </nav>
       <div class="nav__actions">
-        <a class="icon-btn" href="https://www.instagram.com/urbangreys_jeans/" target="_blank" rel="noopener" aria-label="Instagram de Urban Greys Jeans">
+        <a class="icon-btn" href="https://www.instagram.com/%%INSTAGRAM%%/" target="_blank" rel="noopener" aria-label="Instagram de Urban Greys Jeans">
           <svg class="ic"><use href="#i-ig"/></svg>
         </a>
         <button class="icon-btn bag-btn" data-open-bag aria-label="Abrir bolsa">
@@ -116,13 +119,32 @@
       </div>
     </section>
 
-    <!-- CINTA -->
+    <!-- SI:FRANJA2 -->
+    <!-- CINTA (franja 2, frases editables en /admin → Flyer, franjas y entregas) -->
     <div class="ribbon" aria-hidden="true">
-      <div class="ribbon__track">
-        <span>Tiro alto</span><i>✦</i><span>Full push up</span><i>✦</i><span>Muy elasticado</span><i>✦</i><span>Calce perfecto</span><i>✦</i>
-        <span>Tiro alto</span><i>✦</i><span>Full push up</span><i>✦</i><span>Muy elasticado</span><i>✦</i><span>Calce perfecto</span><i>✦</i>
-      </div>
+      <div class="ribbon__track" style="--dur: %%FRANJA2_SEG%%s"><!-- FRANJA2 --></div>
     </div>
+    <!-- /SI:FRANJA2 -->
+
+    <!-- SI:FLYER -->
+    <!-- OFERTAS (flyer editable en /admin → Flyer, franjas y entregas) -->
+    <section id="ofertas" class="section promo">
+      <div class="container promo__inner">
+        <a class="promo__img" href="%%FLYER_WA%%" target="_blank" rel="noopener">
+          <img src="%%FLYER%%" alt="%%FLYER_ALT%%" loading="lazy" width="1080" height="1350">
+        </a>
+        <div class="promo__text">
+          <p class="script">promoción vigente</p>
+          <h2>%%FLYER_TITULO%%</h2>
+          <!-- SI:FLYER_TEXTO --><p class="lead">%%FLYER_TEXTO%%</p><!-- /SI:FLYER_TEXTO -->
+          <div class="hero__cta">
+            <a class="btn btn--whatsapp" href="%%FLYER_WA%%" target="_blank" rel="noopener"><svg class="ic"><use href="#i-chat"/></svg> Quiero esta oferta</a>
+            <a class="btn btn--ghost" href="#catalogo">Ver catálogo</a>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- /SI:FLYER -->
 
     <!-- CATÁLOGO -->
     <section id="catalogo" class="section">
@@ -146,7 +168,7 @@
         </div>
         <div class="grid" id="productGrid"><!-- SEO:PRODUCTOS --></div>
         <nav class="pager" id="pager" aria-label="Páginas del catálogo" hidden></nav>
-        <p class="grid__note">¿Buscas otro modelo o talla? <a data-wa="Hola! ¿Tienen otros modelos disponibles? 👖" target="_blank" rel="noopener">Escríbenos</a>, llegan novedades todas las semanas.</p>
+        <p class="grid__note">¿Buscas otro modelo o talla? <a href="#" data-encargo>Encárgalo aquí</a>, llegan novedades todas las semanas.</p>
       </div>
     </section>
 
@@ -182,6 +204,22 @@
         </div>
       </div>
     </section>
+
+    <!-- SI:ENTREGAS -->
+    <!-- ENTREGAS REALES (fotos o videos editables en /admin → Flyer, franjas y entregas) -->
+    <section id="entregas" class="section section--soft">
+      <div class="container">
+        <div class="section__head">
+          <p class="script">girls felices</p>
+          <h2>Entregas reales</h2>
+          <p class="muted">Pedidos retirados en nuestra tienda y despachados a todo Chile por Starken, Chilexpress y Blue Express.</p>
+        </div>
+        <div class="reels">
+          <!-- ENTREGAS:LISTA (las escribe scripts/build.mjs desde data/entregas.json) -->
+        </div>
+      </div>
+    </section>
+    <!-- /SI:ENTREGAS -->
 
     <!-- CÓMO COMPRAR -->
     <section id="comprar" class="section">
@@ -242,11 +280,11 @@
               </li>
               <li>
                 <span class="tile tile--sm"><svg class="ic"><use href="#i-chat"/></svg></span>
-                <div><small>WhatsApp</small><a data-wa target="_blank" rel="noopener">+56 9 8549 2735</a><span class="sub">Pedidos, tallas y stock</span></div>
+                <div><small>WhatsApp</small><a data-wa target="_blank" rel="noopener">%%WHATSAPP_VISIBLE%%</a><span class="sub">Pedidos, tallas y stock</span></div>
               </li>
               <li>
                 <span class="tile tile--sm"><svg class="ic"><use href="#i-ig"/></svg></span>
-                <div><small>Instagram</small><a href="https://www.instagram.com/urbangreys_jeans/" target="_blank" rel="noopener">@urbangreys_jeans</a><span class="sub">Novedades y reels de cada modelo</span></div>
+                <div><small>Instagram</small><a href="https://www.instagram.com/%%INSTAGRAM%%/" target="_blank" rel="noopener">@%%INSTAGRAM%%</a><span class="sub">Novedades y reels de cada modelo</span></div>
               </li>
               <li>
                 <span class="tile tile--sm"><svg class="ic"><use href="#i-truck"/></svg></span>
@@ -270,9 +308,9 @@
       <div class="container ig__inner">
         <div class="ig__text">
           <p class="script">síguenos</p>
-          <h2>@urbangreys_jeans</h2>
+          <h2>@%%INSTAGRAM%%</h2>
           <p>Más de 20 mil girls ya nos siguen. Mira cada modelo en movimiento y entérate primero de lo que llega.</p>
-          <a class="btn btn--gold" href="https://www.instagram.com/urbangreys_jeans/" target="_blank" rel="noopener">
+          <a class="btn btn--gold" href="https://www.instagram.com/%%INSTAGRAM%%/" target="_blank" rel="noopener">
             <svg class="ic"><use href="#i-ig"/></svg> Ver Instagram
           </a>
         </div>
@@ -309,7 +347,11 @@
     <div class="modal__panel modal__panel--product" role="dialog" aria-modal="true" aria-labelledby="pmName">
       <button class="modal__close" data-close aria-label="Cerrar"><svg class="ic"><use href="#i-x"/></svg></button>
       <div class="pm__gallery">
-        <div class="pm__main"><img id="pmImg" src="img/logo.jpg" alt=""></div>
+        <div class="pm__main">
+          <img id="pmImg" src="img/logo.jpg" alt="">
+          <button type="button" class="pm__nav pm__nav--prev" data-step-photo="-1" aria-label="Foto anterior">‹</button>
+          <button type="button" class="pm__nav pm__nav--next" data-step-photo="1" aria-label="Foto siguiente">›</button>
+        </div>
         <div class="pm__thumbs" id="pmThumbs"></div>
       </div>
       <div class="pm__info">
@@ -348,11 +390,27 @@
         <ul class="bag-list" id="bagList"></ul>
         <div class="bag-empty" id="bagEmpty">
           <svg class="fly-empty" aria-hidden="true"><use href="#butterfly"/></svg>
-          <p>Tu bolsa está vacía.</p>
+          <p>Tu bolsa está vacía. Agrega jeans del catálogo o escribe tu encargo aquí abajo.</p>
           <a href="#catalogo" class="btn btn--ghost btn--sm" data-close-bag>Ver catálogo</a>
         </div>
 
-        <form id="orderForm" class="checkout" novalidate hidden>
+        <div class="coupon" id="couponBox" hidden>
+          <div id="cuponForm">
+            <label class="pm__label" for="fCupon"><svg class="ic"><use href="#i-tag"/></svg> ¿Tienes un código de descuento?</label>
+            <div class="coupon__row">
+              <input id="fCupon" type="text" placeholder="Ej: URBAN10" autocomplete="off" autocapitalize="characters" spellcheck="false">
+              <button class="btn btn--ghost btn--sm" type="button" id="cuponBtn">Aplicar</button>
+            </div>
+          </div>
+          <div class="coupon__status" id="cuponStatus" role="status" aria-live="polite" hidden></div>
+        </div>
+
+        <form id="orderForm" class="checkout" novalidate>
+          <details class="encargo" id="encargoBox">
+            <summary>¿Buscas otro modelo o talla? <strong>Encárgalo</strong></summary>
+            <textarea id="fEncargo" rows="2" maxlength="300" placeholder="Ej: Skinny negro talla 40 · Cargo celeste 42"></textarea>
+          </details>
+
           <p class="checkout__step"><span>1</span> Tus datos</p>
           <label>Nombre y apellido
             <input id="fNombre" type="text" autocomplete="name" placeholder="Ej: Camila Rojas">
@@ -406,13 +464,29 @@
           <p class="form__error" id="formError" hidden></p>
         </form>
       </div>
-      <footer class="drawer__foot" id="bagFoot" hidden>
-        <div class="total"><span>Total productos</span><strong id="bagTotal">$0</strong></div>
+      <footer class="drawer__foot" id="bagFoot">
+        <div class="bag__sums" id="bagSums" hidden></div>
+        <div class="total"><span id="bagTotalLabel">Total productos</span><strong id="bagTotal">$0</strong></div>
         <p class="hint" id="bagHint">El envío se cotiza aparte por WhatsApp.</p>
         <button type="submit" form="orderForm" class="btn btn--whatsapp btn--block"><svg class="ic"><use href="#i-chat"/></svg> Enviar pedido por WhatsApp</button>
       </footer>
     </aside>
   </div>
+
+  <!-- SI:FLYER_POPUP -->
+  <!-- VENTANA EMERGENTE DEL FLYER (una vez por visita) -->
+  <div class="modal promo-modal" id="promoModal" aria-hidden="true" data-flyer="%%FLYER_POPUP%%">
+    <div class="modal__backdrop" data-promo-close></div>
+    <div class="modal__panel promo-modal__panel" role="dialog" aria-modal="true" aria-label="%%FLYER_TITULO%%">
+      <button class="modal__close" data-promo-close aria-label="Cerrar"><svg class="ic"><use href="#i-x"/></svg></button>
+      <a href="%%FLYER_WA%%" target="_blank" rel="noopener"><img src="%%FLYER_POPUP%%" alt="%%FLYER_ALT%%" width="1080" height="1350"></a>
+      <div class="promo-modal__actions">
+        <a class="btn btn--whatsapp btn--block" href="%%FLYER_WA%%" target="_blank" rel="noopener"><svg class="ic"><use href="#i-chat"/></svg> Quiero esta oferta</a>
+        <button class="btn btn--ghost btn--block" data-promo-close>Ver la tienda</button>
+      </div>
+    </div>
+  </div>
+  <!-- /SI:FLYER_POPUP -->
 
   <div class="toast" id="toast" role="status" aria-live="polite"></div>
 

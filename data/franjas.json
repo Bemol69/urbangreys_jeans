@@ -1,0 +1,21 @@
+{
+  "franja1": {
+    "frases": [
+      "📦 Envíos a todo Chile",
+      "🍑 Full push up",
+      "📍 Paseo Independencia 634, local 34 · Rancagua",
+      "👖 Tallas 36 a 46"
+    ],
+    "velocidad": "normal"
+  },
+  "franja2": {
+    "mostrar": true,
+    "frases": [
+      "Tiro alto",
+      "Full push up",
+      "Muy elasticado",
+      "Calce perfecto"
+    ],
+    "velocidad": "normal"
+  }
+}
