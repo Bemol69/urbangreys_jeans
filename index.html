@@ -30,6 +30,8 @@
       <symbol id="i-stretch" viewBox="0 0 24 24"><path d="M2 12h20M6 8l-4 4 4 4M18 8l4 4-4 4"/></symbol>
       <symbol id="i-heart" viewBox="0 0 24 24"><path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"/></symbol>
       <symbol id="i-sparkles" viewBox="0 0 24 24"><path d="M9.94 15.5A2 2 0 0 0 8.5 14.06l-6.14-1.58a.5.5 0 0 1 0-.96L8.5 9.94A2 2 0 0 0 9.94 8.5l1.58-6.14a.5.5 0 0 1 .96 0l1.58 6.14a2 2 0 0 0 1.44 1.44l6.14 1.58a.5.5 0 0 1 0 .96l-6.14 1.58a2 2 0 0 0-1.44 1.44l-1.58 6.14a.5.5 0 0 1-.96 0z"/><path d="M20 3v4M22 5h-4"/></symbol>
+      <symbol id="i-home" viewBox="0 0 24 24"><path d="m3 10 9-7 9 7v10a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2Z"/><path d="M9 22V12h6v10"/></symbol>
+      <symbol id="i-ext" viewBox="0 0 24 24"><path d="M15 3h6v6M10 14 21 3M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/></symbol>
       <symbol id="i-x" viewBox="0 0 24 24"><path d="M18 6 6 18M6 6l12 12"/></symbol>
       <symbol id="i-trash" viewBox="0 0 24 24"><path d="M3 6h18M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6M8 6V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"/></symbol>
       <!-- Mariposa del logo -->
@@ -143,6 +145,7 @@
           </label>
         </div>
         <div class="grid" id="productGrid"><!-- SEO:PRODUCTOS --></div>
+        <nav class="pager" id="pager" aria-label="Páginas del catálogo" hidden></nav>
         <p class="grid__note">¿Buscas otro modelo o talla? <a data-wa="Hola! ¿Tienen otros modelos disponibles? 👖" target="_blank" rel="noopener">Escríbenos</a>, llegan novedades todas las semanas.</p>
       </div>
     </section>
@@ -216,7 +219,7 @@
             <span class="tile"><svg class="ic"><use href="#i-truck"/></svg></span>
             <div>
               <h3>Envíos a todo Chile</h3>
-              <p>Despachamos a cualquier región. El costo y la forma de envío se coordinan por WhatsApp.</p>
+              <p>Despachamos a cualquier región por Starken, Chilexpress o Blue Express, a domicilio o a la sucursal que elijas. El costo se cotiza por WhatsApp según tu comuna.</p>
             </div>
           </article>
         </div>
@@ -349,23 +352,57 @@
           <a href="#catalogo" class="btn btn--ghost btn--sm" data-close-bag>Ver catálogo</a>
         </div>
 
-        <form id="orderForm" novalidate hidden>
-          <fieldset>
-            <legend>Entrega</legend>
-            <div class="radios">
-              <label class="radio"><input type="radio" name="entrega" value="retiro" checked><span>🏬 Retiro en tienda</span></label>
-              <label class="radio"><input type="radio" name="entrega" value="envio"><span>📦 Envío a Chile</span></label>
+        <form id="orderForm" class="checkout" novalidate hidden>
+          <p class="checkout__step"><span>1</span> Tus datos</p>
+          <label>Nombre y apellido
+            <input id="fNombre" type="text" autocomplete="name" placeholder="Ej: Camila Rojas">
+          </label>
+
+          <p class="checkout__step"><span>2</span> Entrega</p>
+          <div class="seg seg--2" role="radiogroup" aria-label="Tipo de entrega">
+            <label><input type="radio" name="entrega" value="retiro" checked><span><svg class="ic"><use href="#i-store"/></svg>Retiro en tienda</span></label>
+            <label><input type="radio" name="entrega" value="envio"><span><svg class="ic"><use href="#i-truck"/></svg>Envío a Chile</span></label>
+          </div>
+
+          <div class="ship" data-envio hidden>
+            <div class="row">
+              <label>Región
+                <select id="fRegion"><option value="">Elige tu región</option></select>
+              </label>
+              <label>Comuna
+                <select id="fComuna" disabled><option value="">Primero la región</option></select>
+              </label>
             </div>
-          </fieldset>
-          <label>Tu nombre
-            <input id="fNombre" type="text" autocomplete="name" placeholder="Ej: Camila">
-          </label>
-          <label data-envio hidden>Ciudad / comuna
-            <input id="fCiudad" type="text" placeholder="Ej: Talca">
-          </label>
+            <p class="pm__label">Empresa de envío</p>
+            <div class="seg couriers" id="fCourier" role="radiogroup" aria-label="Empresa de envío"></div>
+            <div class="seg seg--2" role="radiogroup" aria-label="Modalidad de envío">
+              <label><input type="radio" name="modo" value="sucursal" checked><span><svg class="ic"><use href="#i-store"/></svg>Retiro en sucursal</span></label>
+              <label><input type="radio" name="modo" value="domicilio"><span><svg class="ic"><use href="#i-home"/></svg>A domicilio</span></label>
+            </div>
+            <label data-modo="sucursal">Sucursal donde retiras
+              <input id="fSucursal" type="text" placeholder="Nombre o dirección de la sucursal">
+            </label>
+            <a class="locator" id="fLocator" data-modo="sucursal" target="_blank" rel="noopener"></a>
+            <label data-modo="domicilio" hidden>Dirección de entrega
+              <input id="fDireccion" type="text" autocomplete="street-address" placeholder="Calle, número, depto">
+            </label>
+          </div>
+
+          <p class="checkout__step"><span>3</span> Pago</p>
+          <div class="seg seg--3" role="radiogroup" aria-label="Medio de pago">
+            <label><input type="radio" name="pago" value="transferencia" checked><span>Transferencia</span></label>
+            <label data-local><input type="radio" name="pago" value="efectivo"><span>Efectivo</span></label>
+            <label><input type="radio" name="pago" value="tarjeta"><span>Débito / Crédito</span></label>
+          </div>
+
           <label><span>Comentario <span class="opt">(opcional)</span></span>
             <input id="fNota" type="text" maxlength="140" placeholder="Ej: ¿me confirman si el 38 me queda bien?">
           </label>
+
+          <div class="preview">
+            <p class="preview__label">Así llegará tu mensaje</p>
+            <div id="msgPreview"></div>
+          </div>
           <p class="form__error" id="formError" hidden></p>
         </form>
       </div>

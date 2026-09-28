@@ -178,7 +178,7 @@ html = html
 rmSync(DIST, { recursive: true, force: true });
 mkdirSync(join(DIST, 'data'), { recursive: true });
 for (const item of ['app.js', 'styles.css', 'img', 'admin']) cpSync(join(ROOT, item), join(DIST, item), { recursive: true });
-cpSync(join(DATA, 'catalogo.json'), join(DIST, 'data', 'catalogo.json'));
+for (const f of ['catalogo.json', 'regiones.json']) cpSync(join(DATA, f), join(DIST, 'data', f));
 writeFileSync(join(DIST, 'index.html'), html);
 
 writeFileSync(join(DIST, 'robots.txt'), `User-agent: *\nAllow: /\nDisallow: /admin/\n\nSitemap: ${SITE}/sitemap.xml\n`);

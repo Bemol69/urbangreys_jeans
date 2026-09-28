@@ -3,6 +3,18 @@
 const WHATSAPP_NUMBER = '56985492735';
 const TIENDA = 'Paseo Independencia 634, local 34, Rancagua';
 
+// Empresas de envío y su buscador de sucursales
+const COURIERS = {
+  Starken: 'https://www.starken.cl/sucursales',
+  Chilexpress: 'https://centrodeayuda.chilexpress.cl/sucursales',
+  'Blue Express': 'https://www.blue.cl/lockers-puntos/encuentra-tu-punto',
+};
+const PAGOS = {
+  transferencia: '🏦 *Pago:* Transferencia',
+  efectivo: '💵 *Pago:* Efectivo en tienda',
+  tarjeta: '💳 *Pago:* Débito o crédito',
+};
+
 // Productos y categorías se editan desde el panel /admin (data/productos, data/categorias)
 // y se publican juntos en data/catalogo.json (lo genera scripts/build.mjs)
 let PRODUCTS = [];
@@ -68,13 +80,48 @@ const card = (p) => `
       </div>
     </article>`;
 
-function renderProducts(cat = currentCat) {
+// Catálogo paginado: 12 productos por página (3 filas de 4) para que la página no se haga eterna
+const POR_PAGINA = 12;
+let page = 1;
+
+// Números de página con "…" cuando son muchas: 1 … 4 5 6 … 12
+function pageList(total, cur) {
+  if (total <= 7) return Array.from({ length: total }, (_, i) => i + 1);
+  const keep = new Set([1, total, cur - 1, cur, cur + 1]);
+  const out = [];
+  for (let n = 1; n <= total; n++) {
+    if (keep.has(n)) out.push(n);
+    else if (out[out.length - 1] !== '…') out.push('…');
+  }
+  return out;
+}
+
+function renderPager(total) {
+  const pager = $('#pager');
+  pager.hidden = total < 2;
+  if (total < 2) { pager.innerHTML = ''; return; }
+  pager.innerHTML = `
+    <button type="button" class="pager__btn pager__nav" data-page="${page - 1}" ${page === 1 ? 'disabled' : ''} aria-label="Página anterior">‹</button>
+    ${pageList(total, page).map((n) => (n === '…'
+      ? '<span class="pager__gap">…</span>'
+      : `<button type="button" class="pager__btn${n === page ? ' is-active' : ''}" data-page="${n}" ${n === page ? 'aria-current="page"' : ''} aria-label="Página ${n}">${n}</button>`)).join('')}
+    <button type="button" class="pager__btn pager__nav" data-page="${page + 1}" ${page === total ? 'disabled' : ''} aria-label="Página siguiente">›</button>`;
+}
+
+function renderProducts(cat = currentCat, pagina = 1) {
   currentCat = cat;
   let list = cat === 'todos' ? PRODUCTS : PRODUCTS.filter((p) => p.tags.includes(cat));
   const sort = SORTS[$('#sort').value];
   if (sort) list = [...list].sort(sort);
-  $('#count').innerHTML = `Mostrando <strong>${list.length}</strong> ${list.length === 1 ? 'producto' : 'productos'}`;
-  grid.innerHTML = list.map(card).join('');
+  const total = Math.max(1, Math.ceil(list.length / POR_PAGINA));
+  page = Math.min(Math.max(1, pagina), total);
+  const desde = (page - 1) * POR_PAGINA;
+  const visibles = list.slice(desde, desde + POR_PAGINA);
+  $('#count').innerHTML = list.length > POR_PAGINA
+    ? `Mostrando <strong>${desde + 1}–${desde + visibles.length}</strong> de <strong>${list.length}</strong> productos`
+    : `Mostrando <strong>${list.length}</strong> ${list.length === 1 ? 'producto' : 'productos'}`;
+  grid.innerHTML = visibles.map(card).join('');
+  renderPager(total);
 }
 
 filters.addEventListener('click', (e) => {
@@ -84,6 +131,14 @@ filters.addEventListener('click', (e) => {
   renderProducts(btn.dataset.cat);
 });
 $('#sort').addEventListener('change', () => renderProducts());
+$('#pager').addEventListener('click', (e) => {
+  const btn = e.target.closest('[data-page]');
+  if (!btn || btn.disabled) return;
+  renderProducts(currentCat, Number(btn.dataset.page));
+  // vuelve al inicio del catálogo (bajo el menú fijo) para ver la página nueva desde arriba
+  const top = filters.getBoundingClientRect().top + window.scrollY - 100;
+  window.scrollTo({ top, behavior: 'smooth' });
+});
 
 // ===== FICHA DE PRODUCTO =====
 const pModal = $('#productModal');
@@ -219,6 +274,7 @@ function renderBag(bump) {
   $('#orderForm').hidden = !lines.length;
   $('#bagFoot').hidden = !lines.length;
   $('#bagTotal').textContent = clp(bagTotal());
+  if (lines.length) updateOrder();
 }
 
 $('#bagList').addEventListener('click', (e) => {
@@ -237,7 +293,6 @@ $('#bagList').addEventListener('click', (e) => {
 function openBag() {
   closeProduct();
   renderBag();
-  syncDelivery();
   bagEl.classList.add('is-open');
   bagEl.setAttribute('aria-hidden', 'false');
   document.body.style.overflow = 'hidden';
@@ -250,52 +305,123 @@ function closeBag() {
 
 // ===== PEDIDO =====
 const form = $('#orderForm');
-const entrega = () => form.querySelector('input[name="entrega"]:checked').value;
+const fRegion = $('#fRegion');
+const fComuna = $('#fComuna');
+let REGIONES = [];
+const radio = (name) => (form.querySelector(`input[name="${name}"]:checked`) || {}).value || '';
 
-function syncDelivery() {
-  const envio = entrega() === 'envio';
-  document.querySelectorAll('[data-envio]').forEach((el) => { el.hidden = !envio; });
-  $('#bagHint').textContent = envio
-    ? '📦 El costo del envío se cotiza por WhatsApp según tu ciudad.'
-    : `🏬 Retira en ${TIENDA}.`;
+$('#fCourier').innerHTML = Object.keys(COURIERS)
+  .map((e, i) => `<label><input type="radio" name="courier" value="${esc(e)}"${i ? '' : ' checked'}><span>${esc(e)}</span></label>`)
+  .join('');
+$('#fCourier').style.setProperty('--n', Object.keys(COURIERS).length);
+
+function fillRegiones() {
+  fRegion.innerHTML = '<option value="">Elige tu región</option>' +
+    REGIONES.map((r, i) => `<option value="${i}">${esc(r.region)}</option>`).join('');
 }
-form.addEventListener('change', (e) => { if (e.target.name === 'entrega') syncDelivery(); });
+fRegion.addEventListener('change', () => {
+  const r = REGIONES[fRegion.value];
+  fComuna.disabled = !r;
+  fComuna.innerHTML = r
+    ? '<option value="">Elige tu comuna</option>' + r.comunas.map((c) => `<option>${esc(c)}</option>`).join('')
+    : '<option value="">Primero la región</option>';
+});
+
+function readOrder() {
+  const r = REGIONES[fRegion.value];
+  return {
+    envio: radio('entrega') === 'envio',
+    nombre: $('#fNombre').value.trim(),
+    region: r ? r.region : '',
+    comuna: fComuna.value,
+    courier: radio('courier'),
+    modo: radio('modo'),
+    sucursal: $('#fSucursal').value.trim(),
+    direccion: $('#fDireccion').value.trim(),
+    pago: radio('pago'),
+    nota: $('#fNota').value.trim(),
+  };
+}
+
+// Código corto para identificar el pedido en el chat (ej: UG-4K7Q)
+const orderCode = () => 'UG-' + Date.now().toString(36).slice(-4).toUpperCase();
+let CODE = orderCode();
 
 // *texto* = negrita y _texto_ = cursiva en WhatsApp
 function buildMessage(o) {
-  const L = ['👖✨ *PEDIDO URBAN GREYS JEANS* ✨👖', '━━━━━━━━━━━━━━━'];
+  const L = [`👖✨ *PEDIDO URBAN GREYS JEANS · ${CODE}* ✨👖`, '━━━━━━━━━━━━━━━'];
   bagLines().forEach((l, i) => {
     L.push(`${i + 1}. *${l.p.name}*${l.size ? ` · Talla ${l.size}` : ''} · x${l.qty} — ${clp(l.p.price * l.qty)}`);
   });
   L.push('━━━━━━━━━━━━━━━');
-  L.push(`💰 *TOTAL PRODUCTOS: ${clp(bagTotal())}*`);
-  L.push(o.envio ? `📦 *Entrega:* Envío a ${o.ciudad} _(envío a coordinar)_` : '🏬 *Entrega:* Retiro en tienda');
-  if (o.nombre) L.push(`🙋 *Nombre:* ${o.nombre}`);
+  L.push(`🙋 *Nombre:* ${o.nombre || '_(por completar)_'}`);
+  if (o.envio) {
+    L.push(`🚚 *Entrega:* Envío por ${o.courier} · ${o.modo === 'domicilio' ? 'a domicilio' : 'retiro en sucursal'}`);
+    L.push(`📍 *Destino:* ${o.comuna ? `${o.comuna}, ${o.region}` : '_(por completar)_'}`);
+    if (o.modo === 'domicilio') L.push(`🏠 *Dirección:* ${o.direccion || '_(por completar)_'}`);
+    else L.push(`🏢 *Sucursal:* ${o.sucursal || '_(por completar)_'}`);
+  } else {
+    L.push('🏬 *Entrega:* Retiro en tienda');
+  }
+  L.push(PAGOS[o.pago] || PAGOS.transferencia);
   if (o.nota) L.push(`💬 *Comentario:* _${o.nota}_`);
+  L.push('━━━━━━━━━━━━━━━');
+  L.push(`💰 *TOTAL PRODUCTOS: ${clp(bagTotal())}*`);
+  if (o.envio) L.push('_(+ envío a coordinar)_');
   L.push('');
   L.push('¡Hola! Quiero confirmar stock de este pedido 💖');
   return L.join('\n');
 }
 
+// Vista previa con el formato de WhatsApp
+const formatPreview = (text) => esc(text)
+  .replace(/\*([^*\n]+)\*/g, '<strong>$1</strong>')
+  .replace(/(^|\s|\(|—\s)_([^_\n]+)_/g, '$1<em>$2</em>');
+
+function updateOrder() {
+  const o = readOrder();
+  document.querySelectorAll('[data-envio]').forEach((el) => { el.hidden = !o.envio; });
+  document.querySelectorAll('[data-local]').forEach((el) => { el.hidden = o.envio; });
+  document.querySelectorAll('[data-modo]').forEach((el) => { el.hidden = el.dataset.modo !== o.modo; });
+  // el efectivo solo se puede pagando en la tienda
+  if (o.envio && o.pago === 'efectivo') {
+    form.querySelector('input[name="pago"][value="transferencia"]').checked = true;
+    o.pago = 'transferencia';
+  }
+
+  const loc = $('#fLocator');
+  loc.hidden = o.modo !== 'sucursal';
+  loc.href = COURIERS[o.courier];
+  loc.innerHTML = `<svg class="ic"><use href="#i-ext"/></svg> Ver sucursales de ${esc(o.courier)}${o.comuna ? ` en ${esc(o.comuna)}` : ''}`;
+
+  $('#bagHint').textContent = o.envio
+    ? '📦 El costo del envío se cotiza por WhatsApp según tu comuna y la empresa que elijas.'
+    : `🏬 Retira en ${TIENDA}.`;
+  $('#msgPreview').innerHTML = formatPreview(buildMessage(o));
+}
+form.addEventListener('input', updateOrder);
+form.addEventListener('change', updateOrder);
+
 form.addEventListener('submit', (e) => {
   e.preventDefault();
-  const o = {
-    envio: entrega() === 'envio',
-    nombre: $('#fNombre').value.trim(),
-    ciudad: $('#fCiudad').value.trim(),
-    nota: $('#fNota').value.trim(),
-  };
+  const o = readOrder();
   const missing = [];
   if (!o.nombre) missing.push('tu nombre');
-  if (o.envio && !o.ciudad) missing.push('ciudad o comuna');
+  if (o.envio) {
+    if (!o.comuna) missing.push('región y comuna');
+    if (o.modo === 'domicilio' && !o.direccion) missing.push('la dirección');
+    if (o.modo === 'sucursal' && !o.sucursal) missing.push('la sucursal donde retiras');
+  }
   const err = $('#formError');
   if (missing.length) {
-    err.textContent = 'Falta completar: ' + missing.join(' y ') + '.';
+    err.textContent = 'Falta completar: ' + missing.join(', ') + '.';
     err.hidden = false;
     return;
   }
   err.hidden = true;
   window.open(waUrl(buildMessage(o)), '_blank', 'noopener');
+  CODE = orderCode(); // el próximo pedido lleva otro código
+  updateOrder();
 });
 
 // ===== EVENTOS GENERALES =====
@@ -313,6 +439,10 @@ document.addEventListener('keydown', (e) => {
 
 // ===== CARGA DEL CATÁLOGO =====
 async function loadProducts() {
+  fetch('data/regiones.json')
+    .then((r) => r.json())
+    .then((d) => { REGIONES = Array.isArray(d.regiones) ? d.regiones : []; fillRegiones(); })
+    .catch((e) => console.error(e));
   try {
     const res = await fetch('data/catalogo.json', { cache: 'no-cache' });
     if (!res.ok) throw new Error(`HTTP ${res.status}`);
