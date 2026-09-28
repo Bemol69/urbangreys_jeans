@@ -35,8 +35,6 @@
       <symbol id="i-sparkles" viewBox="0 0 24 24"><path d="M9.94 15.5A2 2 0 0 0 8.5 14.06l-6.14-1.58a.5.5 0 0 1 0-.96L8.5 9.94A2 2 0 0 0 9.94 8.5l1.58-6.14a.5.5 0 0 1 .96 0l1.58 6.14a2 2 0 0 0 1.44 1.44l6.14 1.58a.5.5 0 0 1 0 .96l-6.14 1.58a2 2 0 0 0-1.44 1.44l-1.58 6.14a.5.5 0 0 1-.96 0z"/><path d="M20 3v4M22 5h-4"/></symbol>
       <symbol id="i-home" viewBox="0 0 24 24"><path d="m3 10 9-7 9 7v10a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2Z"/><path d="M9 22V12h6v10"/></symbol>
       <symbol id="i-ext" viewBox="0 0 24 24"><path d="M15 3h6v6M10 14 21 3M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/></symbol>
-      <symbol id="i-check" viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></symbol>
-      <symbol id="i-tag" viewBox="0 0 24 24"><path d="M12.6 2.6A2 2 0 0 0 11.2 2H4a2 2 0 0 0-2 2v7.2a2 2 0 0 0 .6 1.4l8.7 8.7a2.4 2.4 0 0 0 3.4 0l6.6-6.6a2.4 2.4 0 0 0 0-3.4Z"/><circle cx="7.5" cy="7.5" r=".5" fill="currentColor"/></symbol>
       <symbol id="i-x" viewBox="0 0 24 24"><path d="M18 6 6 18M6 6l12 12"/></symbol>
       <symbol id="i-trash" viewBox="0 0 24 24"><path d="M3 6h18M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6M8 6V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"/></symbol>
       <!-- Mariposa del logo -->
@@ -394,17 +392,6 @@
           <a href="#catalogo" class="btn btn--ghost btn--sm" data-close-bag>Ver catálogo</a>
         </div>
 
-        <div class="coupon" id="couponBox" hidden>
-          <div id="cuponForm">
-            <label class="pm__label" for="fCupon"><svg class="ic"><use href="#i-tag"/></svg> ¿Tienes un código de descuento?</label>
-            <div class="coupon__row">
-              <input id="fCupon" type="text" placeholder="Ej: URBAN10" autocomplete="off" autocapitalize="characters" spellcheck="false">
-              <button class="btn btn--ghost btn--sm" type="button" id="cuponBtn">Aplicar</button>
-            </div>
-          </div>
-          <div class="coupon__status" id="cuponStatus" role="status" aria-live="polite" hidden></div>
-        </div>
-
         <form id="orderForm" class="checkout" novalidate>
           <details class="encargo" id="encargoBox">
             <summary>¿Buscas otro modelo o talla? <strong>Encárgalo</strong></summary>
@@ -465,7 +452,6 @@
         </form>
       </div>
       <footer class="drawer__foot" id="bagFoot">
-        <div class="bag__sums" id="bagSums" hidden></div>
         <div class="total"><span id="bagTotalLabel">Total productos</span><strong id="bagTotal">$0</strong></div>
         <p class="hint" id="bagHint">El envío se cotiza aparte por WhatsApp.</p>
         <button type="submit" form="orderForm" class="btn btn--whatsapp btn--block"><svg class="ic"><use href="#i-chat"/></svg> Enviar pedido por WhatsApp</button>

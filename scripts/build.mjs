@@ -1,7 +1,7 @@
 // Arma la web para publicar. Vercel lo ejecuta en cada cambio (ver vercel.json).
 //  1. Lee lo que el cliente edita en /admin: data/ajustes.json (WhatsApp, Instagram, empresas de envío),
 //     data/flyer.json, data/franjas.json y data/entregas.json
-//  2. Junta data/productos, data/categorias y data/cupones en data/catalogo.json
+//  2. Junta data/productos y data/categorias en data/catalogo.json
 //  3. Copia el sitio a dist/ reemplazando los %%MARCADORES%%, escribe los productos dentro del HTML
 //     (para Google) y genera canonical, Open Graph, datos estructurados, robots.txt y sitemap.xml
 // Uso local: node scripts/build.mjs  →  servir la carpeta dist/
@@ -138,54 +138,12 @@ const categorias = readFolder('categorias')
   .sort(byOrder)
   .map(({ orden, ...c }) => c);
 
-// ---------- Códigos de descuento (data/cupones, editables en /admin) ----------
-// Se publican como huella SHA-256 y no como texto: la web puede comprobar un código que le escriben,
-// pero nadie puede sacar la lista de códigos mirando el archivo. La sal debe coincidir con CUPON_SAL en app.js.
-const CUPON_SAL = 'urban-greys:';
-const normCodigo = (c) => str(c).toUpperCase().replace(/\s+/g, '');
-const huella = (c) => createHash('sha256').update(CUPON_SAL + normCodigo(c)).digest('hex');
-const hoy = new Date().toLocaleDateString('en-CA', { timeZone: 'America/Santiago' }); // AAAA-MM-DD
-const productosDe = Object.fromEntries(categorias.map((c) => [c.id, c.productos]));
-const vistos = new Set();
-const cupones = readFolder('cupones')
-  .filter((c) => c.activo !== false && normCodigo(c.codigo))
-  .map((c) => {
-    const tipo = c.tipo === 'monto' ? 'monto' : 'porcentaje';
-    const valor = Math.max(0, Math.round(num(c.valor, 0)));
-    const vence = /^\d{4}-\d{2}-\d{2}/.test(str(c.vence)) ? str(c.vence).slice(0, 10) : '';
-    // sin productos ni categorías elegidos = aplica a toda la tienda
-    const cats = Array.isArray(c.categorias) ? c.categorias : [];
-    const prods = Array.isArray(c.productos) ? c.productos : [];
-    const todos = !cats.length && !prods.length;
-    return {
-      codigo: normCodigo(c.codigo),
-      h: huella(c.codigo),
-      titulo: str(c.titulo) || normCodigo(c.codigo),
-      tipo,
-      valor: tipo === 'porcentaje' ? Math.min(100, valor) : valor,
-      minimo: Math.max(0, Math.round(num(c.minimo, 0))),
-      vence,
-      productos: todos ? null : [...new Set([...cats.flatMap((id) => productosDe[id] || []), ...prods])].filter((id) => ids.has(id)),
-      aplica: todos ? 'Toda la tienda' : [...categorias.filter((x) => cats.includes(x.id)).map((x) => x.nombre), ...(prods.length ? ['productos seleccionados'] : [])].join(', '),
-    };
-  })
-  .filter((c) => {
-    if (!c.valor) return console.warn(`⚠️  Cupón «${c.titulo}» sin valor de descuento: se omitió`), false;
-    if (c.vence && c.vence < hoy) return console.warn(`ℹ️  Cupón «${c.titulo}» vencido el ${c.vence}: se omitió`), false;
-    if (c.productos && !c.productos.length) return console.warn(`⚠️  Cupón «${c.titulo}» no tiene productos visibles: se omitió`), false;
-    if (vistos.has(c.codigo)) return console.warn(`⚠️  Código ${c.codigo} repetido: se usa solo el primero`), false;
-    vistos.add(c.codigo);
-    return true;
-  })
-  .map(({ codigo, ...c }) => c);
-
 writeFileSync(join(DATA, 'catalogo.json'), JSON.stringify({
   _aviso: 'Archivo generado por scripts/build.mjs. No editar a mano.',
   categorias,
   productos,
-  cupones,
 }, null, 2) + '\n');
-console.log(`✅ catálogo: ${productos.length} productos, ${categorias.length} categorías, ${cupones.length} códigos de descuento activos`);
+console.log(`✅ catálogo: ${productos.length} productos, ${categorias.length} categorías`);
 
 // ---------- 3. Marcadores %%CLAVE%% ----------
 const esc = (s) => String(s ?? '').replace(/[&<>"]/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]));

@@ -17,12 +17,11 @@ const PAGOS = {
   tarjeta: '💳 *Pago:* Débito o crédito',
 };
 
-// Productos, categorías y códigos de descuento se editan desde el panel /admin
+// Productos y categorías se editan desde el panel /admin
 // y se publican juntos en data/catalogo.json (lo genera scripts/build.mjs)
 let PRODUCTS = [];
 let FILTERS = [['todos', 'Todos']];
 let REGIONES = [];
-let CUPONES = [];
 
 const SORTS = {
   destacados: null,
@@ -272,87 +271,6 @@ function addToBag(id, size, qty) {
 const bagLines = () => BAG.map((l) => ({ ...l, p: findProduct(l.id) })).filter((l) => l.p && !l.p.agotado);
 const bagTotal = () => bagLines().reduce((s, l) => s + l.p.price * l.qty, 0);
 
-// ===== CÓDIGOS DE DESCUENTO =====
-// Se crean en /admin → Códigos de descuento. El catálogo trae solo su huella SHA-256 (no el código en texto):
-// aquí se calcula la huella de lo que escribe la clienta y se compara. CUPON_SAL debe coincidir con scripts/build.mjs.
-const CUPON_SAL = 'urban-greys:';
-const CUPON_KEY = 'ugCupon';
-let CUPON = null; // { codigo, c } del código aplicado
-const normCodigo = (c) => String(c || '').toUpperCase().replace(/\s+/g, '');
-const hoyChile = () => new Date().toLocaleDateString('en-CA', { timeZone: 'America/Santiago' });
-const fechaCL = (iso) => iso.split('-').reverse().join('-');
-
-async function huella(codigo) {
-  const buf = await crypto.subtle.digest('SHA-256', new TextEncoder().encode(CUPON_SAL + normCodigo(codigo)));
-  return [...new Uint8Array(buf)].map((b) => b.toString(16).padStart(2, '0')).join('');
-}
-
-const cuponTexto = (c) => (c.tipo === 'monto' ? `${clp(c.valor)} de descuento` : `${c.valor}% de descuento`);
-const aplicaA = (c, id) => !c.productos || c.productos.includes(id);
-
-// Descuento del código aplicado sobre la bolsa actual
-function descuento() {
-  if (!CUPON) return null;
-  const c = CUPON.c;
-  const base = bagLines().filter((l) => aplicaA(c, l.id)).reduce((s, l) => s + l.p.price * l.qty, 0);
-  if (!base) return { c, monto: 0, motivo: 'no-aplica' };
-  if (c.minimo && base < c.minimo) return { c, monto: 0, motivo: 'minimo', falta: c.minimo - base };
-  const monto = c.tipo === 'monto' ? Math.min(c.valor, base) : Math.round((base * c.valor) / 100);
-  return { c, monto, base };
-}
-const totalFinal = () => bagTotal() - ((descuento() || {}).monto || 0);
-
-async function aplicarCupon(codigo, silencioso) {
-  const code = normCodigo(codigo);
-  if (!code) return;
-  let c = null;
-  try {
-    const h = await huella(code);
-    c = CUPONES.find((x) => x.h === h && !(x.vence && x.vence < hoyChile())) || null;
-  } catch (e) {
-    console.error(e); // crypto.subtle solo existe en https o localhost
-  }
-  CUPON = c ? { codigo: code, c } : null;
-  try { c ? localStorage.setItem(CUPON_KEY, code) : localStorage.removeItem(CUPON_KEY); } catch (e) {}
-  if (!c && !silencioso) {
-    const st = $('#cuponStatus');
-    st.hidden = false;
-    st.className = 'coupon__status is-bad';
-    st.innerHTML = '<strong>Código no válido</strong><small>No existe o ya no está vigente. Revisa que esté bien escrito.</small>';
-    return;
-  }
-  if (c && !silencioso) $('#fCupon').value = '';
-  renderBag();
-}
-
-function quitarCupon() {
-  CUPON = null;
-  try { localStorage.removeItem(CUPON_KEY); } catch (e) {}
-  $('#cuponStatus').hidden = true;
-  renderBag();
-}
-
-function renderCupon() {
-  const st = $('#cuponStatus');
-  const d = descuento();
-  $('#cuponForm').hidden = !!CUPON;
-  if (!d) { if (!st.classList.contains('is-bad')) st.hidden = true; return; }
-  const c = d.c;
-  const detalle = [cuponTexto(c), c.aplica !== 'Toda la tienda' ? `en ${c.aplica}` : 'en toda la tienda', c.minimo ? `compra mínima ${clp(c.minimo)}` : '', c.vence ? `válido hasta el ${fechaCL(c.vence)}` : '']
-    .filter(Boolean).join(' · ');
-  const aviso = d.motivo === 'no-aplica'
-    ? '<em>Este código no aplica a los productos de tu bolsa.</em>'
-    : d.motivo === 'minimo' ? `<em>Te faltan ${clp(d.falta)} en productos de esta promo para usarlo.</em>` : '';
-  st.hidden = false;
-  st.className = `coupon__status ${d.monto ? 'is-ok' : 'is-warn'}`;
-  st.innerHTML = `
-    <span class="coupon__badge"><svg class="ic"><use href="#i-check"/></svg>Código válido</span>
-    <strong>${esc(CUPON.codigo)} · ${esc(c.titulo)}</strong>
-    <small>${esc(detalle)}</small>
-    ${aviso}
-    <button type="button" class="coupon__rm" data-quitar-cupon>Quitar código</button>`;
-}
-
 function renderBag(bump) {
   const lines = bagLines();
   const units = lines.reduce((s, l) => s + l.qty, 0);
@@ -362,7 +280,7 @@ function renderBag(bump) {
   if (bump) { n.classList.remove('bump'); void n.offsetWidth; n.classList.add('bump'); }
   const fab = $('.fab');
   fab.hidden = !units;
-  $('#fabLabel').textContent = `Mi bolsa · ${clp(totalFinal())}`;
+  $('#fabLabel').textContent = `Mi bolsa · ${clp(bagTotal())}`;
 
   $('#bagList').innerHTML = lines.map((l, i) => `
     <li class="bag-item">
@@ -370,7 +288,6 @@ function renderBag(bump) {
       <div>
         <h4>${esc(l.p.name)}</h4>
         <small>${l.size ? `Talla ${esc(l.size)} · ` : ''}${clp(l.p.price)}</small>
-        ${CUPON && aplicaA(CUPON.c, l.id) ? `<span class="tag-off">Código ${esc(CUPON.codigo)}</span>` : ''}
         <div class="qty">
           <button type="button" data-line="${i}" data-step="-1" aria-label="Menos">−</button>
           <span>${l.qty}</span>
@@ -383,8 +300,6 @@ function renderBag(bump) {
       </div>
     </li>`).join('');
   $('#bagEmpty').hidden = !!lines.length;
-  $('#couponBox').hidden = !lines.length || !CUPONES.length;
-  renderCupon();
   updateOrder();
 }
 
@@ -464,11 +379,9 @@ let CODE = orderCode();
 // *texto* = negrita y _texto_ = cursiva en WhatsApp
 function buildMessage(o) {
   const lines = bagLines();
-  const d = descuento();
   const L = [`👖✨ *PEDIDO URBAN GREYS JEANS · ${CODE}* ✨👖`, '━━━━━━━━━━━━━━━'];
   lines.forEach((l, i) => {
-    const off = d && d.monto && aplicaA(d.c, l.id) ? ' 🏷️' : '';
-    L.push(`${i + 1}. *${l.p.name}*${l.size ? ` · Talla ${l.size}` : ''} · x${l.qty} — ${clp(l.p.price * l.qty)}${off}`);
+    L.push(`${i + 1}. *${l.p.name}*${l.size ? ` · Talla ${l.size}` : ''} · x${l.qty} — ${clp(l.p.price * l.qty)}`);
   });
   if (o.encargo) L.push(`📝 *Encargo:* _${o.encargo}_`);
   L.push('━━━━━━━━━━━━━━━');
@@ -485,11 +398,7 @@ function buildMessage(o) {
   if (o.nota) L.push(`💬 *Comentario:* _${o.nota}_`);
   L.push('━━━━━━━━━━━━━━━');
   if (lines.length) {
-    if (d && d.monto) {
-      L.push(`🧾 *Subtotal:* ${clp(bagTotal())}`);
-      L.push(`🎟️ *Código ${CUPON.codigo}* _(${d.c.titulo} · ${d.c.tipo === 'monto' ? clp(d.c.valor) : d.c.valor + '%'})_: −${clp(d.monto)}`);
-    }
-    L.push(`💰 *TOTAL PRODUCTOS: ${clp(totalFinal())}*`);
+    L.push(`💰 *TOTAL PRODUCTOS: ${clp(bagTotal())}*`);
     if (o.envio) L.push('_(+ envío a coordinar)_');
     L.push('');
     L.push('¡Hola! Quiero confirmar stock de este pedido 💖');
@@ -527,12 +436,7 @@ function updateOrder() {
   }
 
   const lines = bagLines();
-  const d = descuento();
-  $('#bagSums').hidden = !(d && d.monto);
-  if (d && d.monto) {
-    $('#bagSums').innerHTML = `<span>Subtotal</span><span>${clp(bagTotal())}</span><span>Código ${esc(CUPON.codigo)}</span><span class="off">−${clp(d.monto)}</span>`;
-  }
-  $('#bagTotal').textContent = lines.length ? clp(totalFinal()) : '—';
+  $('#bagTotal').textContent = lines.length ? clp(bagTotal()) : '—';
   $('#bagHint').textContent = o.envio
     ? '📦 El costo del envío se cotiza por WhatsApp según tu comuna y la empresa que elijas.'
     : `🏬 Retira en ${DIRECCION}.`;
@@ -564,11 +468,6 @@ form.addEventListener('submit', (e) => {
   CODE = orderCode(); // el próximo pedido lleva otro código
   updateOrder();
 });
-
-$('#cuponBtn').addEventListener('click', () => aplicarCupon($('#fCupon').value));
-$('#fCupon').addEventListener('keydown', (e) => { if (e.key === 'Enter') { e.preventDefault(); aplicarCupon($('#fCupon').value); } });
-$('#fCupon').addEventListener('input', () => { const st = $('#cuponStatus'); if (st.classList.contains('is-bad')) st.hidden = true; });
-$('#couponBox').addEventListener('click', (e) => { if (e.target.closest('[data-quitar-cupon]')) quitarCupon(); });
 
 // ===== EVENTOS GENERALES =====
 document.addEventListener('click', (e) => {
@@ -645,7 +544,6 @@ async function loadProducts() {
     // el CMS guarda "/img/productos/x.jpg"; sin la barra inicial funciona también en GitHub Pages
     const path = (s) => String(s).replace(/^\//, '');
     FILTERS = [['todos', 'Todos'], ...categorias.map((c) => [c.id, c.nombre])];
-    CUPONES = Array.isArray(data.cupones) ? data.cupones : [];
     PRODUCTS = (data.productos || []).map((p) => {
       const img = path(p.foto || 'img/logo.jpg');
       return {
@@ -670,10 +568,6 @@ async function loadProducts() {
   renderFilters('todos');
   renderProducts('todos');
   renderBag();
-  // vuelve a validar el código que quedó guardado (pudo vencer o apagarse en /admin)
-  let guardado = '';
-  try { guardado = localStorage.getItem(CUPON_KEY) || ''; } catch (e) {}
-  if (guardado && CUPONES.length) aplicarCupon(guardado, true);
 }
 
 updateOrder();
