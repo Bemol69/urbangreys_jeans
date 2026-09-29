@@ -1,0 +1,17 @@
+{
+  "nombre": "Jeans Flare Mujer",
+  "precio": 25000,
+  "foto": "/img/productos/JeansFlare01.webp",
+  "fotos": [
+    "/img/productos/Jeans Tiro Alto 2.webp"
+  ],
+  "descripcion": "Pantalon Mujer Comodo",
+  "tallas": [
+    "40",
+    "42"
+  ],
+  "etiqueta": "Tendencia Actual",
+  "orden": 1,
+  "agotado": false,
+  "visible": true
+}
