@@ -1,3 +1,10 @@
 {
-  "entregas": []
+  "entregas": [
+    {
+      "archivo": "https://picsum.photos/id/639/1920/1280.webp",
+      "titulo": "priemra entrega",
+      "texto": "",
+      "descripcion": ""
+    }
+  ]
 }
