@@ -1,0 +1,17 @@
+{
+  "nombre": "Jeans Flare 2",
+  "precio": 30000,
+  "foto": "/img/productos/Joans Tiro Alto 11.webp",
+  "fotos": [
+    "/img/productos/Jeans Flare 12.webp",
+    "/img/productos/JeansFlare02.webp"
+  ],
+  "descripcion": "Jeans Mujer Comodos",
+  "tallas": [
+    "36"
+  ],
+  "etiqueta": "Actules",
+  "orden": 100,
+  "agotado": false,
+  "visible": true
+}
