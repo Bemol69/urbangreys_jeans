@@ -1,8 +1,8 @@
 {
-  "mostrar": true,
-  "popup": true,
-  "imagen": "https://picsum.photos/id/339/1920/1280.webp",
-  "titulo": "Ofertas de la semana",
-  "descripcion": "oferta de prueba",
+  "mostrar": false,
+  "popup": false,
+  "imagen": "",
+  "titulo": ".",
+  "descripcion": "",
   "mensaje_whatsapp": "Hola! Quiero la oferta de la semana 👖✨"
 }
