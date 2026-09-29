@@ -219,11 +219,13 @@ collections:
             label: Mostrar flyer en la web
             widget: boolean
             default: true
-            hint: "Apágalo cuando no haya oferta vigente. Se ocultan la sección y la ventana emergente."
+            required: false
+            hint: "Apágalo cuando no haya oferta vigente: se ocultan la sección y la ventana emergente. No hace falta borrar lo demás, así lo reutilizas después."
           - name: popup
             label: Mostrar también como ventana emergente
             widget: boolean
             default: true
+            required: false
             hint: "Aparece una vez por visita al entrar a la página."
           - name: imagen
             label: Imagen del flyer
@@ -231,12 +233,12 @@ collections:
             required: false
             media_folder: /img/flyer
             public_folder: /img/flyer
-            hint: "Solo hay un flyer a la vez: para cambiarlo, sube la nueva imagen aquí. Ideal vertical 1080×1350 (formato post de Instagram)."
+            hint: "Solo hay un flyer a la vez: para cambiarlo, sube la nueva imagen aquí. Ideal vertical 1080×1350 (formato post de Instagram). Sin imagen, el flyer no aparece en la web."
           - name: titulo
             label: Título de la sección
             widget: string
-            default: "Ofertas de la semana"
-            hint: "Aparece junto al flyer. Ej: Cyber, Día de la Madre."
+            required: false
+            hint: "Aparece junto al flyer. Ej: Cyber, Día de la Madre. Vacío = «Ofertas»."
           - name: descripcion
             label: Texto de la oferta
             widget: text
@@ -245,7 +247,8 @@ collections:
           - name: mensaje_whatsapp
             label: Mensaje de WhatsApp
             widget: string
-            hint: "Lo que se escribe solo cuando tocan «Quiero esta oferta»."
+            required: false
+            hint: "Lo que se escribe solo cuando tocan «Quiero esta oferta». Vacío = «Hola! Quiero la oferta 👖✨»."
 
       - name: franjas
         label: Franjas de texto
