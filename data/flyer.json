@@ -1,8 +1,8 @@
 {
-  "mostrar": false,
-  "popup": false,
-  "imagen": "",
-  "titulo": "",
+  "mostrar": true,
+  "popup": true,
+  "imagen": "/img/productos/Oferta Prueba.webp",
+  "titulo": "Dia De La Madre Oferta",
   "descripcion": "",
   "mensaje_whatsapp": ""
 }
