@@ -71,7 +71,7 @@ const entregas = (Array.isArray(readData('entregas.json').entregas) ? readData('
 // Franjas de texto en movimiento
 const franjasData = readData('franjas.json');
 const FRANJAS_BASE = {
-  franja1: ['📦 Envíos a todo Chile', '🍑 Full push up', '📍 Paseo Independencia 634, local 34 · Rancagua', '👖 Tallas 36 a 46'],
+  franja1: ['📦 Envíos a todo Chile', '🍑 Full push up', '📍 Paseo Independencia 634, local 34 · Rancagua', '👖 Tallas 34 a 46'],
   franja2: ['Tiro alto', 'Full push up', 'Muy elasticado', 'Calce perfecto'],
 };
 const VELOCIDAD = { lenta: 1.6, normal: 1, rapida: 0.6 };
@@ -212,7 +212,7 @@ const entregaHtml = (e) => `
           </figure>`;
 
 const TITLE = 'Jeans push up en Rancagua | Urban Greys Jeans';
-const DESC = 'Jeans push up de tiro alto que realzan tu figura: skinny, cargo, flare y con faja, tallas 36 a 46. Tienda en Paseo Independencia 634, Rancagua, con envíos a todo Chile. Pide por WhatsApp.';
+const DESC = 'Jeans push up de tiro alto que realzan tu figura: skinny, cargo, flare y con faja, tallas 34 a 46. Tienda en Paseo Independencia 634, Rancagua, con envíos a todo Chile. Pide por WhatsApp.';
 const OG_IMAGE = abs('img/productos/skinny-brillos-1.jpg');
 const precios = productos.map((p) => p.precio).filter((n) => n > 0);
 
@@ -238,7 +238,7 @@ const jsonLd = {
         addressCountry: 'CL',
       },
       areaServed: { '@type': 'Country', name: 'Chile' },
-      sameAs: T.instagram ? [`https://www.instagram.com/${T.instagram}/`] : undefined,
+      sameAs: [T.instagram && `https://www.instagram.com/${T.instagram}/`, 'https://www.tiktok.com/@urbangreys_jeans'].filter(Boolean),
     },
     {
       '@type': 'ItemList',
