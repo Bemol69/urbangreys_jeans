@@ -1,8 +1,6 @@
 {
   "nombre": "Jeans Flare",
-  "productos": [
-    "jeans-flare-mujer"
-  ],
+  "productos": [],
   "orden": 100,
   "visible": true
 }
