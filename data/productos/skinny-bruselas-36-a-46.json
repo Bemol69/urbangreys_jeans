@@ -1,0 +1,17 @@
+{
+  "nombre": "skinny bruselas ( 36 A 46)",
+  "precio": 32990,
+  "foto": "/img/productos/WhatsApp Image 2026-10-05 at 3.41.24 PM.webp",
+  "fotos": [
+    "/img/productos/WhatsApp Image 2026-10-05 at 3.41.24 PM.webp",
+    "/img/productos/WhatsApp Image 2026-10-05 at 3.41.25 PM.webp"
+  ],
+  "descripcion": "",
+  "tallas": [
+    "36 38 40 42 44 46"
+  ],
+  "etiqueta": "el jeans que está causando furor",
+  "orden": 1000,
+  "agotado": false,
+  "visible": true
+}
