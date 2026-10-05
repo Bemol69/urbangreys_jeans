@@ -10,6 +10,8 @@
 <body>
   <!-- Polyfill para navegadores antiguos (Chrome 109 en Windows 8.1): agrega Set.union y similares que Sveltia necesita -->
   <script src="https://cdn.jsdelivr.net/npm/core-js-bundle@3/minified.js"></script>
+  <!-- Polyfill de la API popover (Chrome < 114 no entiende :popover-open) -->
+  <script src="https://cdn.jsdelivr.net/npm/@oddbird/popover-polyfill@0.7.3"></script>
   <!-- Sveltia CMS: panel para editar data/productos.json y subir fotos al repositorio -->
   <script src="https://unpkg.com/@sveltia/cms/dist/sveltia-cms.js"></script>
 </body>
