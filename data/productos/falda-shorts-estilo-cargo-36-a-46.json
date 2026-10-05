@@ -17,6 +17,6 @@
   ],
   "etiqueta": "Nuevo ingreso",
   "orden": 1,
-  "agotado": false,
+  "agotado": true,
   "visible": true
 }
