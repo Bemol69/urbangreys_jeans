@@ -1,0 +1,20 @@
+{
+  "nombre": "Flare Jeans Cielo Tapete (40 42 44)",
+  "precio": 32990,
+  "foto": "/img/productos/IMG_0535.webp",
+  "fotos": [
+    "/img/productos/IMG_0536.webp",
+    "/img/productos/IMG_0537.webp",
+    "/img/productos/IMG_0538.webp"
+  ],
+  "descripcion": "",
+  "tallas": [
+    "40",
+    "42",
+    "44"
+  ],
+  "etiqueta": "Bajo stock",
+  "orden": 152,
+  "agotado": false,
+  "visible": true
+}
