@@ -1,0 +1,20 @@
+{
+  "nombre": "Flare 5 Botones Prelavado",
+  "precio": 24990,
+  "foto": "/img/productos/IMG_0514.webp",
+  "fotos": [
+    "/img/productos/IMG_0515.webp",
+    "/img/productos/IMG_0516.webp",
+    "/img/productos/IMG_0517.webp"
+  ],
+  "descripcion": "",
+  "tallas": [
+    "40",
+    "44",
+    "46"
+  ],
+  "etiqueta": "Pocas unidades",
+  "orden": 100,
+  "agotado": false,
+  "visible": true
+}
