@@ -9,8 +9,15 @@
     "/img/productos/IMG_1552.webp"
   ],
   "descripcion": "Flare Cargo Azul 💙\nJeans flare de tiro alto con múltiples bolsillos funcionales y detalles cargo que le dan un estilo urbano y full tendencia. Su corte flare estiliza la silueta y aporta un look moderno y diferente.\n\nTiro alto • Flare • Multi bolsillos • Calce favorecedor • Full tendencia ✨",
-  "tallas": [],
-  "etiqueta": "",
+  "tallas": [
+    "36",
+    "38",
+    "40",
+    "42",
+    "44",
+    "46"
+  ],
+  "etiqueta": "Lo nuevo",
   "orden": 1000,
   "agotado": false,
   "visible": true
