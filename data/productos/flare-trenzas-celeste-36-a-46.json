@@ -1,0 +1,24 @@
+{
+  "nombre": "Flare Trenzas Celeste (36 a 46)",
+  "precio": 24990,
+  "foto": "/img/productos/IMG_1128.webp",
+  "fotos": [
+    "/img/productos/IMG_1126.webp",
+    "/img/productos/IMG_1130.webp",
+    "/img/productos/IMG_1122.webp",
+    "/img/productos/IMG_1123.webp"
+  ],
+  "descripcion": "Flare Celeste Corset 🩵\nJeans flare en celeste claro con tiro alto y detalle de pretina tipo corset con cordones, que define la cintura y realza la silueta. Un modelo diferente, femenino y full tendencia.\n\nTiro alto • Full push up • Elasticado • Pretina corset • Calce perfecto ✨",
+  "tallas": [
+    "36",
+    "38",
+    "40",
+    "42",
+    "44",
+    "46"
+  ],
+  "etiqueta": "Nueva bomba 💣",
+  "orden": 1000,
+  "agotado": false,
+  "visible": true
+}
