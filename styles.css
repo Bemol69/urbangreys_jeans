@@ -120,6 +120,7 @@ h1, h2, h3 { margin: 0; line-height: 1.1; }
   background: var(--gold-grad); color: #fff; border-radius: 10px; box-shadow: var(--shadow);
   outline: 2px dashed rgba(255, 255, 255, .7); outline-offset: -8px; text-shadow: 0 1px 2px rgba(110, 80, 20, .4);
 }
+.patch[hidden] { display: none; }
 .patch__top { font-family: var(--script); font-size: 22px; line-height: 1; }
 .patch__mid { font-size: 11px; letter-spacing: .2em; text-transform: uppercase; margin-top: 4px; }
 .patch strong { font-family: var(--serif); font-size: 30px; line-height: 1; }
