@@ -1,0 +1,24 @@
+{
+  "nombre": "Skinny Destroyed mezclilla (34 a 46)",
+  "precio": 29990,
+  "foto": "/img/productos/IMG_0923.webp",
+  "fotos": [
+    "/img/productos/IMG_0927.webp",
+    "/img/productos/IMG_0926.webp",
+    "/img/productos/IMG_0924.webp"
+  ],
+  "descripcion": "💙 SKINNY DESTROYED CELESTE\n\nEl denim celeste que le dará un toque más urbano y moderno a tus looks 🔥\n\n• Corte skinny\n• Efecto destroyed con roturas\n• Tiro alto\n• Calce favorecedor\n• Ideal para looks casuales y trendy\n\nUn básico con actitud para esta temporada ✨",
+  "tallas": [
+    "34",
+    "36",
+    "38",
+    "40",
+    "42",
+    "44",
+    "46"
+  ],
+  "etiqueta": "Está arrasando 👇🏻",
+  "orden": 1001,
+  "agotado": false,
+  "visible": true
+}
