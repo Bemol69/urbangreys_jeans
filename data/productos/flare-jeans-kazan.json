@@ -1,0 +1,16 @@
+{
+  "nombre": "Flare Jeans Kazan",
+  "precio": 34990,
+  "foto": "/img/productos/IMG_9224.webp",
+  "fotos": [
+    "/img/productos/IMG_9223.webp",
+    "/img/productos/IMG_9222.webp",
+    "/img/productos/IMG_9221.webp"
+  ],
+  "descripcion": "",
+  "tallas": [],
+  "etiqueta": "",
+  "orden": 1000,
+  "agotado": false,
+  "visible": true
+}
