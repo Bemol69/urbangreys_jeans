@@ -249,13 +249,25 @@ h1, h2, h3 { margin: 0; line-height: 1.1; }
 
 /* ===== Instagram ===== */
 .ig { padding: 96px 0; background: linear-gradient(180deg, var(--cream) 0%, var(--teal-l) 100%); }
-.ig__inner { display: grid; grid-template-columns: 1fr 1.1fr; gap: 48px; align-items: center; }
+.ig__inner { display: flex; flex-direction: column; align-items: center; text-align: center; }
+.ig__inner > * { max-width: 100%; min-width: 0; }
 .ig__text h2 { font-family: var(--serif); font-size: clamp(34px, 4vw, 48px); margin-bottom: 12px; }
-.ig__text p:not(.script) { color: var(--grey); margin: 0 0 26px; max-width: 440px; }
-.ig__links { display: flex; flex-wrap: wrap; gap: 12px; }
-.ig__grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; }
-.ig__grid img { width: 100%; aspect-ratio: 3 / 5; object-fit: cover; border-radius: 999px 999px 14px 14px; box-shadow: var(--shadow); }
-.ig__grid img:nth-child(even) { transform: translateY(28px); }
+.ig__text p:not(.script) { color: var(--grey); margin: 0 auto 26px; max-width: 480px; }
+.ig__links { display: flex; flex-wrap: wrap; justify-content: center; gap: 12px; }
+
+/* Tarjetas «Encuentra tu fit» */
+.fits { display: grid; grid-template-columns: repeat(4, 1fr); gap: 22px; width: 100%; margin-top: 52px; }
+.fit { display: flex; flex-direction: column; align-items: center; padding: 12px 12px 30px; border-radius: 999px; background: rgba(255, 255, 255, .78); border: 1px solid rgba(255, 255, 255, .9); box-shadow: 0 18px 40px rgba(29, 43, 46, .08); }
+.fit__img { width: 100%; aspect-ratio: 4 / 5; overflow: hidden; border-radius: 999px 999px 0 0; }
+.fit__img img { width: 100%; height: 100%; object-fit: cover; object-position: center 30%; display: block; transition: transform .6s; }
+.fit:hover .fit__img img { transform: scale(1.04); }
+.fit__ic { position: relative; display: grid; place-items: center; width: 88px; height: 88px; margin-top: -44px; border-radius: 50%; background: #F4EFE7; box-shadow: 0 6px 18px rgba(29, 43, 46, .1); }
+.fit__ic svg { width: 48px; height: 48px; fill: none; stroke: var(--ink); stroke-width: 1.5; stroke-linecap: round; stroke-linejoin: round; }
+.fit h3 { margin: 18px 0 0; font-family: var(--serif); font-weight: 700; font-size: clamp(24px, 2.3vw, 34px); line-height: 1.02; text-transform: uppercase; letter-spacing: .01em; color: var(--ink); }
+.fit h3 span { display: block; color: var(--teal-d); }
+.fit h3.fit__one span { display: inline; }
+.fit p { width: 82%; margin: 14px 0 0; padding-top: 12px; border-top: 1px solid rgba(38, 169, 166, .35); font-size: 15px; line-height: 1.45; color: var(--grey); }
+.fit__heart { width: 22px; height: 22px; margin-top: 16px; fill: var(--teal); }
 
 /* ===== Footer ===== */
 .footer { background: var(--denim-d); color: #B9C6C8; padding: 40px 0; border-top: 3px dashed var(--gold); }
@@ -387,7 +399,8 @@ form input[type="text"]:focus { outline: 0; border-color: var(--teal); box-shado
   .hero__inner { grid-template-columns: 1fr; }
   .hero__art { max-width: 480px; width: 100%; margin: 0 auto; }
   .steps { grid-template-columns: 1fr; gap: 34px; }
-  .contact, .ig__inner { grid-template-columns: 1fr; }
+  .contact { grid-template-columns: 1fr; }
+  .fits { grid-template-columns: repeat(2, 1fr); gap: 18px; }
   .modal__panel--product { grid-template-columns: 1fr; }
 }
 @media (max-width: 600px) {
@@ -419,7 +432,8 @@ form input[type="text"]:focus { outline: 0; border-color: var(--teal); box-shado
   .card__desc { display: none; }
   .card__foot { flex-direction: column; align-items: stretch; }
   .price { font-size: 22px; }
-  .ig__grid { gap: 8px; }
+  .fits { grid-template-columns: none; grid-auto-flow: column; grid-auto-columns: 74%; gap: 14px; overflow-x: auto; scroll-snap-type: x mandatory; padding: 0 4px 10px; margin-top: 36px; }
+  .fit { scroll-snap-align: center; }
   .modal__panel { width: 100%; margin: 0; top: auto; bottom: 0; position: absolute; max-height: 92vh; border-radius: 24px 24px 0 0; transform: translateY(100%); }
   .modal.is-open .modal__panel { transform: none; }
   .pm__info { padding: 22px 20px 26px; }
