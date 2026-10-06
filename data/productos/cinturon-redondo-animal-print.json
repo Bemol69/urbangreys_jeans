@@ -9,8 +9,15 @@
     "/img/productos/IMG_1156.webp"
   ],
   "descripcion": "Flare Gris Grafito Full Push Up 🖤\nTiro alto, calce favorecedor y efecto full push up que realza la silueta. Su tono gris grafito lo convierte en un básico fácil de combinar, mientras su corte flare estiliza visualmente las piernas.\n\nTiro alto • Full push up • Elasticado • Calce perfecto ✨",
-  "tallas": [],
-  "etiqueta": "",
+  "tallas": [
+    "36",
+    "38",
+    "40",
+    "42",
+    "44",
+    "46"
+  ],
+  "etiqueta": "Nuevo en tendencia✨",
   "orden": 70,
   "agotado": false,
   "visible": true
