@@ -1,0 +1,16 @@
+{
+  "nombre": "Flare Jeans Estocolmo (36 a 46)",
+  "precio": 34990,
+  "foto": "/img/productos/IMG_0574.webp",
+  "fotos": [
+    "/img/productos/IMG_0576.webp",
+    "/img/productos/IMG_0577.webp",
+    "/img/productos/IMG_0575.webp"
+  ],
+  "descripcion": "🔥 Flare Jeans Estocolmo 🔥\n\nEl flare que estiliza la figura y transforma completamente tu look 😍\n\n✨ Tiro alto\n✨ Corte flare que alarga visualmente las piernas\n✨ Gris nevado, full tendencia\n✨ Calce favorecedor\n✨ Perfecto para looks casuales o más arreglados\n\n🤍 Un color diferente, un calce que enamora y un jeans que no puede faltar en tu clóset.",
+  "tallas": [],
+  "etiqueta": "",
+  "orden": 1000,
+  "agotado": false,
+  "visible": true
+}
