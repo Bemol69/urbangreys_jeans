@@ -1,11 +1,14 @@
 {
-  "nombre": "Skinny azul brillos",
-  "precio": 29990,
-  "foto": "/img/productos/skinny-brillos-1.jpg",
+  "nombre": "FLARE JEANS ALEXIA (36 A 46)",
+  "precio": 24990,
+  "foto": "/img/productos/IMG_1582.webp",
   "fotos": [
-    "/img/productos/skinny-brillos-2.jpg"
+    "/img/productos/IMG_1583.webp",
+    "/img/productos/IMG_1584.webp",
+    "/img/productos/IMG_1586.webp",
+    "/img/productos/IMG_1585.webp"
   ],
-  "descripcion": "Skinny azul con brillos, tiro alto y full push up. Disponible en todas las tallas.",
+  "descripcion": "Flare alexia \nJeans flare de tiro alto con 2 botones y pretina ancha, diseñado para definir la cintura y estilizar la silueta. Su corte acampanado aporta un look femenino, moderno y muy favorecedor.",
   "tallas": [
     "36",
     "38",
