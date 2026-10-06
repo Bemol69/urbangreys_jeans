@@ -8,9 +8,16 @@
     "/img/productos/IMG_0579.webp"
   ],
   "descripcion": "🔥 SKINNY JEANS CELESTE 🔥\n\nEl skinny que realza tu figura y se roba todas las miradas 😍\n\n✨ Tiro alto\n✨ Calce que se adapta a tu silueta\n✨ Denim celeste súper combinable\n✨ Diseño que estiliza visualmente las piernas\n✨ Perfecto para un look femenino y moderno\n\n💙 Ese básico que te vas a poner una y otra vez.",
-  "tallas": [],
-  "etiqueta": "",
-  "orden": 1000,
+  "tallas": [
+    "36",
+    "38",
+    "40",
+    "42",
+    "44",
+    "46"
+  ],
+  "etiqueta": "Volvió a llegar 🫶🏻",
+  "orden": 500,
   "agotado": false,
   "visible": true
 }
