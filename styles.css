@@ -166,7 +166,7 @@ h1, h2, h3 { margin: 0; line-height: 1.1; }
 .card { display: flex; flex-direction: column; background: var(--paper); border-radius: var(--radius); overflow: hidden; box-shadow: var(--shadow); transition: transform .3s, box-shadow .3s; }
 .card:hover { transform: translateY(-6px); box-shadow: var(--shadow-lg); }
 .card__img { position: relative; aspect-ratio: 4 / 5; overflow: hidden; background: var(--soft); cursor: pointer; border: 0; padding: 0; display: block; width: 100%; }
-.card__img img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: top; transition: opacity .45s, transform .6s; }
+.card__img img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: contain; object-position: center; transition: opacity .45s, transform .6s; }
 .card__img .alt { opacity: 0; }
 .card:hover .card__img .alt { opacity: 1; }
 .card:hover .card__img img { transform: scale(1.04); }
@@ -276,12 +276,12 @@ h1, h2, h3 { margin: 0; line-height: 1.1; }
 .modal__close { position: absolute; top: 14px; right: 14px; z-index: 3; display: grid; place-items: center; width: 40px; height: 40px; border-radius: 50%; border: 0; background: rgba(255, 255, 255, .92); color: var(--ink); box-shadow: 0 2px 10px rgba(0, 0, 0, .1); }
 .modal__panel--product { display: grid; grid-template-columns: 1fr 1fr; }
 .pm__gallery { background: var(--soft); padding: 16px; display: flex; flex-direction: column; gap: 10px; }
-.pm__main { position: relative; aspect-ratio: 4 / 5; border-radius: 16px; overflow: hidden; }
-.pm__main img { width: 100%; height: 100%; object-fit: cover; object-position: top; }
+.pm__main { position: relative; border-radius: 16px; overflow: hidden; background: var(--paper); }
+.pm__main img { display: block; width: 100%; height: auto; max-height: min(74vh, 720px); object-fit: contain; }
 .pm__thumbs { display: flex; gap: 8px; }
 .pm__thumbs button { width: 64px; height: 76px; padding: 0; border-radius: 10px; overflow: hidden; border: 2px solid transparent; background: none; opacity: .65; transition: all .2s; }
 .pm__thumbs button.is-active { border-color: var(--gold); opacity: 1; }
-.pm__thumbs img { width: 100%; height: 100%; object-fit: cover; object-position: top; }
+.pm__thumbs img { width: 100%; height: 100%; object-fit: contain; background: var(--paper); }
 .pm__info { padding: 34px 30px 30px; display: flex; flex-direction: column; gap: 12px; }
 .pm__cat { margin: 0; font-size: 12px; font-weight: 600; letter-spacing: .14em; text-transform: uppercase; color: var(--teal-d); }
 .pm__info h2 { font-family: var(--serif); font-size: 34px; }
@@ -312,7 +312,7 @@ h1, h2, h3 { margin: 0; line-height: 1.1; }
 .drawer__foot[hidden] { display: none; }
 .bag-list { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 14px; }
 .bag-item { display: grid; grid-template-columns: 64px 1fr auto; gap: 12px; align-items: center; background: var(--paper); padding: 10px; border-radius: 14px; box-shadow: 0 2px 10px rgba(29, 43, 46, .05); }
-.bag-item img { width: 64px; height: 78px; object-fit: cover; object-position: top; border-radius: 10px; }
+.bag-item img { width: 64px; height: 78px; object-fit: contain; background: var(--soft); border-radius: 10px; }
 .bag-item h4 { margin: 0; font-size: 15px; line-height: 1.3; }
 .bag-item small { color: var(--grey); }
 .bag-item .qty { margin-top: 6px; }
@@ -420,7 +420,7 @@ form input[type="text"]:focus { outline: 0; border-color: var(--teal); box-shado
   .modal__panel { width: 100%; margin: 0; top: auto; bottom: 0; position: absolute; max-height: 92vh; border-radius: 24px 24px 0 0; transform: translateY(100%); }
   .modal.is-open .modal__panel { transform: none; }
   .pm__info { padding: 22px 20px 26px; }
-  .pm__main { aspect-ratio: auto; height: 46vh; }
+  .pm__main img { max-height: 62vh; }
 }
 @media (max-width: 400px) {
   .brand img { width: 34px; height: 34px; }
