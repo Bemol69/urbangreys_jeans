@@ -1,11 +1,13 @@
 {
-  "nombre": "Cargo azul claro DIRTY",
-  "precio": 34990,
-  "foto": "/img/productos/cargo-dirty-1.jpg",
+  "nombre": "Falda Short con Bolsillos Strass (36 A 46)",
+  "precio": 24990,
+  "foto": "/img/productos/IMG_1209.webp",
   "fotos": [
-    "/img/productos/cargo-dirty-2.jpg"
+    "/img/productos/IMG_1207.webp",
+    "/img/productos/IMG_1205.webp",
+    "/img/productos/IMG_1204.webp"
   ],
-  "descripcion": "Cargo celeste de tiro alto con efecto push up y bolsillos cargo. Full tendencia.",
+  "descripcion": "Falda short denim de tiro alto, con detalles desgastados y exclusivos bolsillos con strass que aportan un toque llamativo y femenino. Un modelo en tendencia, cómodo y perfecto para elevar cualquier look.",
   "tallas": [
     "36",
     "38"
