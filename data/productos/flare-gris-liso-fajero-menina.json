@@ -1,16 +1,23 @@
 {
-  "nombre": "Flare gris liso fajero MENINA",
+  "nombre": "JEANS FLARE VINTAGE (36 A 46)",
   "precio": 24990,
-  "foto": "/img/productos/flare-menina-1.jpg",
+  "foto": "/img/productos/IMG_1573.webp",
   "fotos": [
-    "/img/productos/flare-menina-2.jpg"
+    "/img/productos/IMG_1575.webp",
+    "/img/productos/IMG_1576.webp"
   ],
-  "descripcion": "Flare gris con faja que define la cintura. Push up, elasticado y con bota amplia.",
+  "descripcion": "Jeans flare tiro alto en tono gris, con efecto vintage y basta desflecada. Su corte acampanado estiliza visualmente la silueta y le da un toque moderno y femenino.",
   "tallas": [
+    "46",
+    "36",
+    "38",
+    "40",
+    "42",
+    "44",
     "46"
   ],
   "etiqueta": "Últimas unidades",
-  "orden": 40,
+  "orden": 13,
   "agotado": false,
   "visible": true
 }
