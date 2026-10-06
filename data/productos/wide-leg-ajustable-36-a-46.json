@@ -1,0 +1,21 @@
+{
+  "nombre": "Wide Leg Ajustable (36 a 46)",
+  "precio": 34990,
+  "foto": "/img/productos/IMG_1083.webp",
+  "fotos": [
+    "/img/productos/IMG_1082.webp",
+    "/img/productos/IMG_1079.webp",
+    "/img/productos/IMG_1080.webp"
+  ],
+  "descripcion": "Wide Leg Celeste 🩵\nJeans de corte wide leg, con una caída amplia desde la cadera y ajuste perfecto en la cintura que ayuda a definir la silueta. Su tono celeste lo hace súper versátil y fácil de combinar.\n\nTiro alto • Ajuste en cintura • Wide leg • Calce favorecedor ✨",
+  "tallas": [
+    "36",
+    "38",
+    "40",
+    "42"
+  ],
+  "etiqueta": "Último Stock",
+  "orden": 1000,
+  "agotado": false,
+  "visible": true
+}
