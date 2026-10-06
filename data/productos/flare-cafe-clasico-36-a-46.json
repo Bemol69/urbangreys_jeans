@@ -9,8 +9,15 @@
     "/img/productos/IMG_1116.webp"
   ],
   "descripcion": "Flare Café Clásico 🤎\nJeans flare en tono café, de tiro alto y calce favorecedor. Un color diferente y fácil de combinar, perfecto para crear looks modernos y versátiles.\n\nTiro alto • Full push up • Elasticado • Calce perfecto ✨",
-  "tallas": [],
-  "etiqueta": "",
+  "tallas": [
+    "36",
+    "38",
+    "40",
+    "42",
+    "44",
+    "46"
+  ],
+  "etiqueta": "Lo nuevo",
   "orden": 1000,
   "agotado": false,
   "visible": true
