@@ -1,0 +1,24 @@
+{
+  "nombre": "Flare Azul Con Tapete (34 a 44)",
+  "precio": 32990,
+  "foto": "/img/productos/IMG_0531.webp",
+  "fotos": [
+    "/img/productos/IMG_0529.webp",
+    "/img/productos/IMG_0530.webp",
+    "/img/productos/IMG_0533.webp",
+    "/img/productos/IMG_0528.webp"
+  ],
+  "descripcion": "",
+  "tallas": [
+    "34",
+    "36",
+    "38",
+    "40",
+    "42",
+    "44"
+  ],
+  "etiqueta": "Tendencia 2026",
+  "orden": 28,
+  "agotado": false,
+  "visible": true
+}
