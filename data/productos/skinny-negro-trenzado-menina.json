@@ -1,17 +1,23 @@
 {
-  "nombre": "Skinny negro trenzado MENINA",
+  "nombre": "FALDA SHORTS NIZA 4 COLORES (36 A 46)",
   "precio": 24990,
-  "foto": "/img/productos/skinny-menina-3.jpg",
+  "foto": "/img/productos/IMG_1179.webp",
   "fotos": [
-    "/img/productos/skinny-menina-2.jpg",
-    "/img/productos/skinny-menina-1.jpg"
+    "/img/productos/IMG_1195.webp",
+    "/img/productos/IMG_1180.webp",
+    "/img/productos/IMG_1196.webp"
   ],
-  "descripcion": "Skinny negro con faja y detalle trenzado en la pretina. Tiro alto, full push up y muy elasticado.",
+  "descripcion": "Falda short de denim tiro alto, con diseño cargo, múltiples bolsillos y tiras laterales que le dan un toque urbano y moderno. Un modelo cómodo y en tendencia, perfecto para crear looks casuales con mucho estilo.",
   "tallas": [
-    "36"
+    "36",
+    "38",
+    "40",
+    "42",
+    "44",
+    "46"
   ],
-  "etiqueta": "Últimas unidades",
-  "orden": 30,
+  "etiqueta": "Modelo en tendencia",
+  "orden": 8,
   "agotado": false,
   "visible": true
 }
