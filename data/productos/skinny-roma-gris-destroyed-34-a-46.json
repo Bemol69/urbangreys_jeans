@@ -1,0 +1,24 @@
+{
+  "nombre": "Skinny Roma Gris Destroyed (34 a 46)",
+  "precio": 29990,
+  "foto": "/img/productos/IMG_0908.webp",
+  "fotos": [
+    "/img/productos/IMG_0911.webp",
+    "/img/productos/IMG_0910.webp",
+    "/img/productos/IMG_0912.webp"
+  ],
+  "descripcion": "🔥 SKINNY DESTROYED GRIS 🔥\n\nEl jeans que transforma cualquier look 😍\nCon ese efecto destroyed full tendencia, calce skinny y un gris que combina con absolutamente todo.\n\n✨ Tiro alto\n✨ Calce favorecedor\n✨ Full destroyed\n✨ Look urbano y moderno\n\nSi te gusta destacar, este es para ti. 🖤",
+  "tallas": [
+    "34",
+    "36",
+    "38",
+    "40",
+    "42",
+    "44",
+    "46"
+  ],
+  "etiqueta": "Causando furor 🔥",
+  "orden": 1000,
+  "agotado": false,
+  "visible": true
+}
