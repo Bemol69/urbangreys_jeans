@@ -2,3 +2,4 @@
 dist/
 data/catalogo.json
 .vercel
+node_modules/

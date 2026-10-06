@@ -299,6 +299,38 @@ html = render(html, 'index.html', true)
 rmSync(DIST, { recursive: true, force: true });
 mkdirSync(join(DIST, 'data'), { recursive: true });
 for (const item of ['img', 'admin']) cpSync(join(ROOT, item), join(DIST, item), { recursive: true });
+
+// ---------- Fotos livianas ----------
+// Reduce las fotos de dist/ (las originales del repo no se tocan). Si algo falla con una foto, se publica la original.
+const FOTO_MAX = { 'img/productos': [800, 1000], 'img/flyer': [1080, 1350], 'img/entregas': [900, 1200] };
+async function optimizarFotos() {
+  let sharp;
+  try { sharp = (await import('sharp')).default; } catch { console.warn('⚠️  sharp no está instalado: las fotos se publican sin optimizar'); return; }
+  let antes = 0, despues = 0, n = 0;
+  for (const [carpeta, [ancho, alto]] of Object.entries(FOTO_MAX)) {
+    const dir = join(DIST, carpeta);
+    if (!existsSync(dir)) continue;
+    for (const f of readdirSync(dir).filter((x) => /\.(jpe?g|png|webp)$/i.test(x))) {
+      const ruta = join(dir, f);
+      try {
+        const original = readFileSync(ruta);
+        let img = sharp(original).rotate().resize({ width: ancho, height: alto, fit: 'inside', withoutEnlargement: true });
+        if (/\.jpe?g$/i.test(f)) img = img.jpeg({ quality: 74, mozjpeg: true });
+        else if (/\.png$/i.test(f)) img = img.png({ compressionLevel: 9, palette: true });
+        else img = img.webp({ quality: 74 });
+        const nueva = await img.toBuffer();
+        antes += original.length;
+        despues += Math.min(nueva.length, original.length);
+        if (nueva.length < original.length) writeFileSync(ruta, nueva);
+        n++;
+      } catch (e) {
+        console.warn(`⚠️  No se pudo optimizar ${carpeta}/${f}: ${e.message}`);
+      }
+    }
+  }
+  console.log(`✅ fotos optimizadas: ${n} (${(antes / 1e6).toFixed(1)} MB → ${(despues / 1e6).toFixed(1)} MB)`);
+}
+await optimizarFotos();
 for (const f of ['catalogo.json', 'regiones.json']) cpSync(join(DATA, f), join(DIST, 'data', f));
 // styles.css y app.js llevan ?v=hash: se guardan en caché y cada cambio publicado se descarga de nuevo
 const css = readFileSync(join(ROOT, 'styles.css'), 'utf8');
