@@ -1,0 +1,15 @@
+{
+  "nombre": "Flare Gris Focalizado",
+  "precio": 32990,
+  "foto": "/img/productos/IMG_0071.webp",
+  "fotos": [
+    "/img/productos/IMG_0070.webp",
+    "/img/productos/IMG_0072.webp"
+  ],
+  "descripcion": "Flare Jeans Gris 🩶\n\nFlare de tiro alto en tono gris, con calce favorecedor y pierna acampanada que estiliza la figura. Un modelo versátil y moderno, ideal para darle un toque diferente a tus looks.\n\nTiro alto • Calce favorecedor • Pierna flare • Gris • Estiliza la figura",
+  "tallas": [],
+  "etiqueta": "",
+  "orden": 1000,
+  "agotado": false,
+  "visible": true
+}
