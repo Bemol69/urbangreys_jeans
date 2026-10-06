@@ -1,0 +1,18 @@
+{
+  "nombre": "Flare trenzas azul",
+  "precio": 24990,
+  "foto": "/img/productos/IMG_0047.webp",
+  "fotos": [
+    "/img/productos/IMG_0046.webp",
+    "/img/productos/IMG_0048.webp",
+    "/img/productos/IMG_0049.webp"
+  ],
+  "descripcion": "Flare Jeans Azul Medio 💙\n\nFlare de tiro alto con detalle de cordones laterales que le da un toque único y femenino. Su calce se ajusta a la figura y la pierna acampanada estiliza visualmente la silueta.\n\nTiro alto • Cordones laterales • Calce favorecedor • Pierna flare • Azul medio",
+  "tallas": [
+    "46"
+  ],
+  "etiqueta": "",
+  "orden": 1000,
+  "agotado": false,
+  "visible": true
+}
