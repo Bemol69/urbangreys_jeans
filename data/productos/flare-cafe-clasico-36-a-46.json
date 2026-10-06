@@ -1,0 +1,17 @@
+{
+  "nombre": "Flare Café Clásico (36 a 46)",
+  "precio": 24990,
+  "foto": "/img/productos/IMG_1117.webp",
+  "fotos": [
+    "/img/productos/IMG_1118.webp",
+    "/img/productos/IMG_1119.webp",
+    "/img/productos/IMG_1113.webp",
+    "/img/productos/IMG_1116.webp"
+  ],
+  "descripcion": "Flare Café Clásico 🤎\nJeans flare en tono café, de tiro alto y calce favorecedor. Un color diferente y fácil de combinar, perfecto para crear looks modernos y versátiles.\n\nTiro alto • Full push up • Elasticado • Calce perfecto ✨",
+  "tallas": [],
+  "etiqueta": "",
+  "orden": 1000,
+  "agotado": false,
+  "visible": true
+}
