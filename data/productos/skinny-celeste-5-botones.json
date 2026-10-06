@@ -9,8 +9,15 @@
     "/img/productos/IMG_1487.webp"
   ],
   "descripcion": "Skinny Celeste 5 Botones 🩵\nJeans skinny en tono celeste con 5 botones frontales que estilizan y definen la cintura. Su diseño ajustado realza la silueta y los pequeños detalles desgastados le dan un toque moderno.\n\nTiro alto • 5 botones • Full push up • Elasticado • Calce perfecto ✨",
-  "tallas": [],
-  "etiqueta": "",
+  "tallas": [
+    "36",
+    "38",
+    "40",
+    "42",
+    "44",
+    "46"
+  ],
+  "etiqueta": "Comprime abdomen",
   "orden": 1000,
   "agotado": false,
   "visible": true
