@@ -1,0 +1,21 @@
+{
+  "nombre": "Skinny Clásico Negro",
+  "precio": 27990,
+  "foto": "/img/productos/IMG_0025.webp",
+  "fotos": [
+    "/img/productos/IMG_0027.webp",
+    "/img/productos/IMG_0029.webp"
+  ],
+  "descripcion": "Skinny Negro Liso 🖤\n\nSkinny negro liso\nTiro alto • Full push up • Elasticado • Calce perfecto\n\nUn básico infaltable que estiliza la silueta y combina con todo. 🖤",
+  "tallas": [
+    "36",
+    "38",
+    "40",
+    "42",
+    "44"
+  ],
+  "etiqueta": "",
+  "orden": 1000,
+  "agotado": false,
+  "visible": true
+}
