@@ -1,13 +1,20 @@
 {
-  "nombre": "Skinny gravillado trenzado BLU",
+  "nombre": "Flare Jeans Celeste Prelavado (36 a 46)",
   "precio": 32990,
-  "foto": "/img/productos/skinny-blu-1.jpg",
+  "foto": "/img/productos/IMG_1168.webp",
   "fotos": [
-    "/img/productos/skinny-blu-2.jpg"
+    "/img/productos/IMG_1167.webp",
+    "/img/productos/IMG_1169.webp",
+    "/img/productos/IMG_1170.webp"
   ],
-  "descripcion": "Skinny gris gravillado con detalle trenzado. El calce favorito de nuestras clientas.",
+  "descripcion": "Flare Celeste Prelavado\nJeans flare en tono celeste prelavado, tiro alto y calce favorecedor. Un básico versátil que estiliza la silueta y combina perfecto con cualquier look. ✨",
   "tallas": [
-    "38"
+    "36",
+    "38",
+    "40",
+    "42",
+    "44",
+    "46"
   ],
   "etiqueta": "",
   "orden": 60,
