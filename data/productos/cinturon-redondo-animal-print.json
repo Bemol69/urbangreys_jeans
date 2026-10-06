@@ -1,9 +1,14 @@
 {
-  "nombre": "Cinturón redondo animal print",
-  "precio": 12990,
-  "foto": "/img/productos/cinturon-animal-print.jpg",
-  "fotos": [],
-  "descripcion": "Cinturón de discos animal print con hebilla redonda dorada. El toque statement para tus jeans.",
+  "nombre": "Flare Jeans Grafito (36 a 46)",
+  "precio": 24990,
+  "foto": "/img/productos/IMG_1160.webp",
+  "fotos": [
+    "/img/productos/IMG_1159.webp",
+    "/img/productos/IMG_1158.webp",
+    "/img/productos/IMG_1155.webp",
+    "/img/productos/IMG_1156.webp"
+  ],
+  "descripcion": "Flare Gris Grafito Full Push Up 🖤\nTiro alto, calce favorecedor y efecto full push up que realza la silueta. Su tono gris grafito lo convierte en un básico fácil de combinar, mientras su corte flare estiliza visualmente las piernas.\n\nTiro alto • Full push up • Elasticado • Calce perfecto ✨",
   "tallas": [],
   "etiqueta": "",
   "orden": 70,
