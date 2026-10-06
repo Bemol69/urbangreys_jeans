@@ -1,0 +1,24 @@
+{
+  "nombre": "Flare Jeans Tapete Gris (34 a 44)",
+  "precio": 32990,
+  "foto": "/img/productos/IMG_0545.webp",
+  "fotos": [
+    "/img/productos/IMG_0548.webp",
+    "/img/productos/IMG_0544.webp",
+    "/img/productos/IMG_0546.webp",
+    "/img/productos/IMG_0547.webp"
+  ],
+  "descripcion": "🔥 FLARE JEANS GRIS OSCURO 🔥\n\nEl flare que realza la silueta y hace que tu look se vea increíble 🖤\n\n✨ Tiro alto\n✨ Corte flare que estiliza las piernas\n✨ Gris oscuro, elegante y fácil de combinar\n✨ Bolsillos traseros que realzan visualmente la figura\n✨ Calce femenino y favorecedor\n\n🖤 Si buscas un jeans que marque la diferencia, este es.",
+  "tallas": [
+    "34",
+    "36",
+    "38",
+    "40",
+    "42",
+    "44"
+  ],
+  "etiqueta": "Último en tendencia 🔥",
+  "orden": 300,
+  "agotado": false,
+  "visible": true
+}
