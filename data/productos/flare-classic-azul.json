@@ -1,0 +1,15 @@
+{
+  "nombre": "Flare Classic Azul",
+  "precio": 32990,
+  "foto": "/img/productos/IMG_0291.webp",
+  "fotos": [
+    "/img/productos/IMG_0293.webp",
+    "/img/productos/IMG_0292.webp"
+  ],
+  "descripcion": "Flare Jeans Clásico 💙\n\nJeans flare de tiro alto, con calce que estiliza la figura y pierna acampanada que alarga visualmente. Un clásico versátil, cómodo y perfecto para combinar con tus looks favoritos. ✨\n\nTiro alto • Calce favorecedor • Pierna flare • Efecto estilizado",
+  "tallas": [],
+  "etiqueta": "",
+  "orden": 1000,
+  "agotado": false,
+  "visible": true
+}
