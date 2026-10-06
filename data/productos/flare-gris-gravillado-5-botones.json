@@ -1,0 +1,21 @@
+{
+  "nombre": "Flare Gris Gravillado 5 Botones",
+  "precio": 24990,
+  "foto": "/img/productos/IMG_0489.webp",
+  "fotos": [
+    "/img/productos/IMG_0490.webp",
+    "/img/productos/IMG_0488.webp",
+    "/img/productos/IMG_0491.webp"
+  ],
+  "descripcion": "🔥 FLARE JEANS GRIS GRAVILLADO 🔥\n\nEl flare que marca la cintura, realza la silueta y estiliza las piernas 😍\n\n✨ Tiro alto\n✨ Diseño de varios botones\n✨ Gris nevado con efecto lavado\n✨ Bolsillos traseros que realzan la figura\n✨ Corte flare full tendencia\n\n🤍 De esos jeans que te pones y el outfit queda listo.",
+  "tallas": [
+    "36",
+    "38",
+    "42",
+    "46"
+  ],
+  "etiqueta": "",
+  "orden": 135,
+  "agotado": false,
+  "visible": true
+}
