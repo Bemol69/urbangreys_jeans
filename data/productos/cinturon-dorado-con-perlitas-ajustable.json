@@ -1,11 +1,23 @@
 {
-  "nombre": "Cinturón dorado con perlitas ajustable",
-  "precio": 12990,
-  "foto": "/img/productos/cinturon-perlitas.jpg",
-  "fotos": [],
-  "descripcion": "Cadena dorada de medallones con perlas, ajustable a tu cintura.",
-  "tallas": [],
-  "etiqueta": "",
+  "nombre": "Flare Gris Nevado (36 a 46)",
+  "precio": 24990,
+  "foto": "/img/productos/IMG_1559.webp",
+  "fotos": [
+    "/img/productos/IMG_1560.webp",
+    "/img/productos/IMG_1561.webp",
+    "/img/productos/IMG_1564.webp",
+    "/img/productos/IMG_1565.webp"
+  ],
+  "descripcion": "Flare Gris Nevado 🩶\nJeans flare en tono gris nevado con efecto lavado, tiro alto y calce que estiliza la silueta. Su diseño es versátil y perfecto para darle un toque moderno a cualquier look.\n\nTiro alto • Full push up • Elasticado • Calce perfecto ✨",
+  "tallas": [
+    "36",
+    "38",
+    "40",
+    "42",
+    "44",
+    "46"
+  ],
+  "etiqueta": "Últimas Tallas",
   "orden": 80,
   "agotado": false,
   "visible": true
