@@ -560,7 +560,8 @@ async function loadProducts() {
       };
     });
     const jeans = PRODUCTS.filter((p) => p.sizes.length && p.price > 0);
-    if (jeans.length) $('#heroFrom').textContent = clp(Math.min(...jeans.map((p) => p.price)));
+    // el precio del parche lo manda /admin → Ajustes; si está vacío, se calcula con el jeans más barato
+    if (jeans.length && !TIENDA.precio_desde) $('#heroFrom').textContent = clp(Math.min(...jeans.map((p) => p.price)));
   } catch (e) {
     console.error(e);
     return; // conserva el HTML que ya escribió el build

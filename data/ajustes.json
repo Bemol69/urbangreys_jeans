@@ -6,5 +6,6 @@
     "Chilexpress",
     "Blue Express"
   ],
-  "tarjeta_envios": true
+  "tarjeta_envios": true,
+  "precio_desde": 19990
 }

@@ -150,7 +150,13 @@ const esc = (s) => String(s ?? '').replace(/[&<>"]/g, (c) => ({ '&': '&amp;', '<
 const clp = (n) => '$' + String(n).replace(/\B(?=(\d{3})+(?!\d))/g, '.');
 const abs = (path) => `${SITE}/${String(path).replace(/^\//, '')}`;
 
+// Precio del parche de la portada: el que se escribe en /admin → Ajustes, o el jeans más barato del catálogo
+const precioManual = Math.round(Number(ajustes.precio_desde) || 0);
+const preciosJeans = productos.filter((p) => p.tallas.length && p.precio > 0).map((p) => p.precio);
+const precioDesde = precioManual > 0 ? precioManual : preciosJeans.length ? Math.min(...preciosJeans) : 0;
+
 const VARS = {
+  HERO_DESDE: precioDesde ? clp(precioDesde) : '',
   WHATSAPP_VISIBLE: WA_VISIBLE,
   INSTAGRAM: T.instagram,
   FLYER: F.imagen, FLYER_POPUP: F.popup, FLYER_TITULO: F.titulo, FLYER_TEXTO: F.descripcion,
@@ -160,7 +166,7 @@ const VARS = {
   FRANJA1_SEG: String(F1.segundos), FRANJA2_SEG: String(F2.segundos),
   ENTREGAS: entregas.length ? '1' : '',
   // Solo lo que necesita el navegador (app.js)
-  TIENDA_JSON: JSON.stringify({ whatsapp: T.whatsapp, empresas_envio: T.empresas_envio, tarjeta_envios: T.tarjeta_envios }),
+  TIENDA_JSON: JSON.stringify({ whatsapp: T.whatsapp, empresas_envio: T.empresas_envio, tarjeta_envios: T.tarjeta_envios, precio_desde: precioManual > 0 }),
 };
 
 // Bloques opcionales: <!-- SI:CLAVE --> ... <!-- /SI:CLAVE --> se eliminan si CLAVE está vacía

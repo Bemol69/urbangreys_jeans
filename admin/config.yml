@@ -203,6 +203,13 @@ collections:
             widget: boolean
             default: true
             hint: "Apágalo si en los envíos solo recibes transferencia (por ejemplo, si no tienes link de pago). En la tienda siempre se puede pagar con tarjeta."
+          - name: precio_desde
+            label: Precio «desde» de la portada
+            widget: number
+            value_type: int
+            min: 0
+            required: false
+            hint: "El precio del parche dorado de la portada (Urban Greys · desde $...). Solo números, ej: 19990. Déjalo vacío para que se calcule solo con el jeans más barato del catálogo. Ojo: si pones un precio menor al de tus jeans, la clienta puede exigirlo."
 
   # ---------- FLYER, FRANJAS Y ENTREGAS ----------
   - name: inicio
