@@ -1,18 +1,23 @@
 {
   "nombre": "Cargo arena",
   "precio": 29990,
-  "foto": "/img/productos/cargo-arena-1.jpg",
+  "foto": "/img/productos/IMG_1216.webp",
   "fotos": [
-    "/img/productos/cargo-arena-2.jpg"
+    "/img/productos/IMG_1218.webp",
+    "/img/productos/IMG_1217.webp",
+    "/img/productos/IMG_1219.webp"
   ],
-  "descripcion": "Cargo tiro alto en tono arena, con bolsillos laterales funcionales y un calce que estiliza.",
+  "descripcion": "Falda Short Cargo Roma\nCargo • Bolsillos funcionales • Tiro alto • Full tendencia • Calce cómodo\nUn diseño moderno y versátil, perfecto para crear looks casuales y urbanos. 🔥",
   "tallas": [
     "36",
+    "38",
+    "40",
     "42",
-    "44"
+    "44",
+    "46"
   ],
-  "etiqueta": "Tendencia",
-  "orden": 10,
+  "etiqueta": "Nuevo en tendencia 💣",
+  "orden": 5,
   "agotado": true,
-  "visible": false
+  "visible": true
 }
