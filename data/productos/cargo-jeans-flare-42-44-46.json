@@ -1,0 +1,20 @@
+{
+  "nombre": "Cargo Jeans Flare (42 44 46)",
+  "precio": 24990,
+  "foto": "/img/productos/IMG_0914.webp",
+  "fotos": [
+    "/img/productos/IMG_0918.webp",
+    "/img/productos/IMG_0915.webp",
+    "/img/productos/IMG_0917.webp"
+  ],
+  "descripcion": "🔥 FLARE CARGO | FULL TENDENCIA 🔥\n\nEl modelo que está marcando tendencia y que necesitas en tu clóset 🤩\n\n✨ Corte flare\n✨ Estilo cargo\n✨ Bolsillos funcionales\n✨ Tiro alto\n✨ Calce favorecedor\n✨ Diseño moderno y diferente\n\nUn solo jeans para darle ese toque street y trendy a tus looks. 🖤",
+  "tallas": [
+    "42",
+    "44",
+    "46"
+  ],
+  "etiqueta": "Últimas Unidades",
+  "orden": 908,
+  "agotado": false,
+  "visible": true
+}
