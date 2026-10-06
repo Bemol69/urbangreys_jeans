@@ -1,10 +1,12 @@
 {
-  "nombre": "Falda shorts cargo (36 a 46)",
+  "nombre": "FALDA SHORTS CARGO (36 a 46)",
   "precio": 24990,
   "foto": "/img/productos/IMG_1216.webp",
   "fotos": [
     "/img/productos/IMG_1229.webp",
-    "/img/productos/IMG_1228.webp"
+    "/img/productos/IMG_1228.webp",
+    "/img/productos/IMG_1230.webp",
+    "/img/productos/IMG_1231.webp"
   ],
   "descripcion": "🩵 Falda short celeste | Full tendencia\n\nDiseño femenino y versátil, perfecta para combinar con tus tops favoritos. ✨\nEl toque trendy que tu clóset necesitaba.",
   "tallas": [
@@ -16,7 +18,7 @@
     "46"
   ],
   "etiqueta": "Nuevo ingreso",
-  "orden": 1,
+  "orden": 2,
   "agotado": false,
   "visible": true
 }
