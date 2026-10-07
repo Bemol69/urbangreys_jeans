@@ -1,0 +1,19 @@
+{
+  "nombre": "Flare Cargo Gris Gravillado",
+  "precio": 29990,
+  "foto": "/img/productos/IMG_9537.webp",
+  "fotos": [
+    "/img/productos/IMG_9535.webp",
+    "/img/productos/IMG_9534.webp",
+    "/img/productos/IMG_9539.webp"
+  ],
+  "descripcion": "Cargo Jeans Gris \nTiro alto, calce cómodo y múltiples bolsillos funcionales que le dan ese toque cargo en tendencia. Un modelo versátil y perfecto para un look urbano y moderno. ✨",
+  "tallas": [
+    "S",
+    "M"
+  ],
+  "etiqueta": "",
+  "orden": 1000,
+  "agotado": false,
+  "visible": true
+}
