@@ -1,0 +1,19 @@
+{
+  "nombre": "Skinny Arena Trenzado",
+  "precio": 32990,
+  "foto": "/img/productos/IMG_5108.webp",
+  "fotos": [
+    "/img/productos/IMG_5111.webp",
+    "/img/productos/IMG_5112.webp"
+  ],
+  "descripcion": "Skinny beige con cordones laterales 🤍\n\nJeans skinny de tiro alto, con calce ajustado y elasticado que se adapta cómodamente a la figura. Destaca por sus detalles de cordones laterales con ojales metálicos y bolsillos traseros que aportan un toque moderno y femenino.\n\n✨ Tiro alto | Elasticado | Calce skinny | Cordones laterales | Bolsillos traseros",
+  "tallas": [
+    "36",
+    "42",
+    "44"
+  ],
+  "etiqueta": "",
+  "orden": 1000,
+  "agotado": false,
+  "visible": true
+}
