@@ -1,8 +1,15 @@
 {
   "nombre": "Jeans pitillos",
   "productos": [
-    "skinny-azul-brillos",
-    "skinny-gravillado-trenzado-blu"
+    "skinny-cargo-negro",
+    "skinny-bruselas-36-a-46",
+    "skinny-celeste-5-botones",
+    "skinny-clasico-negro",
+    "skinny-destroyed-mezclilla-34-a-46",
+    "skinny-doble-costura-36-a-46",
+    "skinny-negro-roturas-34-a-46",
+    "skinny-pacifico",
+    "skinny-roma-gris-destroyed-34-a-46"
   ],
   "orden": 10,
   "visible": true
