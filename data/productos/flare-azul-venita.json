@@ -1,0 +1,20 @@
+{
+  "nombre": "Flare Azul Venita",
+  "precio": 24990,
+  "foto": "/img/productos/IMG_8677.webp",
+  "fotos": [
+    "/img/productos/IMG_8678.webp",
+    "/img/productos/IMG_8675.webp",
+    "/img/productos/IMG_8674.webp"
+  ],
+  "descripcion": "Flare Azul Oscuro 💙\n\n* Tiro alto\n* Calce ajustado en cadera y muslos\n* Pierna flare/acampanada\n* Tela elasticada y cómoda\n* Bolsillos traseros con tapa y detalle de botón\n* Costuras en contraste que estilizan\n* Diseño que realza la silueta\n* Color azul oscuro, fácil de combinar",
+  "tallas": [
+    "38",
+    "44",
+    "46"
+  ],
+  "etiqueta": "",
+  "orden": 1000,
+  "agotado": false,
+  "visible": true
+}
