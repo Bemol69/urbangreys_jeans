@@ -1,0 +1,21 @@
+{
+  "nombre": "Wide Leg Brillos Negro",
+  "precio": 32990,
+  "foto": "/img/productos/4ceae99b-d4f6-4f88-b931-f6b6898e6efd.webp",
+  "fotos": [
+    "/img/productos/2d714ada-9b1e-4dfc-b3f2-fcc0119cad4f.webp",
+    "/img/productos/bc8ad556-fc51-45b4-8bce-1af45e28938e.webp",
+    "/img/productos/1e6319c9-9766-4cee-b810-10ff952d2e79.webp"
+  ],
+  "descripcion": "Wide Leg Negro con Brillos ✨🖤\n\n* Tiro alto\n* Calce amplio tipo wide leg\n* Tela elasticada y cómoda\n* Aplicaciones de brillos en los laterales que destacan y aportan un toque glam ✨\n* Bolsillos traseros\n* Diseño moderno y llamativo\n* Color negro fácil de combinar",
+  "tallas": [
+    "38",
+    "40",
+    "42",
+    "44"
+  ],
+  "etiqueta": "",
+  "orden": 1000,
+  "agotado": false,
+  "visible": true
+}
