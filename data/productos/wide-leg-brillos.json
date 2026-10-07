@@ -1,0 +1,16 @@
+{
+  "nombre": "Wide Leg Brillos",
+  "precio": 32990,
+  "foto": "/img/productos/IMG_7771.webp",
+  "fotos": [
+    "/img/productos/IMG_7774.webp",
+    "/img/productos/IMG_7768.webp",
+    "/img/productos/IMG_7773.webp"
+  ],
+  "descripcion": "Flare Celeste con Brillos ✨🩵\n\n* Tiro alto\n* Calce ajustado en cadera y muslos\n* Pierna flare/acampanada\n* Tela elasticada y cómoda\n* Detalle de brillos y pequeños destellos en todo el jeans ✨\n* Bolsillos delanteros y traseros\n* Diseño moderno y femenino\n* Lavado celeste que aporta un look fresco y llamativo",
+  "tallas": [],
+  "etiqueta": "",
+  "orden": 1000,
+  "agotado": false,
+  "visible": true
+}
