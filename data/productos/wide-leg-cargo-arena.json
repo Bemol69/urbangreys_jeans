@@ -1,0 +1,19 @@
+{
+  "nombre": "Wide Leg Cargo Arena",
+  "precio": 29990,
+  "foto": "/img/productos/IMG_5625-1.webp",
+  "fotos": [
+    "/img/productos/IMG_5629.webp",
+    "/img/productos/IMG_5631.webp",
+    "/img/productos/IMG_5628.webp"
+  ],
+  "descripcion": "Cargo Wide Leg 🤍\nTiro alto, calce cómodo y múltiples bolsillos funcionales que le dan ese toque cargo en tendencia. Su corte wide leg estiliza la silueta y aporta un look moderno y versátil. ✨",
+  "tallas": [
+    "36",
+    "44"
+  ],
+  "etiqueta": "",
+  "orden": 1000,
+  "agotado": false,
+  "visible": true
+}
