@@ -1,0 +1,20 @@
+{
+  "nombre": "Skinny Brillos Azul",
+  "precio": 29990,
+  "foto": "/img/productos/IMG_5619-1.webp",
+  "fotos": [
+    "/img/productos/IMG_5615.webp",
+    "/img/productos/IMG_5623-1.webp",
+    "/img/productos/IMG_5622-1.webp"
+  ],
+  "descripcion": "Skinny Jeans Brillos Azul 💙✨\nTiro alto, calce perfecto y un sutil efecto brillante que le da un toque moderno y llamativo. Ideal para destacar la silueta con un look diferente.",
+  "tallas": [
+    "38",
+    "40",
+    "42"
+  ],
+  "etiqueta": "",
+  "orden": 1000,
+  "agotado": false,
+  "visible": true
+}
