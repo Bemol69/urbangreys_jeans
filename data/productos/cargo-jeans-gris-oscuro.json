@@ -1,0 +1,19 @@
+{
+  "nombre": "Cargo Jeans Gris Oscuro",
+  "precio": 39990,
+  "foto": "/img/productos/IMG_3676.webp",
+  "fotos": [
+    "/img/productos/IMG_3678.webp",
+    "/img/productos/IMG_3680.webp",
+    "/img/productos/IMG_3677.webp"
+  ],
+  "descripcion": "MultiCargo Gris Oscuro 🩶\n\n* Tiro alto\n* Calce amplio tipo wide leg\n* Múltiples bolsillos cargo funcionales\n* Bolsillos con tapas y cierres\n* Detalles de tiras ajustables\n* Lavado gris oscuro con efecto desgastado\n* Diseño urbano y moderno\n* Ideal para un look casual y full tendencia",
+  "tallas": [
+    "40",
+    "42"
+  ],
+  "etiqueta": "",
+  "orden": 1000,
+  "agotado": false,
+  "visible": true
+}
