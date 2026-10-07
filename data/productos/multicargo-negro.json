@@ -1,0 +1,19 @@
+{
+  "nombre": "Multicargo Negro",
+  "precio": 39990,
+  "foto": "/img/productos/IMG_5618.webp",
+  "fotos": [
+    "/img/productos/IMG_5619.webp",
+    "/img/productos/IMG_5621.webp",
+    "/img/productos/IMG_5620.webp"
+  ],
+  "descripcion": "Cargo Jeans – Full Tendencia 🖤🩶\n\nJeans cargo de tiro alto, con múltiples bolsillos funcionales y un diseño moderno que marca tendencia. Su calce cómodo y estilo urbano los convierte en una opción perfecta para looks con personalidad.\n\n✨ Tiro alto | Bolsillos cargo | Diseño urbano | Calce cómodo | Full tendencia",
+  "tallas": [
+    "40",
+    "44"
+  ],
+  "etiqueta": "",
+  "orden": 1000,
+  "agotado": false,
+  "visible": true
+}
