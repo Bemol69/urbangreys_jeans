@@ -1,0 +1,18 @@
+{
+  "nombre": "Flare Cargo Azul",
+  "precio": 34990,
+  "foto": "/img/productos/IMG_5172.webp",
+  "fotos": [
+    "/img/productos/IMG_5173.webp",
+    "/img/productos/IMG_5177.webp",
+    "/img/productos/IMG_5175.webp"
+  ],
+  "descripcion": "Flare Cargo Azul 💙\nTiro alto, full push up y calce que realza la silueta. Su diseño cargo con bolsillos funcionales y corte flare le da un look moderno y en tendencia. ✨",
+  "tallas": [
+    "38"
+  ],
+  "etiqueta": "",
+  "orden": 1000,
+  "agotado": false,
+  "visible": true
+}
