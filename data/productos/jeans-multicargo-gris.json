@@ -1,0 +1,18 @@
+{
+  "nombre": "Jeans MultiCargo Gris",
+  "precio": 39990,
+  "foto": "/img/productos/IMG_7787.webp",
+  "fotos": [
+    "/img/productos/IMG_7786.webp",
+    "/img/productos/IMG_7782.webp",
+    "/img/productos/IMG_7783.webp"
+  ],
+  "descripcion": "MultiCargo Gris Claro 🤍\n\n* Tiro alto\n* Calce recto y cómodo\n* Múltiples bolsillos cargo funcionales\n* Bolsillos con tapas y botones\n* Detalles de tiras ajustables en los bolsillos\n* Lavado gris claro con efecto desgastado\n* Diseño urbano y moderno\n* Ideal para un look casual y trendy",
+  "tallas": [
+    "38"
+  ],
+  "etiqueta": "",
+  "orden": 1000,
+  "agotado": false,
+  "visible": true
+}
