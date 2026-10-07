@@ -7,8 +7,12 @@
     "/img/productos/IMG_9222.webp",
     "/img/productos/IMG_9221.webp"
   ],
-  "descripcion": "",
-  "tallas": [],
+  "descripcion": "👖 Flare jeans con tiro alto y calce que estiliza la figura. Su diseño realza la silueta y aporta un hermoso efecto full push up. ✨\n\nPerfectos para combinar con tus looks favoritos y lucir increíble .",
+  "tallas": [
+    "34",
+    "42",
+    "44"
+  ],
   "etiqueta": "",
   "orden": 1000,
   "agotado": false,
