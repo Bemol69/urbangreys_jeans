@@ -1,0 +1,21 @@
+{
+  "nombre": "Flare Star",
+  "precio": 36990,
+  "foto": "/img/productos/IMG_9254.webp",
+  "fotos": [
+    "/img/productos/IMG_9253.webp",
+    "/img/productos/IMG_9252.webp",
+    "/img/productos/IMG_9256.webp"
+  ],
+  "descripcion": "Flare Gris Star 🩶\n\nJeans flare de tiro alto, con efecto lavado y diseño de costuras que estiliza la figura. Su calce ajustado en cadera y pierna, junto a la basta acampanada, crea una silueta alargada y favorecedora.\n\n✨ Tiro alto | Full push up | Elasticado | Efecto lavado | Costuras decorativas | Calce flare",
+  "tallas": [
+    "34",
+    "36",
+    "40",
+    "42"
+  ],
+  "etiqueta": "",
+  "orden": 1000,
+  "agotado": false,
+  "visible": true
+}
