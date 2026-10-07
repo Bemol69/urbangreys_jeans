@@ -1,9 +1,10 @@
 {
   "nombre": "Jeans cargo",
-  "orden": 30,
   "productos": [
-    "cargo-arena",
-    "cargo-azul-claro-dirty"
+    "cargo-jeans-flare-42-44-46",
+    "flare-multicargo-celeste-36-a-46",
+    "skinny-cargo-negro"
   ],
+  "orden": 30,
   "visible": true
 }
