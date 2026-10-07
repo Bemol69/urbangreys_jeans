@@ -1,0 +1,19 @@
+{
+  "nombre": "Skinny 5 Botones",
+  "precio": 32990,
+  "foto": "/img/productos/IMG_5653.webp",
+  "fotos": [
+    "/img/productos/IMG_5647.webp",
+    "/img/productos/IMG_5648.webp",
+    "/img/productos/IMG_5652.webp",
+    "/img/productos/IMG_5654.webp"
+  ],
+  "descripcion": "Skinny Jeans de Botones ✨\nTiro alto, calce perfecto y diseño de 5 botones que estiliza la cintura y define la silueta. Su efecto nevado le da un toque moderno y versátil. 🤍🖤",
+  "tallas": [
+    "36"
+  ],
+  "etiqueta": "",
+  "orden": 1000,
+  "agotado": false,
+  "visible": true
+}
