@@ -1,0 +1,20 @@
+{
+  "nombre": "Flare cargo Gris Gravi",
+  "precio": 24990,
+  "foto": "/img/productos/IMG_0890.webp",
+  "fotos": [
+    "/img/productos/IMG_0891.webp",
+    "/img/productos/IMG_0896.webp",
+    "/img/productos/IMG_0892.webp"
+  ],
+  "descripcion": "Cargo Flare Gris 🩶\nJeans de tiro alto con calce ajustado en cadera y pierna acampanada. Destaca por sus múltiples bolsillos cargo funcionales y detalles de hebillas, que le dan un estilo moderno y urbano. Con un lavado gris que aporta un toque trendy y versátil.",
+  "tallas": [
+    "42",
+    "44",
+    "46"
+  ],
+  "etiqueta": "",
+  "orden": 1000,
+  "agotado": false,
+  "visible": true
+}
