@@ -496,3 +496,21 @@ form input[type="text"]:focus { outline: 0; border-color: var(--teal); box-shado
   .reel { scroll-snap-align: center; }
   .card__more { right: 14px; bottom: 14px; }
 }
+
+/* ===== Ofertas (sello rojo y precio tachado) ===== */
+:root { --sale: #E5262E; --sale-d: #B5161D; }
+.sale { position: absolute; z-index: 3; top: 12px; right: 12px; display: grid; place-items: center; width: 74px; height: 74px; padding: 6px; text-align: center;
+  background: radial-gradient(circle at 35% 30%, #FF5A5F, var(--sale) 55%, var(--sale-d)); color: #fff;
+  font: 700 17px/1 var(--sans); letter-spacing: -.01em; text-transform: uppercase; text-shadow: 0 1px 2px rgba(0, 0, 0, .25);
+  clip-path: polygon(50.0% 0.0%, 56.7% 7.5%, 65.5% 2.4%, 69.5% 11.7%, 79.4% 9.5%, 80.4% 19.6%, 90.5% 20.6%, 88.3% 30.5%, 97.6% 34.5%, 92.5% 43.3%, 100.0% 50.0%, 92.5% 56.7%, 97.6% 65.5%, 88.3% 69.5%, 90.5% 79.4%, 80.4% 80.4%, 79.4% 90.5%, 69.5% 88.3%, 65.5% 97.6%, 56.7% 92.5%, 50.0% 100.0%, 43.3% 92.5%, 34.5% 97.6%, 30.5% 88.3%, 20.6% 90.5%, 19.6% 80.4%, 9.5% 79.4%, 11.7% 69.5%, 2.4% 65.5%, 7.5% 56.7%, 0.0% 50.0%, 7.5% 43.3%, 2.4% 34.5%, 11.7% 30.5%, 9.5% 20.6%, 19.6% 19.6%, 20.6% 9.5%, 30.5% 11.7%, 34.5% 2.4%, 43.3% 7.5%); transform: rotate(-10deg); filter: drop-shadow(0 4px 6px rgba(0, 0, 0, .25)); }
+.price--sale { display: flex; flex-direction: column; line-height: 1; color: var(--sale-d); }
+.price--sale del { font-family: var(--sans); font-size: 14px; font-weight: 500; color: var(--grey); margin-bottom: 3px; }
+.pm__price .price--sale { flex-direction: row; align-items: baseline; gap: 12px; font-size: inherit; }
+.pm__price .price--sale del { font-size: .55em; margin: 0; }
+.pm__offer { display: inline-block; margin-left: 10px; padding: 4px 10px; border-radius: 999px; background: var(--sale); color: #fff; font: 700 12px/1.2 var(--sans); letter-spacing: .04em; text-transform: uppercase; vertical-align: middle; }
+.bag-item small del { color: var(--grey); }
+.tag-sale { display: inline-block; margin-top: 4px; padding: 3px 7px; border-radius: 6px; background: #FDE3E4; color: var(--sale-d); font-size: 10.5px; font-weight: 700; letter-spacing: .05em; text-transform: uppercase; }
+@media (max-width: 600px) {
+  .sale { width: 58px; height: 58px; font-size: 13px; top: 8px; right: 8px; }
+  .price--sale del { font-size: 12px; }
+}

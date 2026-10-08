@@ -175,6 +175,92 @@ collections:
         default: true
         hint: "Desactívalo para ocultar el producto sin borrarlo."
 
+  # ---------- OFERTAS ----------
+  - name: ofertas
+    label: Ofertas
+    label_singular: oferta
+    description: "Pon un descuento a muchos productos de una vez: elige una categoría completa o marca los productos en la lista (puedes marcar varios seguidos). En la web aparece el sello rojo «30% OFF» y el precio antiguo tachado. La oferta se activa y se apaga sola en sus fechas."
+    icon: local_offer
+    folder: data/ofertas
+    format: json
+    create: true
+    delete: true
+    identifier_field: titulo
+    slug: "{{titulo}}"
+    summary: "{{titulo}} · {{valor}} · {{activo}}"
+    sortable_fields:
+      fields: [titulo, hasta]
+    fields:
+      - name: titulo
+        label: Nombre de la oferta
+        widget: string
+        hint: "Para que tú la reconozcas. Ej: Cyber Flare, Liquidación invierno."
+
+      - name: tipo
+        label: Tipo de descuento
+        widget: select
+        options:
+          - { label: "Porcentaje (%)", value: porcentaje }
+          - { label: "Precio fijo de oferta ($)", value: precio }
+        default: porcentaje
+
+      - name: valor
+        label: Descuento
+        widget: number
+        value_type: int
+        min: 1
+        hint: "Solo el número. Porcentaje: 30 = 30% menos (el precio se redondea a la decena, ej: $24.990 → $17.490). Precio fijo: 19990 = todos los productos elegidos quedan a $19.990."
+
+      - name: categorias
+        label: Categorías completas
+        widget: relation
+        collection: categorias
+        value_field: "{{slug}}"
+        search_fields: [nombre]
+        display_fields: [nombre]
+        multiple: true
+        required: false
+        hint: "Lo más rápido: elige una categoría y la oferta aplica a todos sus productos (también a los que agregues después)."
+
+      - name: productos
+        label: Productos sueltos
+        widget: relation
+        collection: productos
+        value_field: "{{slug}}"
+        search_fields: [nombre]
+        display_fields: ["{{nombre}} · ${{precio}}"]
+        multiple: true
+        required: false
+        hint: "Abre la lista y marca todos los que quieras; se quedan marcados mientras sigues eligiendo. Se suman a las categorías de arriba."
+
+      - name: etiqueta
+        label: Texto del sello (opcional)
+        widget: string
+        required: false
+        hint: "Vacío = muestra el descuento, ej: «30% OFF». Puedes poner algo corto, máx. 14 letras: CYBER, 2X1, LIQUIDACIÓN."
+
+      - name: desde
+        label: Empieza el
+        widget: datetime
+        format: "YYYY-MM-DD"
+        time_format: false
+        required: false
+        hint: "Opcional. Vacío = empieza apenas guardes."
+
+      - name: hasta
+        label: Termina el
+        widget: datetime
+        format: "YYYY-MM-DD"
+        time_format: false
+        required: false
+        hint: "Opcional. La oferta se quita sola al terminar ese día. Vacío = sigue hasta que la apagues."
+
+      - name: activo
+        label: Activa
+        widget: boolean
+        default: true
+        hint: "Apágala para pausar la oferta sin borrarla."
+
   # ---------- AJUSTES ----------
   - name: ajustes
     label: Ajustes de la tienda

@@ -138,12 +138,60 @@ const categorias = readFolder('categorias')
   .sort(byOrder)
   .map(({ orden, ...c }) => c);
 
+
+// ---------- Ofertas (data/ofertas, editables en /admin) ----------
+// Precio con descuento: los % se redondean a la decena (24.990 - 30% = 17.490). Si un producto está
+// en varias ofertas vigentes, gana la que deja el precio más bajo.
+const precioOferta = (base, o) => (o.tipo === 'precio' ? Math.min(base, o.valor) : Math.round((base * (100 - o.valor)) / 1000) * 10);
+const ofertaVigente = (o, hoy) => (!o.desde || o.desde <= hoy) && (!o.hasta || o.hasta >= hoy);
+function mejorOferta(id, base, ofertas, hoy) {
+  let mejor = null;
+  for (const o of ofertas) {
+    if (!base || !o.productos.includes(id) || !ofertaVigente(o, hoy)) continue;
+    const precio = precioOferta(base, o);
+    if (precio < base && (!mejor || precio < mejor.precio)) mejor = { precio, o };
+  }
+  if (!mejor) return null;
+  const pct = Math.round((1 - mejor.precio / base) * 100);
+  return { precio: mejor.precio, pct, sello: mejor.o.etiqueta || (pct >= 1 ? `${pct}% OFF` : 'Oferta'), titulo: mejor.o.titulo, hasta: mejor.o.hasta };
+}
+
+const hoyCL = new Date().toLocaleDateString('en-CA', { timeZone: 'America/Santiago' }); // AAAA-MM-DD
+const fecha = (v) => (/^\d{4}-\d{2}-\d{2}/.test(str(v)) ? str(v).slice(0, 10) : '');
+const productosDeCat = Object.fromEntries(categorias.map((c) => [c.id, c.productos]));
+const ofertas = readFolder('ofertas')
+  .filter((o) => o.activo !== false)
+  .map((o) => {
+    const tipo = o.tipo === 'precio' ? 'precio' : 'porcentaje';
+    const valor = Math.max(0, Math.round(num(o.valor, 0)));
+    const cats = Array.isArray(o.categorias) ? o.categorias : [];
+    const prods = Array.isArray(o.productos) ? o.productos : [];
+    return {
+      titulo: str(o.titulo) || 'Oferta',
+      tipo,
+      valor: tipo === 'porcentaje' ? Math.min(90, valor) : valor,
+      etiqueta: str(o.etiqueta).slice(0, 14),
+      desde: fecha(o.desde),
+      hasta: fecha(o.hasta),
+      productos: [...new Set([...cats.flatMap((id) => productosDeCat[id] || []), ...prods])].filter((id) => ids.has(id)),
+    };
+  })
+  .filter((o) => {
+    if (!o.valor) return console.warn(`⚠️  Oferta «${o.titulo}» sin descuento: se omitió`), false;
+    if (o.hasta && o.hasta < hoyCL) return console.warn(`ℹ️  Oferta «${o.titulo}» terminó el ${o.hasta}: se omitió`), false;
+    if (!o.productos.length) return console.warn(`⚠️  Oferta «${o.titulo}» no tiene productos visibles: se omitió`), false;
+    return true;
+  });
+// precio de oferta vigente hoy (para el HTML que lee Google; en el navegador app.js lo recalcula con la fecha del día)
+for (const p of productos) p._oferta = mejorOferta(p.id, p.precio, ofertas, hoyCL);
+
 writeFileSync(join(DATA, 'catalogo.json'), JSON.stringify({
   _aviso: 'Archivo generado por scripts/build.mjs. No editar a mano.',
   categorias,
-  productos,
+  productos: productos.map(({ _oferta, ...p }) => p),
+  ofertas,
 }, null, 2) + '\n');
-console.log(`✅ catálogo: ${productos.length} productos, ${categorias.length} categorías`);
+console.log(`✅ catálogo: ${productos.length} productos, ${categorias.length} categorías, ${ofertas.length} ofertas (${productos.filter((p) => p._oferta).length} productos con oferta hoy)`);
 
 // ---------- 3. Marcadores %%CLAVE%% ----------
 const esc = (s) => String(s ?? '').replace(/[&<>"]/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]));
@@ -152,7 +200,7 @@ const abs = (path) => `${SITE}/${String(path).replace(/^\//, '')}`;
 
 // Precio del parche de la portada: el que se escribe en /admin → Ajustes, o el jeans más barato del catálogo
 const precioManual = Math.round(Number(ajustes.precio_desde) || 0);
-const preciosJeans = productos.filter((p) => p.tallas.length && p.precio > 0).map((p) => p.precio);
+const preciosJeans = productos.filter((p) => p.tallas.length && p.precio > 0).map((p) => (p._oferta ? p._oferta.precio : p.precio));
 const precioDesde = precioManual > 0 ? precioManual : preciosJeans.length ? Math.min(...preciosJeans) : 0;
 
 const VARS = {
@@ -191,6 +239,7 @@ function render(text, file, escape) {
 const card = (p) => `
     <article class="card${p.agotado ? ' is-soldout' : ''}">
       <button class="card__img" data-view="${esc(p.id)}" aria-label="Ver ${esc(p.nombre)}">
+        ${p._oferta && !p.agotado ? `<span class="sale" aria-label="${esc(p._oferta.sello)}">${esc(p._oferta.sello).replace(' ', '<br>')}</span>` : ''}
         ${p.agotado ? '<span class="badge badge--soldout">Agotado</span>' : p.etiqueta ? `<span class="badge">${esc(p.etiqueta)}</span>` : ''}
         ${p.fotos.length ? `<span class="card__more">+${p.fotos.length} ${p.fotos.length === 1 ? 'foto' : 'fotos'}</span>` : ''}
         <img src="${esc(p.foto)}" alt="${esc(p.nombre)}" loading="lazy" decoding="async">
@@ -201,7 +250,9 @@ const card = (p) => `
         ${p.descripcion ? `<p class="card__desc">${esc(p.descripcion)}</p>` : ''}
         ${p.tallas.length ? `<ul class="card__sizes" aria-label="Tallas">${p.tallas.map((t) => `<li>${esc(t)}</li>`).join('')}</ul>` : ''}
         <div class="card__foot">
-          <span class="price">${clp(p.precio)}</span>
+          ${p._oferta
+            ? `<span class="price price--sale"><del>${clp(p.precio)}</del>${clp(p._oferta.precio)}</span>`
+            : `<span class="price">${clp(p.precio)}</span>`}
           ${p.agotado
             ? `<a class="btn btn--ghost btn--sm" target="_blank" rel="noopener" href="${esc(waLink(`Hola! ¿Tienen stock de ${p.nombre}? 👖`))}">Consultar stock</a>`
             : `<button class="btn btn--gold btn--sm" data-view="${esc(p.id)}">${p.tallas.length ? 'Elegir talla' : 'Agregar'}</button>`}
@@ -260,7 +311,8 @@ const jsonLd = {
           offers: {
             '@type': 'Offer',
             url: `${SITE}/#catalogo`,
-            price: p.precio,
+            price: p._oferta ? p._oferta.precio : p.precio,
+            priceValidUntil: p._oferta && p._oferta.hasta ? p._oferta.hasta : undefined,
             priceCurrency: 'CLP',
             availability: `https://schema.org/${p.agotado ? 'OutOfStock' : 'InStock'}`,
             seller: { '@id': `${SITE}/#tienda` },

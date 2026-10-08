@@ -30,6 +30,23 @@ const SORTS = {
 };
 const MAX_QTY = 10;
 
+// ---------- Ofertas (data/ofertas, editables en /admin) ----------
+// Precio con descuento: los % se redondean a la decena (24.990 - 30% = 17.490). Si un producto está
+// en varias ofertas vigentes, gana la que deja el precio más bajo.
+const precioOferta = (base, o) => (o.tipo === 'precio' ? Math.min(base, o.valor) : Math.round((base * (100 - o.valor)) / 1000) * 10);
+const ofertaVigente = (o, hoy) => (!o.desde || o.desde <= hoy) && (!o.hasta || o.hasta >= hoy);
+function mejorOferta(id, base, ofertas, hoy) {
+  let mejor = null;
+  for (const o of ofertas) {
+    if (!base || !o.productos.includes(id) || !ofertaVigente(o, hoy)) continue;
+    const precio = precioOferta(base, o);
+    if (precio < base && (!mejor || precio < mejor.precio)) mejor = { precio, o };
+  }
+  if (!mejor) return null;
+  const pct = Math.round((1 - mejor.precio / base) * 100);
+  return { precio: mejor.precio, pct, sello: mejor.o.etiqueta || (pct >= 1 ? `${pct}% OFF` : 'Oferta'), titulo: mejor.o.titulo, hasta: mejor.o.hasta };
+}
+
 // ===== UTILIDADES =====
 const clp = (n) => '$' + n.toLocaleString('es-CL');
 const $ = (s) => document.querySelector(s);
@@ -69,10 +86,17 @@ function renderFilters(active) {
     .join('');
 }
 
+// Precio con el normal tachado cuando hay oferta
+const priceHtml = (p) => (p.oferta
+  ? `<span class="price price--sale"><del>${clp(p.base)}</del>${clp(p.price)}</span>`
+  : `<span class="price">${clp(p.price)}</span>`);
+const fechaCorta = (iso) => iso.split('-').reverse().slice(0, 2).join('-');
+
 // Misma tarjeta que escribe scripts/build.mjs en el HTML (para Google)
 const card = (p) => `
     <article class="card${p.agotado ? ' is-soldout' : ''}">
       <button class="card__img" data-view="${esc(p.id)}" aria-label="Ver ${esc(p.name)}">
+        ${p.oferta && !p.agotado ? `<span class="sale" aria-label="${esc(p.oferta.sello)}">${esc(p.oferta.sello).replace(' ', '<br>')}</span>` : ''}
         ${p.agotado ? '<span class="badge badge--soldout">Agotado</span>' : p.badge ? `<span class="badge">${esc(p.badge)}</span>` : ''}
         ${p.gallery.length > 1 ? `<span class="card__more">+${p.gallery.length - 1} ${p.gallery.length === 2 ? 'foto' : 'fotos'}</span>` : ''}
         <img src="${esc(p.img)}" alt="${esc(p.name)}" loading="lazy" decoding="async">
@@ -83,7 +107,7 @@ const card = (p) => `
         ${p.desc ? `<p class="card__desc">${esc(p.desc)}</p>` : ''}
         ${p.sizes.length ? `<ul class="card__sizes" aria-label="Tallas">${p.sizes.map((t) => `<li>${esc(t)}</li>`).join('')}</ul>` : ''}
         <div class="card__foot">
-          <span class="price">${clp(p.price)}</span>
+          ${priceHtml(p)}
           ${p.agotado
             ? `<a class="btn btn--ghost btn--sm" target="_blank" rel="noopener" href="${esc(waUrl(`Hola! ¿Tienen stock de ${p.name}? 👖`))}">Consultar stock</a>`
             : `<button class="btn btn--gold btn--sm" data-view="${esc(p.id)}">${p.sizes.length ? 'Elegir talla' : 'Agregar'}</button>`}
@@ -179,7 +203,7 @@ function openProduct(id) {
   p.gallery.slice(1).forEach((src) => { new Image().src = src; }); // precarga el resto de la galería
   $('#pmCat').textContent = FILTERS.filter(([k]) => p.tags.includes(k)).map(([, l]) => l).join(' · ');
   $('#pmName').textContent = p.name;
-  $('#pmPrice').textContent = clp(p.price);
+  $('#pmPrice').innerHTML = priceHtml(p) + (p.oferta ? `<span class="pm__offer">${esc(p.oferta.sello)}${p.oferta.hasta ? ` · hasta el ${fechaCorta(p.oferta.hasta)}` : ''}</span>` : '');
   $('#pmDesc').textContent = p.desc;
   $('#pmSizesWrap').hidden = !p.sizes.length;
   $('#pmSizeHint').textContent = p.sizes.length === 1 ? '(única disponible)' : '';
@@ -287,7 +311,8 @@ function renderBag(bump) {
       <img src="${esc(l.p.img)}" alt="">
       <div>
         <h4>${esc(l.p.name)}</h4>
-        <small>${l.size ? `Talla ${esc(l.size)} · ` : ''}${clp(l.p.price)}</small>
+        <small>${l.size ? `Talla ${esc(l.size)} · ` : ''}${l.p.oferta ? `<del>${clp(l.p.base)}</del> ` : ''}${clp(l.p.price)}</small>
+        ${l.p.oferta ? `<span class="tag-sale">${esc(l.p.oferta.sello)}</span>` : ''}
         <div class="qty">
           <button type="button" data-line="${i}" data-step="-1" aria-label="Menos">−</button>
           <span>${l.qty}</span>
@@ -381,7 +406,7 @@ function buildMessage(o) {
   const lines = bagLines();
   const L = [`👖✨ *PEDIDO URBAN GREYS JEANS · ${CODE}* ✨👖`, '━━━━━━━━━━━━━━━'];
   lines.forEach((l, i) => {
-    L.push(`${i + 1}. *${l.p.name}*${l.size ? ` · Talla ${l.size}` : ''} · x${l.qty} — ${clp(l.p.price * l.qty)}`);
+    L.push(`${i + 1}. *${l.p.name}*${l.size ? ` · Talla ${l.size}` : ''} · x${l.qty} — ${clp(l.p.price * l.qty)}${l.p.oferta ? ` 🔥 _(oferta ${l.p.oferta.sello}, antes ${clp(l.p.base * l.qty)})_` : ''}`);
   });
   if (o.encargo) L.push(`📝 *Encargo:* _${o.encargo}_`);
   L.push('━━━━━━━━━━━━━━━');
@@ -543,18 +568,24 @@ async function loadProducts() {
 
     // el CMS guarda "/img/productos/x.jpg"; sin la barra inicial funciona también en GitHub Pages
     const path = (s) => String(s).replace(/^\//, '');
-    FILTERS = [['todos', 'Todos'], ...categorias.map((c) => [c.id, c.nombre])];
+    const ofertas = Array.isArray(data.ofertas) ? data.ofertas : [];
+    const hoy = new Date().toLocaleDateString('en-CA', { timeZone: 'America/Santiago' });
+    FILTERS = [['todos', 'Todos'], ['ofertas', '🔥 Ofertas'], ...categorias.map((c) => [c.id, c.nombre])];
     PRODUCTS = (data.productos || []).map((p) => {
       const img = path(p.foto || 'img/logo.jpg');
+      const base = Number(p.precio) || 0;
+      const oferta = mejorOferta(p.id, base, ofertas, hoy);
       return {
         id: p.id,
         name: p.nombre,
-        price: Number(p.precio) || 0,
+        base,
+        price: oferta ? oferta.precio : base,
+        oferta,
         img,
         gallery: [img, ...(Array.isArray(p.fotos) ? p.fotos.map(path) : [])],
         desc: p.descripcion || '',
         sizes: Array.isArray(p.tallas) ? p.tallas.map(String) : [],
-        tags: tagsOf[p.id] || [],
+        tags: [...(tagsOf[p.id] || []), ...(oferta ? ['ofertas'] : [])],
         badge: p.etiqueta || '',
         agotado: !!p.agotado,
       };
