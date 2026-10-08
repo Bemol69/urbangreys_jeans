@@ -1,0 +1,16 @@
+{
+  "titulo": "Ofertas Dia De La Madre",
+  "tipo": "porcentaje",
+  "valor": 30,
+  "categorias": [
+    "accesorios"
+  ],
+  "productos": [
+    "flare-azul-emporium",
+    "skinny-negro-trenzado-menina"
+  ],
+  "etiqueta": "30% OFF",
+  "desde": "",
+  "hasta": "",
+  "activo": true
+}
