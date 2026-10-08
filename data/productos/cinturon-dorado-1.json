@@ -1,0 +1,12 @@
+{
+  "nombre": "Cinturón Dorado",
+  "precio": 5990,
+  "foto": "/img/productos/44E48C2B-F4A6-4464-94C5-D5312B582CDB.webp",
+  "fotos": [],
+  "descripcion": "",
+  "tallas": [],
+  "etiqueta": "",
+  "orden": 1000,
+  "agotado": false,
+  "visible": true
+}

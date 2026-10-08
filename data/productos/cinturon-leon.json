@@ -1,0 +1,12 @@
+{
+  "nombre": "Cinturón Leon",
+  "precio": 5990,
+  "foto": "/img/productos/95541123-7298-48F7-AC10-B1A7BED73EE0.webp",
+  "fotos": [],
+  "descripcion": "",
+  "tallas": [],
+  "etiqueta": "",
+  "orden": 1000,
+  "agotado": false,
+  "visible": true
+}
