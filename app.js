@@ -47,6 +47,25 @@ function mejorOferta(id, base, ofertas, hoy) {
   return { precio: mejor.precio, pct, sello: mejor.o.etiqueta || (pct >= 1 ? `${pct}% OFF` : 'Oferta'), titulo: mejor.o.titulo, hasta: mejor.o.hasta };
 }
 
+// Sello rojo: corta en dos líneas por el primer espacio y achica la letra si una línea es larga
+function selloHtml(texto) {
+  const lineas = String(texto).split(/ (.+)/).filter(Boolean).slice(0, 2);
+  const largo = Math.max(...lineas.map((l) => l.length));
+  const talla = largo <= 5 ? '' : largo <= 8 ? ' sale--m' : ' sale--l';
+  return `<span class="sale${talla}" aria-label="${esc(texto)}">${lineas.map(esc).join('<br>')}</span>`;
+}
+// Fecha de hoy en Chile como AAAA-MM-DD (armada por partes: el formato de toLocaleDateString cambia entre navegadores)
+function hoyChile() {
+  const d = {};
+  try {
+    new Intl.DateTimeFormat('en-US', { timeZone: 'America/Santiago', year: 'numeric', month: '2-digit', day: '2-digit' })
+      .formatToParts(new Date()).forEach((x) => { d[x.type] = x.value; });
+  } catch (e) {
+    const n = new Date(); d.year = n.getFullYear(); d.month = String(n.getMonth() + 1).padStart(2, '0'); d.day = String(n.getDate()).padStart(2, '0');
+  }
+  return `${d.year}-${d.month}-${d.day}`;
+}
+
 // ===== UTILIDADES =====
 const clp = (n) => '$' + n.toLocaleString('es-CL');
 const $ = (s) => document.querySelector(s);
@@ -94,9 +113,9 @@ const fechaCorta = (iso) => iso.split('-').reverse().slice(0, 2).join('-');
 
 // Misma tarjeta que escribe scripts/build.mjs en el HTML (para Google)
 const card = (p) => `
-    <article class="card${p.agotado ? ' is-soldout' : ''}">
+    <article class="card${p.agotado ? ' is-soldout' : ''}${p.oferta && !p.agotado ? ' has-sale' : ''}">
       <button class="card__img" data-view="${esc(p.id)}" aria-label="Ver ${esc(p.name)}">
-        ${p.oferta && !p.agotado ? `<span class="sale" aria-label="${esc(p.oferta.sello)}">${esc(p.oferta.sello).replace(' ', '<br>')}</span>` : ''}
+        ${p.oferta && !p.agotado ? selloHtml(p.oferta.sello) : ''}
         ${p.agotado ? '<span class="badge badge--soldout">Agotado</span>' : p.badge ? `<span class="badge">${esc(p.badge)}</span>` : ''}
         ${p.gallery.length > 1 ? `<span class="card__more">+${p.gallery.length - 1} ${p.gallery.length === 2 ? 'foto' : 'fotos'}</span>` : ''}
         <img src="${esc(p.img)}" alt="${esc(p.name)}" loading="lazy" decoding="async">
@@ -569,7 +588,7 @@ async function loadProducts() {
     // el CMS guarda "/img/productos/x.jpg"; sin la barra inicial funciona también en GitHub Pages
     const path = (s) => String(s).replace(/^\//, '');
     const ofertas = Array.isArray(data.ofertas) ? data.ofertas : [];
-    const hoy = new Date().toLocaleDateString('en-CA', { timeZone: 'America/Santiago' });
+    const hoy = hoyChile();
     FILTERS = [['todos', 'Todos'], ['ofertas', '🔥 Ofertas'], ...categorias.map((c) => [c.id, c.nombre])];
     PRODUCTS = (data.productos || []).map((p) => {
       const img = path(p.foto || 'img/logo.jpg');

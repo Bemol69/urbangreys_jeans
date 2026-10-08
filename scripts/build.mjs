@@ -156,7 +156,7 @@ function mejorOferta(id, base, ofertas, hoy) {
   return { precio: mejor.precio, pct, sello: mejor.o.etiqueta || (pct >= 1 ? `${pct}% OFF` : 'Oferta'), titulo: mejor.o.titulo, hasta: mejor.o.hasta };
 }
 
-const hoyCL = new Date().toLocaleDateString('en-CA', { timeZone: 'America/Santiago' }); // AAAA-MM-DD
+const hoyCL = hoyChile(); // AAAA-MM-DD
 const fecha = (v) => (/^\d{4}-\d{2}-\d{2}/.test(str(v)) ? str(v).slice(0, 10) : '');
 const productosDeCat = Object.fromEntries(categorias.map((c) => [c.id, c.productos]));
 const ofertas = readFolder('ofertas')
@@ -170,7 +170,7 @@ const ofertas = readFolder('ofertas')
       titulo: str(o.titulo) || 'Oferta',
       tipo,
       valor: tipo === 'porcentaje' ? Math.min(90, valor) : valor,
-      etiqueta: str(o.etiqueta).slice(0, 14),
+      etiqueta: str(o.etiqueta).slice(0, 12),
       desde: fecha(o.desde),
       hasta: fecha(o.hasta),
       productos: [...new Set([...cats.flatMap((id) => productosDeCat[id] || []), ...prods])].filter((id) => ids.has(id)),
@@ -184,6 +184,26 @@ const ofertas = readFolder('ofertas')
   });
 // precio de oferta vigente hoy (para el HTML que lee Google; en el navegador app.js lo recalcula con la fecha del día)
 for (const p of productos) p._oferta = mejorOferta(p.id, p.precio, ofertas, hoyCL);
+
+
+// Sello rojo: corta en dos líneas por el primer espacio y achica la letra si una línea es larga
+function selloHtml(texto) {
+  const lineas = String(texto).split(/ (.+)/).filter(Boolean).slice(0, 2);
+  const largo = Math.max(...lineas.map((l) => l.length));
+  const talla = largo <= 5 ? '' : largo <= 8 ? ' sale--m' : ' sale--l';
+  return `<span class="sale${talla}" aria-label="${esc(texto)}">${lineas.map(esc).join('<br>')}</span>`;
+}
+// Fecha de hoy en Chile como AAAA-MM-DD (armada por partes: el formato de toLocaleDateString cambia entre navegadores)
+function hoyChile() {
+  const d = {};
+  try {
+    new Intl.DateTimeFormat('en-US', { timeZone: 'America/Santiago', year: 'numeric', month: '2-digit', day: '2-digit' })
+      .formatToParts(new Date()).forEach((x) => { d[x.type] = x.value; });
+  } catch (e) {
+    const n = new Date(); d.year = n.getFullYear(); d.month = String(n.getMonth() + 1).padStart(2, '0'); d.day = String(n.getDate()).padStart(2, '0');
+  }
+  return `${d.year}-${d.month}-${d.day}`;
+}
 
 writeFileSync(join(DATA, 'catalogo.json'), JSON.stringify({
   _aviso: 'Archivo generado por scripts/build.mjs. No editar a mano.',
@@ -237,9 +257,9 @@ function render(text, file, escape) {
 // ---------- 4. SEO ----------
 // Misma tarjeta que dibuja card() en app.js (el JS la vuelve a dibujar al cargar)
 const card = (p) => `
-    <article class="card${p.agotado ? ' is-soldout' : ''}">
+    <article class="card${p.agotado ? ' is-soldout' : ''}${p._oferta && !p.agotado ? ' has-sale' : ''}">
       <button class="card__img" data-view="${esc(p.id)}" aria-label="Ver ${esc(p.nombre)}">
-        ${p._oferta && !p.agotado ? `<span class="sale" aria-label="${esc(p._oferta.sello)}">${esc(p._oferta.sello).replace(' ', '<br>')}</span>` : ''}
+        ${p._oferta && !p.agotado ? selloHtml(p._oferta.sello) : ''}
         ${p.agotado ? '<span class="badge badge--soldout">Agotado</span>' : p.etiqueta ? `<span class="badge">${esc(p.etiqueta)}</span>` : ''}
         ${p.fotos.length ? `<span class="card__more">+${p.fotos.length} ${p.fotos.length === 1 ? 'foto' : 'fotos'}</span>` : ''}
         <img src="${esc(p.foto)}" alt="${esc(p.nombre)}" loading="lazy" decoding="async">

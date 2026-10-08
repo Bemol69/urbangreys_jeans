@@ -237,7 +237,7 @@ collections:
         label: Texto del sello (opcional)
         widget: string
         required: false
-        hint: "Vacío = muestra el descuento, ej: «30% OFF». Puedes poner algo corto, máx. 14 letras: CYBER, 2X1, LIQUIDACIÓN."
+        hint: "Vacío = muestra el descuento, ej: «30% OFF». Puedes poner algo corto, máx. 12 letras: CYBER, 2X1, LIQUIDACIÓN. Mientras más corto, más grande se ve en el celular."
 
       - name: desde
         label: Empieza el

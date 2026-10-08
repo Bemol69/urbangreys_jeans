@@ -510,7 +510,16 @@ form input[type="text"]:focus { outline: 0; border-color: var(--teal); box-shado
 .pm__offer { display: inline-block; margin-left: 10px; padding: 4px 10px; border-radius: 999px; background: var(--sale); color: #fff; font: 700 12px/1.2 var(--sans); letter-spacing: .04em; text-transform: uppercase; vertical-align: middle; }
 .bag-item small del { color: var(--grey); }
 .tag-sale { display: inline-block; margin-top: 4px; padding: 3px 7px; border-radius: 6px; background: #FDE3E4; color: var(--sale-d); font-size: 10.5px; font-weight: 700; letter-spacing: .05em; text-transform: uppercase; }
+.sale--m { font-size: 13px; }
+.sale--l { width: 88px; height: 88px; font-size: 10.5px; letter-spacing: 0; }
+/* la etiqueta dorada se acorta para no quedar debajo del sello */
+.card.has-sale .badge { max-width: calc(100% - 118px); overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.card.has-sale:has(.sale--l) .badge { max-width: calc(100% - 132px); }
 @media (max-width: 600px) {
-  .sale { width: 58px; height: 58px; font-size: 13px; top: 8px; right: 8px; }
+  .sale { width: 56px; height: 56px; font-size: 12.5px; top: 8px; right: 8px; }
+  .sale--m { font-size: 10px; }
+  .sale--l { width: 70px; height: 70px; font-size: 8.5px; }
+  .card.has-sale .badge { top: 12px; left: 12px; max-width: calc(100% - 88px); padding: 4px 9px; font-size: 10.5px; }
+  .card.has-sale:has(.sale--l) .badge { max-width: calc(100% - 100px); }
   .price--sale del { font-size: 12px; }
 }
