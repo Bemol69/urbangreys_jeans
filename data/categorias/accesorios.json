@@ -1,7 +1,10 @@
 {
   "nombre": "Cinturones",
   "productos": [
-    "cinturones"
+    "cinturones",
+    "cinturon",
+    "cinturon-1",
+    "cinturon-2"
   ],
   "orden": 40,
   "visible": true

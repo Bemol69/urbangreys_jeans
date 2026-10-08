@@ -1,0 +1,12 @@
+{
+  "nombre": "Cinturón",
+  "precio": 5990,
+  "foto": "/img/productos/21FCAE9E-BB90-4B35-A4EC-E90F4EB7AD8D.webp",
+  "fotos": [],
+  "descripcion": "Cinturón de gamuza",
+  "tallas": [],
+  "etiqueta": "",
+  "orden": 1000,
+  "agotado": false,
+  "visible": true
+}

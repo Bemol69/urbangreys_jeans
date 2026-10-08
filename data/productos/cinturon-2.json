@@ -1,0 +1,12 @@
+{
+  "nombre": "Cinturon",
+  "precio": 5990,
+  "foto": "/img/productos/977E6A01-57AF-4960-A801-9BF30360AD4D.webp",
+  "fotos": [],
+  "descripcion": "Cinturón de toro eco cuero",
+  "tallas": [],
+  "etiqueta": "",
+  "orden": 1000,
+  "agotado": false,
+  "visible": true
+}

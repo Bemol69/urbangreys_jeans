@@ -1,0 +1,12 @@
+{
+  "nombre": "Cinturón",
+  "precio": 5990,
+  "foto": "/img/productos/83656B5A-912E-4382-B0D3-64AC8D989228.webp",
+  "fotos": [],
+  "descripcion": "Cinturón rosa",
+  "tallas": [],
+  "etiqueta": "",
+  "orden": 1000,
+  "agotado": false,
+  "visible": true
+}
