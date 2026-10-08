@@ -1,0 +1,13 @@
+{
+  "titulo": "Liquidacion invierno",
+  "tipo": "porcentaje",
+  "valor": 20,
+  "categorias": [
+    "jeans-cargo"
+  ],
+  "productos": [],
+  "etiqueta": "Liquidacion",
+  "desde": "",
+  "hasta": "",
+  "activo": true
+}
