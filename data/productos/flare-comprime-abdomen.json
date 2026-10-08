@@ -1,0 +1,23 @@
+{
+  "nombre": "Flare Comprime Abdomen",
+  "precio": 24990,
+  "foto": "/img/productos/IMG_1101.webp",
+  "fotos": [
+    "/img/productos/IMG_1103.webp",
+    "/img/productos/IMG_1104.webp",
+    "/img/productos/IMG_1102.webp"
+  ],
+  "descripcion": "Flare 3 Botones – Pretina Ancha ✨\n\nJeans flare de tiro alto con pretina ancha y 3 botones frontales, que estiliza la cintura y realza la silueta. Su corte flare aporta un look femenino y moderno, perfecto para combinar con tus prendas favoritas.",
+  "tallas": [
+    "36",
+    "38",
+    "40",
+    "42",
+    "44",
+    "46"
+  ],
+  "etiqueta": "Volvió a llegar",
+  "orden": 1000,
+  "agotado": false,
+  "visible": true
+}
