@@ -1,0 +1,26 @@
+{
+  "nombre": "Flare Azalea",
+  "precio": 24990,
+  "foto": "/img/productos/631705.webp",
+  "fotos": [
+    "/img/productos/631706.webp",
+    "/img/productos/631704.webp",
+    "/img/productos/631708.webp",
+    "/img/productos/631707.webp",
+    "/img/productos/631709.webp",
+    "/img/productos/631710.webp"
+  ],
+  "descripcion": "🩶🔥 ¡FLARE GRIS TIRO ALTO! 👖✨\nEl jeans que estiliza tu figura y te hace lucir increíble 😍\n🩶 Tiro alto que define tu silueta\n🍑 Realce que enamora\n✨ Estilo moderno y versátil\n💣 ¡Un básico que no puede faltar en tu clóset!\n🛍️ Encuéntralo en URBAN GREYS 💙",
+  "tallas": [
+    "36",
+    "38",
+    "40",
+    "42",
+    "44",
+    "46"
+  ],
+  "etiqueta": "",
+  "orden": 1000,
+  "agotado": false,
+  "visible": true
+}
