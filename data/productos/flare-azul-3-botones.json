@@ -1,0 +1,24 @@
+{
+  "nombre": "Flare Azul 3 Botones",
+  "precio": 24990,
+  "foto": "/img/productos/631971.webp",
+  "fotos": [
+    "/img/productos/631973.webp",
+    "/img/productos/631972.webp",
+    "/img/productos/631974.webp",
+    "/img/productos/631975.webp"
+  ],
+  "descripcion": "✨ Diseño flare con pretina ancha que estiliza tu figura.\n🍑 Efecto full push up para realzar y definir tus curvas.\n🩶 Comodidad, ajuste favorecedor y un estilo moderno.\n💣 ¡Un modelo que combina tendencia, actitud y distinción!\n🛍️ Encuéntralo en URBAN GREYS 💙\n📍 ¡Ven por el tuyo antes de que se agote!",
+  "tallas": [
+    "36",
+    "38",
+    "40",
+    "42",
+    "44",
+    "46"
+  ],
+  "etiqueta": "",
+  "orden": 1000,
+  "agotado": false,
+  "visible": true
+}
