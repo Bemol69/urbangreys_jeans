@@ -1,0 +1,24 @@
+{
+  "nombre": "Skinny Ámsterdan",
+  "precio": 24990,
+  "foto": "/img/productos/632182.webp",
+  "fotos": [
+    "/img/productos/632184.webp",
+    "/img/productos/632183.webp",
+    "/img/productos/632189.webp",
+    "/img/productos/632190.webp"
+  ],
+  "descripcion": "✨ Un diseño con detalles que marcan la diferencia. 🍑 Realza tu figura y luce tus curvas. 💙 Un tono azul en tendencia, ideal para combinar. 👖 ¡El calce perfecto para destacar tu estilo!\n🛍️ Encuéntralo en URBAN GREYS 💙\n📍 ¡Ven por el tuyo antes de que se agote! 🔥",
+  "tallas": [
+    "36",
+    "38",
+    "40",
+    "42",
+    "44",
+    "46."
+  ],
+  "etiqueta": "",
+  "orden": 1000,
+  "agotado": false,
+  "visible": true
+}
