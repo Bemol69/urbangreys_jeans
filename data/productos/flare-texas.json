@@ -1,0 +1,25 @@
+{
+  "nombre": "Flare Texas",
+  "precio": 24990,
+  "foto": "/img/productos/631581.webp",
+  "fotos": [
+    "/img/productos/631587.webp",
+    "/img/productos/631582.webp",
+    "/img/productos/631584.webp",
+    "/img/productos/631583.webp",
+    "/img/productos/631585.webp"
+  ],
+  "descripcion": "💙✨ ¡EL FLARE JEANS QUE NECESITAS! ✨💙\n👖 Flare azul de 5 botones y bolsillos traseros con tapete 😍🔥\n💙 Tiro alto 🍑 Realce perfecto ✨ Diseño en tendencia 👖 Calce que enamora\n¡Luce espectacular con Urban Greys! 🛍️💙",
+  "tallas": [
+    "36",
+    "38",
+    "40",
+    "42",
+    "44",
+    "46"
+  ],
+  "etiqueta": "",
+  "orden": 1000,
+  "agotado": false,
+  "visible": true
+}
