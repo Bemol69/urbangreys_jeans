@@ -1,0 +1,26 @@
+{
+  "nombre": "Flare Asimétrico",
+  "precio": 24990,
+  "foto": "/img/productos/631679.webp",
+  "fotos": [
+    "/img/productos/631680.webp",
+    "/img/productos/631681.webp",
+    "/img/productos/631682.webp",
+    "/img/productos/631683.webp",
+    "/img/productos/631684.webp",
+    "/img/productos/631685.webp"
+  ],
+  "descripcion": "🔥👖 ¡EL FLARE ASIMÉTRICO QUE ESTÁ ROBANDO MIRADAS! 😍✨\n💙 Diseño asimétrico en tendencia.\n🍑 Realza tu figura.\n✨ Un estilo único que marca la diferencia.\n💣 ¡Atrévete a lucir diferente con este modelazo!\n🛍️ Encuéntralo en URBAN GREYS 💙",
+  "tallas": [
+    "36",
+    "38",
+    "40",
+    "42",
+    "44",
+    "46"
+  ],
+  "etiqueta": "Lo nuevo 💫",
+  "orden": 1000,
+  "agotado": false,
+  "visible": true
+}
