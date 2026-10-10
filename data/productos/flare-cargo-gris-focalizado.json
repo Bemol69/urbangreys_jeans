@@ -1,0 +1,27 @@
+{
+  "nombre": "Flare Cargo Gris Focalizado",
+  "precio": 24990,
+  "foto": "/img/productos/631627.webp",
+  "fotos": [
+    "/img/productos/631628.webp",
+    "/img/productos/631633.webp",
+    "/img/productos/631634.webp",
+    "/img/productos/631631.webp",
+    "/img/productos/631632.webp",
+    "/img/productos/631629.webp",
+    "/img/productos/631630.webp"
+  ],
+  "descripcion": "🩶🔥 ¡EL FLARE CARGO GRIS QUE ESTÁ EN TENDENCIA! 🔥🩶\n✨ Estilo urbano que enamora\n🍑 Full push up\n👖 Calce perfecto\n💣 Un modelo que no puede faltar en tu clóset.\n😍 ¡Luce increíble con Urban Greys!\n📍 Ven por el tuyo antes de que se agote.",
+  "tallas": [
+    "36",
+    "38",
+    "40",
+    "42",
+    "44",
+    "46"
+  ],
+  "etiqueta": "",
+  "orden": 1000,
+  "agotado": false,
+  "visible": true
+}
