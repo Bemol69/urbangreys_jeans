@@ -1,0 +1,22 @@
+{
+  "nombre": "Flare Chocolate Fort3",
+  "precio": 34990,
+  "foto": "/img/productos/632365.webp",
+  "fotos": [
+    "/img/productos/632366.webp",
+    "/img/productos/632367.webp",
+    "/img/productos/632368.webp",
+    "/img/productos/632369.webp",
+    "/img/productos/632370.webp"
+  ],
+  "descripcion": "¡El color que está conquistando esta temporada! 😍✨\n👖 Un tono elegante y combinable. 🍑 Un look que realza tu figura. 🤎 Perfecto para lucir a la moda y destacar donde vayas.\n📍 Encuéntralo en Urban Greys 🚚 Envíos a todo Chile 🇨🇱\n¡El chocolate que no puede faltar en tu clóset! 🤎🔥",
+  "tallas": [
+    "36",
+    "38",
+    "40"
+  ],
+  "etiqueta": "",
+  "orden": 1000,
+  "agotado": false,
+  "visible": true
+}
