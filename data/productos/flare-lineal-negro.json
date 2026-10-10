@@ -1,0 +1,28 @@
+{
+  "nombre": "Flare Lineal Negro",
+  "precio": 24990,
+  "foto": "/img/productos/632348.webp",
+  "fotos": [
+    "/img/productos/632349.webp",
+    "/img/productos/632350.webp",
+    "/img/productos/632351.webp",
+    "/img/productos/632356.webp",
+    "/img/productos/632355.webp",
+    "/img/productos/632354.webp",
+    "/img/productos/632353.webp",
+    "/img/productos/632352.webp"
+  ],
+  "descripcion": "✨ Elegancia y estilo en un solo jeans. 🔥 Un diseño que estiliza tu figura y alarga visualmente tus piernas. 😍 Calce perfecto para lucir increíble en cualquier ocasión.\n📍 Encuéntralo en Urban Greys 🚚 Envíos a todo Chile 🇨🇱",
+  "tallas": [
+    "36",
+    "38",
+    "40",
+    "42",
+    "44",
+    "46"
+  ],
+  "etiqueta": "",
+  "orden": 1000,
+  "agotado": false,
+  "visible": true
+}
