@@ -1,0 +1,25 @@
+{
+  "nombre": "Wide Leg Brillos",
+  "precio": 24990,
+  "foto": "/img/productos/631545.webp",
+  "fotos": [
+    "/img/productos/631547.webp",
+    "/img/productos/631550.webp",
+    "/img/productos/631546.webp",
+    "/img/productos/631548.webp",
+    "/img/productos/631549.webp"
+  ],
+  "descripcion": "✨💎 ¡EL WIDE LEG QUE TE HARÁ BRILLAR! 💎✨\n🔥 Full tendencia y con brillos que roban miradas. 👖 Un estilo único para lucir espectacular en cualquier ocasión.\n💖 ¡Atrévete a brillar con Urban Greys/,\n📲 Escríbenos y agenda el tuyo antes de que se agoten. 🛍️",
+  "tallas": [
+    "36",
+    "38",
+    "40",
+    "42",
+    "44",
+    "46"
+  ],
+  "etiqueta": "",
+  "orden": 1000,
+  "agotado": false,
+  "visible": true
+}
