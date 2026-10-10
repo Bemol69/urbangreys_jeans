@@ -1,0 +1,27 @@
+{
+  "nombre": "Flare SNT Gris Focalizado",
+  "precio": 32990,
+  "foto": "/img/productos/632359.webp",
+  "fotos": [
+    "/img/productos/632357.webp",
+    "/img/productos/632358.webp",
+    "/img/productos/632360.webp",
+    "/img/productos/632361.webp",
+    "/img/productos/632361.webp",
+    "/img/productos/632364.webp",
+    "/img/productos/632363.webp"
+  ],
+  "descripcion": "El gris que está marcando tendencia! 😍✨\n👖 Diseño focalizado que destaca tu estilo.\n🍑 Realce perfecto para tus curvas.\n💖 Un calce que estiliza y enamora.\n📍 Encuéntralo en Urban Greys\n🚚 Envíos a todo Chile 🇨🇱",
+  "tallas": [
+    "36",
+    "38",
+    "40",
+    "42",
+    "44",
+    "46"
+  ],
+  "etiqueta": "",
+  "orden": 1000,
+  "agotado": false,
+  "visible": true
+}
