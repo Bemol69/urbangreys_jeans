@@ -1,0 +1,26 @@
+{
+  "nombre": "Skinny Trenzad Gris Oscuro",
+  "precio": 24990,
+  "foto": "/img/productos/631985.webp",
+  "fotos": [
+    "/img/productos/631984.webp",
+    "/img/productos/631986.webp",
+    "/img/productos/631987.webp",
+    "/img/productos/631988.webp",
+    "/img/productos/631989.webp",
+    "/img/productos/631990.webp"
+  ],
+  "descripcion": "✨ Diseño trenzado que marca la diferencia.\n🍑 Realza tu figura.\n🩶 Un tono elegante y fácil de combinar.\n💣 ¡Un modelo que combina estilo, tendencia y actitud!\n🛍️ Encuéntralo en URBAN GREYS 💙\n📍 ¡Ven por el tuyo antes de que se agote!",
+  "tallas": [
+    "36",
+    "38",
+    "40",
+    "42",
+    "44",
+    "46"
+  ],
+  "etiqueta": "",
+  "orden": 1000,
+  "agotado": false,
+  "visible": true
+}
