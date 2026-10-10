@@ -1,0 +1,25 @@
+{
+  "nombre": "Flare Celeste Prelavado",
+  "precio": 32990,
+  "foto": "/img/productos/631686.webp",
+  "fotos": [
+    "/img/productos/631688.webp",
+    "/img/productos/631690.webp",
+    "/img/productos/631691.webp",
+    "/img/productos/631692.webp",
+    "/img/productos/631693.webp"
+  ],
+  "descripcion": "🩵🔥 ¡EL FLARE CELESTE PRELAVADO QUE NECESITAS! 👖✨\n💙 Color en tendencia. 🍑 Full push up para realzar tu figura. ✨ Calce perfecto y estilo que enamora.\n😍 ¡El jeans ideal para lucir increíble en cualquier ocasión!\n🛍️ Encuéntralo en URBAN GREYS 💙",
+  "tallas": [
+    "36",
+    "38",
+    "40",
+    "42",
+    "44",
+    "46"
+  ],
+  "etiqueta": "",
+  "orden": 1000,
+  "agotado": false,
+  "visible": true
+}
