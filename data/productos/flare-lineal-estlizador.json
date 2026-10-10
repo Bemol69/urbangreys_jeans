@@ -1,0 +1,27 @@
+{
+  "nombre": "Flare Lineal Estlizador",
+  "precio": 24990,
+  "foto": "/img/productos/631635.webp",
+  "fotos": [
+    "/img/productos/631636.webp",
+    "/img/productos/631641.webp",
+    "/img/productos/631637.webp",
+    "/img/productos/631638.webp",
+    "/img/productos/631639.webp",
+    "/img/productos/631640.webp",
+    "/img/productos/631642.webp"
+  ],
+  "descripcion": "✨👖 ¡EL FLARE LINEAL QUE ESTILIZA TU FIGURA! 💙🔥\n😍 Alarga visualmente tus piernas. 🍑 Realza tu silueta. ✨ Un calce que enamora y combina con todo.\n💣 ¡Un básico que no puede faltar en tu clóset!\n🛍️ Encuéntralo en URBAN GREYS 💙",
+  "tallas": [
+    "36",
+    "38",
+    "40",
+    "42",
+    "44",
+    "46"
+  ],
+  "etiqueta": "",
+  "orden": 1000,
+  "agotado": false,
+  "visible": true
+}
