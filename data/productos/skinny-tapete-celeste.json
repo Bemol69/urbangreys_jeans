@@ -1,0 +1,25 @@
+{
+  "nombre": "Skinny Tapete Celeste",
+  "precio": 24990,
+  "foto": "/img/productos/631703.webp",
+  "fotos": [
+    "/img/productos/631696.webp",
+    "/img/productos/631698.webp",
+    "/img/productos/631701.webp",
+    "/img/productos/631700.webp",
+    "/img/productos/631702.webp"
+  ],
+  "descripcion": "🩵🔥 ¡EL SKINNY CELESTE QUE TE VA A ENAMORAR! 👖😍\n✨ Diseño con tapete en los bolsillos traseros. 🍑 Realce que destaca tu figura. 💙 Color celeste ideal para combinar. 👖 Un calce que te hará lucir espectacular.\n💣 ¡Un infaltable en tu clóset!\n🛍️ Encuéntralo en URBAN GREYS 💙",
+  "tallas": [
+    "36",
+    "38",
+    "40",
+    "42",
+    "44",
+    "46"
+  ],
+  "etiqueta": "",
+  "orden": 1000,
+  "agotado": false,
+  "visible": true
+}
