@@ -1,0 +1,23 @@
+{
+  "nombre": "Wide Leg Estilo Europeo",
+  "precio": 29990,
+  "foto": "/img/productos/631978.webp",
+  "fotos": [
+    "/img/productos/631979.webp",
+    "/img/productos/631982.webp",
+    "/img/productos/631980.webp"
+  ],
+  "descripcion": "✨ Diseño de pierna ancha con inspiración europea.\n🍑 Realza tu figura con una silueta moderna y sofisticada.\n🩶 Un estilo elegante, cómodo y fácil de combinar.\n💣 ¡Un modelo que combina tendencia, actitud y distinción!\n🛍️ Encuéntralo en URBAN GREYS 💙",
+  "tallas": [
+    "36",
+    "38",
+    "40",
+    "42",
+    "44",
+    "46"
+  ],
+  "etiqueta": "",
+  "orden": 1000,
+  "agotado": false,
+  "visible": true
+}
