@@ -1,0 +1,25 @@
+{
+  "nombre": "Falda Shorts Cargo Negra",
+  "precio": 24990,
+  "foto": "/img/productos/634243.webp",
+  "fotos": [
+    "/img/productos/634244.webp",
+    "/img/productos/634245.webp",
+    "/img/productos/634246.webp",
+    "/img/productos/634247.webp",
+    "/img/productos/634248.webp"
+  ],
+  "descripcion": "",
+  "tallas": [
+    "36",
+    "38",
+    "40",
+    "42",
+    "44",
+    "46"
+  ],
+  "etiqueta": "",
+  "orden": 1000,
+  "agotado": false,
+  "visible": true
+}
