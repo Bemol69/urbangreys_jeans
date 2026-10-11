@@ -290,7 +290,8 @@ const entregaHtml = (e) => `
 
 const TITLE = 'Jeans push up en Rancagua | Urban Greys Jeans';
 const DESC = 'Jeans push up de tiro alto que realzan tu figura: skinny, cargo, flare y con faja, tallas 34 a 46. Tienda en Paseo Independencia 634, Rancagua, con envíos a todo Chile. Pide por WhatsApp.';
-const OG_IMAGE = abs('img/productos/skinny-brillos-1.jpg');
+// Foto que sale al compartir el link (WhatsApp, Instagram, Facebook): 1200x630. El ?v= cambia si se reemplaza la imagen, así las apps no muestran la antigua
+const OG_IMAGE = abs('img/og-portada.jpg') + '?v=' + createHash('sha1').update(readFileSync(join(ROOT, 'img', 'og-portada.jpg'))).digest('hex').slice(0, 8);
 const precios = productos.map((p) => p.precio).filter((n) => n > 0);
 
 const jsonLd = {
@@ -351,6 +352,10 @@ const head = `<link rel="canonical" href="${SITE}/">
   <meta property="og:title" content="${esc(TITLE)}">
   <meta property="og:description" content="${esc(DESC)}">
   <meta property="og:image" content="${OG_IMAGE}">
+  <meta property="og:image:type" content="image/jpeg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="Urban Greys Jeans: jeans push up que realzan tu figura, tallas 34 a 46">
   <meta name="twitter:card" content="summary_large_image">
   <script type="application/ld+json">${JSON.stringify(jsonLd).replace(/</g, '\\u003c')}</script>`;
 
