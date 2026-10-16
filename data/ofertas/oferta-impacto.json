@@ -1,0 +1,13 @@
+{
+  "titulo": "Oferta impacto",
+  "tipo": "porcentaje",
+  "valor": 20,
+  "categorias": [
+    "super-descuentos"
+  ],
+  "productos": [],
+  "etiqueta": "",
+  "desde": "",
+  "hasta": "",
+  "activo": true
+}
