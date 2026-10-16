@@ -256,14 +256,15 @@ function render(text, file, escape) {
 
 // ---------- 4. SEO ----------
 // Misma tarjeta que dibuja card() en app.js (el JS la vuelve a dibujar al cargar)
+const thumb = (src) => (/^img\/productos\/[^/]+\.(jpe?g|png|webp)$/i.test(src) ? `img/productos/t/${src.split('/').pop()}.webp` : src);
 const card = (p) => `
     <article class="card${p.agotado ? ' is-soldout' : ''}${p._oferta && !p.agotado ? ' has-sale' : ''}">
       <button class="card__img" data-view="${esc(p.id)}" aria-label="Ver ${esc(p.nombre)}">
         ${p._oferta && !p.agotado ? selloHtml(p._oferta.sello) : ''}
         ${p.agotado ? '<span class="badge badge--soldout">Agotado</span>' : p.etiqueta ? `<span class="badge">${esc(p.etiqueta)}</span>` : ''}
         ${p.fotos.length ? `<span class="card__more">+${p.fotos.length} ${p.fotos.length === 1 ? 'foto' : 'fotos'}</span>` : ''}
-        <img src="${esc(p.foto)}" alt="${esc(p.nombre)}" loading="lazy" decoding="async">
-        ${p.fotos[0] ? `<img class="alt" src="${esc(p.fotos[0])}" alt="" loading="lazy" decoding="async">` : ''}
+        <img src="${esc(thumb(p.foto))}" data-full="${esc(p.foto)}" alt="${esc(p.nombre)}" width="440" height="550" loading="lazy" decoding="async">
+        ${p.fotos[0] ? `<img class="alt" data-src="${esc(thumb(p.fotos[0]))}" data-full="${esc(p.fotos[0])}" alt="" decoding="async">` : ''}
       </button>
       <div class="card__body">
         <h3>${esc(p.nombre)}</h3>
@@ -379,7 +380,7 @@ for (const item of ['img', 'admin']) cpSync(join(ROOT, item), join(DIST, item), 
 
 // ---------- Fotos livianas ----------
 // Reduce las fotos de dist/ (las originales del repo no se tocan). Si algo falla con una foto, se publica la original.
-const FOTO_MAX = { 'img/productos': [800, 1000], 'img/flyer': [1080, 1350], 'img/entregas': [900, 1200] };
+const FOTO_MAX = { 'img/productos': [800, 1000], 'img/flyer': [1080, 1350], 'img/entregas': [900, 1200], 'img/marca': [560, 800] };
 async function optimizarFotos() {
   let sharp;
   try { sharp = (await import('sharp')).default; } catch { console.warn('⚠️  sharp no está instalado: las fotos se publican sin optimizar'); return; }
@@ -392,9 +393,14 @@ async function optimizarFotos() {
       try {
         const original = readFileSync(ruta);
         let img = sharp(original).rotate().resize({ width: ancho, height: alto, fit: 'inside', withoutEnlargement: true });
-        if (/\.jpe?g$/i.test(f)) img = img.jpeg({ quality: 74, mozjpeg: true });
+        if (/\.jpe?g$/i.test(f)) img = img.jpeg({ quality: 72, mozjpeg: true });
         else if (/\.png$/i.test(f)) img = img.png({ compressionLevel: 9, palette: true });
-        else img = img.webp({ quality: 74 });
+        else img = img.webp({ quality: 72 });
+        if (carpeta === 'img/productos') {
+          // miniatura para tarjetas y bolsa: pesa ~1/5 que la foto grande del modal
+          mkdirSync(join(dir, 't'), { recursive: true });
+          writeFileSync(join(dir, 't', `${f}.webp`), await sharp(original).rotate().resize({ width: 440, height: 550, fit: 'inside', withoutEnlargement: true }).webp({ quality: 68 }).toBuffer());
+        }
         const nueva = await img.toBuffer();
         antes += original.length;
         despues += Math.min(nueva.length, original.length);
@@ -405,6 +411,12 @@ async function optimizarFotos() {
       }
     }
   }
+  try { // foto de portada: se muestra a ~430 px de ancho
+    const ruta = join(DIST, 'img', 'portada.webp');
+    const original = readFileSync(ruta);
+    const nueva = await sharp(original).resize({ width: 720, withoutEnlargement: true }).webp({ quality: 74 }).toBuffer();
+    if (nueva.length < original.length) writeFileSync(ruta, nueva);
+  } catch (e) { console.warn(`⚠️  No se pudo optimizar img/portada.webp: ${e.message}`); }
   console.log(`✅ fotos optimizadas: ${n} (${(antes / 1e6).toFixed(1)} MB → ${(despues / 1e6).toFixed(1)} MB)`);
 }
 await optimizarFotos();

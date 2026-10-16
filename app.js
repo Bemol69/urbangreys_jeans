@@ -111,6 +111,18 @@ const priceHtml = (p) => (p.oferta
   : `<span class="price">${clp(p.price)}</span>`);
 const fechaCorta = (iso) => iso.split('-').reverse().slice(0, 2).join('-');
 
+// Miniatura liviana para tarjetas y bolsa (la foto grande se usa solo en la ficha). Si no existe, se usa la original.
+const thumb = (src) => (/^img\/productos\/[^/]+\.(jpe?g|png|webp)$/i.test(src) ? `img/productos/t/${src.split('/').pop()}.webp` : src);
+document.addEventListener('error', (e) => {
+  const im = e.target;
+  if (im && im.tagName === 'IMG' && im.dataset.full && im.getAttribute('src') !== im.dataset.full) im.src = im.dataset.full;
+}, true);
+// La foto que aparece al pasar el mouse se descarga recién cuando se pasa el mouse
+document.addEventListener('mouseover', (e) => {
+  const im = e.target.closest && e.target.closest('.card__img')?.querySelector('img.alt[data-src]');
+  if (im) { im.src = im.dataset.src; im.removeAttribute('data-src'); }
+});
+
 // Misma tarjeta que escribe scripts/build.mjs en el HTML (para Google)
 const card = (p) => `
     <article class="card${p.agotado ? ' is-soldout' : ''}${p.oferta && !p.agotado ? ' has-sale' : ''}">
@@ -118,8 +130,8 @@ const card = (p) => `
         ${p.oferta && !p.agotado ? selloHtml(p.oferta.sello) : ''}
         ${p.agotado ? '<span class="badge badge--soldout">Agotado</span>' : p.badge ? `<span class="badge">${esc(p.badge)}</span>` : ''}
         ${p.gallery.length > 1 ? `<span class="card__more">+${p.gallery.length - 1} ${p.gallery.length === 2 ? 'foto' : 'fotos'}</span>` : ''}
-        <img src="${esc(p.img)}" alt="${esc(p.name)}" loading="lazy" decoding="async">
-        ${p.gallery[1] ? `<img class="alt" src="${esc(p.gallery[1])}" alt="" loading="lazy" decoding="async">` : ''}
+        <img src="${esc(thumb(p.img))}" data-full="${esc(p.img)}" alt="${esc(p.name)}" width="440" height="550" loading="lazy" decoding="async">
+        ${p.gallery[1] ? `<img class="alt" data-src="${esc(thumb(p.gallery[1]))}" data-full="${esc(p.gallery[1])}" alt="" decoding="async">` : ''}
       </button>
       <div class="card__body">
         <h3>${esc(p.name)}</h3>
@@ -215,11 +227,11 @@ function openProduct(id) {
 
   $('#pmImg').alt = p.name;
   $('#pmThumbs').innerHTML = p.gallery.length > 1
-    ? p.gallery.map((src, i) => `<button type="button" data-photo="${i}" aria-label="Foto ${i + 1}"><img src="${esc(src)}" alt=""></button>`).join('')
+    ? p.gallery.map((src, i) => `<button type="button" data-photo="${i}" aria-label="Foto ${i + 1}"><img src="${esc(thumb(src))}" data-full="${esc(src)}" alt=""></button>`).join('')
     : '';
   pModal.classList.toggle('has-gallery', p.gallery.length > 1);
   showPhoto(0);
-  p.gallery.slice(1).forEach((src) => { new Image().src = src; }); // precarga el resto de la galería
+  if (p.gallery[1]) new Image().src = p.gallery[1]; // precarga solo la siguiente foto
   $('#pmCat').textContent = FILTERS.filter(([k]) => p.tags.includes(k)).map(([, l]) => l).join(' · ');
   $('#pmName').textContent = p.name;
   $('#pmPrice').innerHTML = priceHtml(p) + (p.oferta ? `<span class="pm__offer">${esc(p.oferta.sello)}${p.oferta.hasta ? ` · hasta el ${fechaCorta(p.oferta.hasta)}` : ''}</span>` : '');
@@ -327,7 +339,7 @@ function renderBag(bump) {
 
   $('#bagList').innerHTML = lines.map((l, i) => `
     <li class="bag-item">
-      <img src="${esc(l.p.img)}" alt="">
+      <img src="${esc(thumb(l.p.img))}" data-full="${esc(l.p.img)}" alt="">
       <div>
         <h4>${esc(l.p.name)}</h4>
         <small>${l.size ? `Talla ${esc(l.size)} · ` : ''}${l.p.oferta ? `<del>${clp(l.p.base)}</del> ` : ''}${clp(l.p.price)}</small>
