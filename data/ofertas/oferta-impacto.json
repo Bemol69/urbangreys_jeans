@@ -6,8 +6,8 @@
     "super-descuentos"
   ],
   "productos": [],
-  "etiqueta": "",
-  "desde": "",
-  "hasta": "",
+  "etiqueta": "20%",
+  "desde": "2026-10-15",
+  "hasta": "2026-10-18",
   "activo": true
 }
