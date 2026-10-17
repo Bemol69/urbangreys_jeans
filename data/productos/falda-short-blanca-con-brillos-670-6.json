@@ -1,0 +1,18 @@
+{
+  "nombre": "Falda short blanca con brillos (670-6)",
+  "precio": 27990,
+  "foto": "/img/productos/IMG_8501.webp",
+  "fotos": [
+    "/img/productos/IMG_8507.webp",
+    "/img/productos/IMG_8525.webp"
+  ],
+  "descripcion": "",
+  "tallas": [
+    "40",
+    "44"
+  ],
+  "etiqueta": "",
+  "orden": 1000,
+  "agotado": false,
+  "visible": true
+}
