@@ -1,0 +1,22 @@
+{
+  "nombre": "Wide leg gris Emporium",
+  "precio": 34990,
+  "foto": "/img/productos/FullSizeRender.webp",
+  "fotos": [
+    "/img/productos/FullSizeRender-1.webp",
+    "/img/productos/FullSizeRender-2.webp",
+    "/img/productos/FullSizeRender-3.webp"
+  ],
+  "descripcion": "| Wide leg gris con bolsillos adelante 💌\n\nJeans de tiro alto con diseño recto y calce push up, que estiliza la silueta y aporta un look urbano y moderno. Su tono gris desgastado y sus costuras en contraste le dan un estilo único, ideal para combinar y crear outfits full tendencia. ✨",
+  "tallas": [
+    "36",
+    "38",
+    "40",
+    "42",
+    "44"
+  ],
+  "etiqueta": "",
+  "orden": 1000,
+  "agotado": false,
+  "visible": true
+}
