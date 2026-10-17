@@ -1,0 +1,18 @@
+{
+  "nombre": "Flare Brasil celeste trenzado BLU",
+  "precio": 34990,
+  "foto": "/img/productos/IMG_8635.webp",
+  "fotos": [
+    "/img/productos/IMG_8621.webp",
+    "/img/productos/IMG_8622.webp",
+    "/img/productos/IMG_8626.webp"
+  ],
+  "descripcion": "| Flare celeste trenzado\n\nJeans que realza tus curvas con su efecto push up, que levanta y define los glúteos. 🍑 Su trenzado ajustable en la cintura permite adaptar el calce, mientras su corte flare estiliza la silueta y alarga visualmente las piernas. ¡Un diseño que combina comodidad, estilo y full tendencia! ✨",
+  "tallas": [
+    "42"
+  ],
+  "etiqueta": "",
+  "orden": 1000,
+  "agotado": false,
+  "visible": true
+}
