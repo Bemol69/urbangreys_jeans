@@ -1,0 +1,20 @@
+{
+  "nombre": "Flare costuras desflecadas (4226A)",
+  "precio": 34990,
+  "foto": "/img/productos/IMG_5147.webp",
+  "fotos": [
+    "/img/productos/IMG_5139.webp",
+    "/img/productos/IMG_5140.webp",
+    "/img/productos/IMG_5141.webp",
+    "/img/productos/IMG_5142.webp",
+    "/img/productos/IMG_5148.webp"
+  ],
+  "descripcion": "| Flare Multicosturas 💌\n\nJeans de tiro alto con calce ajustado (push up 🍑) , diseño flare que estiliza y alarga visualmente las piernas. Su diseño con costuras desflecadas y efecto desgastado lo hace único y full tendencia.",
+  "tallas": [
+    "44"
+  ],
+  "etiqueta": "",
+  "orden": 1000,
+  "agotado": false,
+  "visible": true
+}
