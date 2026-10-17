@@ -1,0 +1,18 @@
+{
+  "nombre": "Wide leg ajustable en la cintura BLU",
+  "precio": 34990,
+  "foto": "/img/productos/IMG_5193.webp",
+  "fotos": [
+    "/img/productos/IMG_5194.webp",
+    "/img/productos/IMG_5195.webp",
+    "/img/productos/IMG_5196.webp"
+  ],
+  "descripcion": "| Wide leg gris clarito 💌\n\nJeans de tiro alto con diseño recto. Incluye tirantes ajustables en la cintura que permiten regular el calce y darle un toque único y moderno. Calce push up asegurado, su tono gris desgastado lo hace perfecto para looks casuales y en tendencia.",
+  "tallas": [
+    "42"
+  ],
+  "etiqueta": "",
+  "orden": 1000,
+  "agotado": false,
+  "visible": true
+}
