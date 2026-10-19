@@ -17,7 +17,7 @@ const DIST = join(ROOT, 'dist');
 // En Vercel se usa el dominio de producción (sirve igual cuando conecten un dominio propio)
 const SITE = (process.env.VERCEL_PROJECT_PRODUCTION_URL
   ? `https://${process.env.VERCEL_PROJECT_PRODUCTION_URL}`
-  : 'https://urbangreys-jeans.vercel.app').replace(/\/$/, '');
+  : 'https://www.urbangreysjeans.cl').replace(/\/$/, '');
 
 const readJson = (path) => JSON.parse(readFileSync(path, 'utf8'));
 const readData = (file) => (existsSync(join(DATA, file)) ? readJson(join(DATA, file)) : {});

@@ -13,8 +13,8 @@ backend:
     uploadMedia: "Catálogo: sube foto {{path}}"
     deleteMedia: "Catálogo: elimina foto {{path}}"
 
-site_url: https://urbangreys-jeans.vercel.app/
-display_url: https://urbangreys-jeans.vercel.app/
+site_url: https://www.urbangreysjeans.cl/
+display_url: https://www.urbangreysjeans.cl/
 logo_url: ../img/logo.jpg
 
 media_folder: img/productos
