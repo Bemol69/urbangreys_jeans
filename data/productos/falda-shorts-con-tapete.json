@@ -1,0 +1,24 @@
+{
+  "nombre": "Falda shorts con tapete",
+  "precio": 27990,
+  "foto": "/img/productos/IMG_3931.webp",
+  "fotos": [
+    "/img/productos/IMG_3929.webp",
+    "/img/productos/IMG_3930.webp",
+    "/img/productos/IMG_3935.webp",
+    "/img/productos/IMG_3936.webp"
+  ],
+  "descripcion": "Falda short celeste de estilo femenino y versátil, con diseño moderno y cinturón incluido que realza la cintura. Ideal para crear looks frescos, cómodos y con un toque delicado. �",
+  "tallas": [
+    "34",
+    "36",
+    "38",
+    "40",
+    "42",
+    "44"
+  ],
+  "etiqueta": "",
+  "orden": 1000,
+  "agotado": false,
+  "visible": true
+}
