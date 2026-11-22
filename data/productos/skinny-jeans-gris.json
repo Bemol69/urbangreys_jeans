@@ -1,0 +1,26 @@
+{
+  "nombre": "Skinny jeans gris",
+  "precio": 24990,
+  "foto": "/img/productos/IMG_3980.webp",
+  "fotos": [
+    "/img/productos/IMG_3981.webp",
+    "/img/productos/IMG_3981.webp",
+    "/img/productos/IMG_3983.webp",
+    "/img/productos/IMG_3982.webp",
+    "/img/productos/IMG_3985.webp",
+    "/img/productos/IMG_3987.webp"
+  ],
+  "descripcion": "\nUn básico que estiliza y combina con todo. Su calce skinny se adapta a tu figura, mientras sus dos costuras laterales le aportan un detalle único. Con denim elasticado, pensado para acompañarte con comodidad y estilo durante todo el día.",
+  "tallas": [
+    "36",
+    "38",
+    "40",
+    "42",
+    "44",
+    "46"
+  ],
+  "etiqueta": "",
+  "orden": 1000,
+  "agotado": false,
+  "visible": true
+}
