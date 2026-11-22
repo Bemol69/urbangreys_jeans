@@ -1,0 +1,26 @@
+{
+  "nombre": "Falda shorts gris con cunturon",
+  "precio": 24990,
+  "foto": "/img/productos/IMG_3950.webp",
+  "fotos": [
+    "/img/productos/IMG_3951.webp",
+    "/img/productos/IMG_3952.webp",
+    "/img/productos/IMG_3953.webp",
+    "/img/productos/IMG_3954.webp",
+    "/img/productos/IMG_3955.webp",
+    "/img/productos/IMG_3958.webp"
+  ],
+  "descripcion": "Femenina, fresca y versátil. Su delicado tono celeste aporta un toque de color a tus looks, mientras que su diseño de falda con short interior te brinda comodidad y seguridad. Incluye cinturón para complementar el look y realzar tu cintura.",
+  "tallas": [
+    "36",
+    "38",
+    "40",
+    "42",
+    "44",
+    "46"
+  ],
+  "etiqueta": "",
+  "orden": 1000,
+  "agotado": false,
+  "visible": true
+}
