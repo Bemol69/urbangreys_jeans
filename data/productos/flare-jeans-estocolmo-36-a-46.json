@@ -13,6 +13,6 @@
   ],
   "etiqueta": "",
   "orden": 1000,
-  "agotado": false,
+  "agotado": true,
   "visible": true
 }
