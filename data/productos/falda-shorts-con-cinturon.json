@@ -1,0 +1,26 @@
+{
+  "nombre": "Falda shorts con cinturon",
+  "precio": 24990,
+  "foto": "/img/productos/720368.webp",
+  "fotos": [
+    "/img/productos/720369.webp",
+    "/img/productos/720372.webp",
+    "/img/productos/720374.webp",
+    "/img/productos/720375.webp",
+    "/img/productos/720376.webp",
+    "/img/productos/720379.webp"
+  ],
+  "descripcion": "FALDA SHORT GRIS CON CINTURÓN INCLUIDO 🩶\n✨ Dale un toque moderno y versátil a tu outfit.\nColor: Gris.\nIncluye cinturón a juego.\nDiseño tipo falda short.\nCómoda y práctica para el día a día.\nIdeal para combinar con tops, blusas y poleras.\n¡Luce increíble con Urban Greys Jeans! 🩶",
+  "tallas": [
+    "36",
+    "38",
+    "40",
+    "42",
+    "44",
+    "46"
+  ],
+  "etiqueta": "",
+  "orden": 1000,
+  "agotado": false,
+  "visible": true
+}
