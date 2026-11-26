@@ -1,0 +1,26 @@
+{
+  "nombre": "Falda shorts celeste con cinturon",
+  "precio": 24990,
+  "foto": "/img/productos/720388.webp",
+  "fotos": [
+    "/img/productos/720389.webp",
+    "/img/productos/720390.webp",
+    "/img/productos/720391.webp",
+    "/img/productos/720392.webp",
+    "/img/productos/720393.webp",
+    "/img/productos/720394.webp"
+  ],
+  "descripcion": "✨ ¡Un look fresco, femenino y lleno de estilo!\nColor: Celeste claro.\nIncluye cinturón para complementar el diseño.\nDiseño tipo falda con short interior.\nCalce cómodo y femenino.\nIdeal para combinar con tops, blusas y poleras.\nPerfecta para looks casuales y de temporada.\n¡Luce increíble con Urban Greys Jeans! 🩵",
+  "tallas": [
+    "36",
+    "38",
+    "40",
+    "42",
+    "44",
+    "46"
+  ],
+  "etiqueta": "",
+  "orden": 1000,
+  "agotado": false,
+  "visible": true
+}
