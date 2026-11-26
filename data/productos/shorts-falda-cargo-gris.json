@@ -1,0 +1,25 @@
+{
+  "nombre": "Shorts Falda Cargo Gris",
+  "precio": 24990,
+  "foto": "/img/productos/720380.webp",
+  "fotos": [
+    "/img/productos/720381.webp",
+    "/img/productos/720383.webp",
+    "/img/productos/720382.webp",
+    "/img/productos/720384.webp",
+    "/img/productos/720385.webp"
+  ],
+  "descripcion": "✨ ¡Estilo y comodidad en una sola prenda!\nDiseño moderno tipo falda.\nShort interior para mayor comodidad y seguridad.\nCalce cómodo y femenino.\nIdeal para combinar con tops, blusas y poleras.\nPerfecto para crear looks casuales o más urbanos.\n¡Luce increíble con Urban Greys Jeans!",
+  "tallas": [
+    "36",
+    "38",
+    "40",
+    "42",
+    "44",
+    "46"
+  ],
+  "etiqueta": "",
+  "orden": 1000,
+  "agotado": false,
+  "visible": true
+}
